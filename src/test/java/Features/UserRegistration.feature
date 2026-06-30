@@ -53,7 +53,7 @@ Feature: User Registration
       |Rohini|rohini |
       |Rohini|abc.com|
       |Rohini|@gmail.com|
-  Scenario: Verify registration with madatory fields left empty
+  Scenario: Verify registration with mandatory fields left empty
     When the user clicks the Signup button without entering Name and Email
     Then the required field validation messages should displayed.
 
