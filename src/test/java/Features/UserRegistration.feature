@@ -32,13 +32,13 @@ Feature: User Registration
     And the "ACCOUNT CREATED!" message should be displayed
     Examples:
       |Name|Title|Password|Day|Month|Year|FirstName|LastName|Company|Address|Country|State|City|Zipcode|Mobile|
-      |Rohini|Mrs|Test@123|10 |May  |2002|Rohini   |Pitta   |ABC    |HYderabad|India|Telanagana|Hyderbad|506313|1234567890|
+      |Rohini|Mrs|Test@123|10 |May  |2002|Rohini   |Pitta   |ABC    |Hyderabad|India|Telanagana|Hyderabad|506313|1234567890|
 
   Scenario Outline: Verify registration with and existing email address
     When the user enters Name "<Name>"
     And the user enters Email Adress "<Email>"
     And the user clicks the Signup button
-    Then the error message "Email Address already exisy!" should be displayed
+    Then the error message "Email Address already exist!" should be displayed
     Examples:
       |Name |Email|
       |Rohini|rohinipitta@gmail.com|
