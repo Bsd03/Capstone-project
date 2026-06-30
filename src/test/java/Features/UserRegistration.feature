@@ -2,7 +2,7 @@ Feature: User Registration
   Background:
     Given the user launches the browser
     And the user navigates to "https://automationexercise.com"
-    Then the Home page should ne displayed successfullly
+    Then the Home page should be displayed successfullly
     When the user clicks on the "Signup / Login" menu
     Then the "New User Signup!" section should be displayed
   Scenario: Verify Registraion page load successfully
