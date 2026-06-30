@@ -42,7 +42,7 @@ public class CategoryPage {
 		
 		//Kids category
 		@FindBy(xpath=
-				"(//span[contains(@class,'badge') and contains(@class,'pull-right')])[2]") 
+				"(//span[contains(@class,'badge') and contains(@class,'pull-right')])[3]") 
 		WebElement KidsCategory;
 		//Dress sub-category (Kids)
 		@FindBy(xpath=
