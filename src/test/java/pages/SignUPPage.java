@@ -38,24 +38,39 @@ public class SignUPPage {
 	By mobileNumberField=By.id("mobile_number"); // Mobile number field
 	By CreateAccountButton=By.xpath("//button[@data-qa='create-account']"); //Create Account button
 	
+	 public void clickLogin() {
+	        driver.findElement(loginLink).click(); //clicks login button
+	    }
+	 
+	 public void enterUsername(String name) {
+			driver.findElement(nameField).sendKeys(name); //Enters name
+
+	 }
+	 public void enterEmailRandom(String email) {
+			driver.findElement(emailField).sendKeys(email+random.nextInt(100)+"@gmail.com"); //Enters email with random integers at end
+
+	 }
+	 public void EnterEmail(String email) {
+		 driver.findElement(emailField).sendKeys(email); //Enters email
+	 }
+	 public void signUpClick() {
+			driver.findElement(signUpButton).click(); //clicks on signUp button
+
+	 }
 	//Method for Signing up of new user
 	public void Signup(String name, String email) { 
-		driver.findElement(loginLink).click(); //Takes user to Sign Up page
+		clickLogin();
 		//Waits until the SignUp page is loaded
 		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(nameField));
+		enterUsername(name);
+		enterEmailRandom(email);
+		signUpClick();
 		
-		driver.findElement(nameField).sendKeys(name); //Enters name
-		driver.findElement(emailField).sendKeys(email+random.nextInt(100)+"@gmail.com"); //Enters email
-		driver.findElement(signUpButton).click(); //clicks on signUp button
+		
 	}
 	
-	//Method for filling Account Information
-	public void AccountInfo(String Title,String password, String date, String month,String year) {
-		//Explicit wait until the Account information page loads
-		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
-		
+	public void titleSelect(String Title) {
 		if(Title=="Mr") {
 			//If the title selected is Mr then clicks on Mr radio input.
 			driver.findElement(MrTitle).click();
@@ -68,9 +83,14 @@ public class SignUPPage {
 			//If none of the valid input is selected then this message shows up in console.
 			System.out.println("Enter a valid Title");
 		}
-		//Enters password for the account
-		driver.findElement(passwordField).sendKeys("12345678");
 		
+	}
+	
+	public void enterPassword(String password) {
+		driver.findElement(passwordField).sendKeys(password); //Enters password
+
+	}
+	public void enterDOB(String date, String month, String year) {
 		Select dateSelect=new Select(driver.findElement(dayDropdown)); //Select tag for Selecting the date
     	Select monthSelect=new Select(driver.findElement(monthDropdown)); //Select tag for Selecting the month
     	Select yearSelect=new Select(driver.findElement(yearDropdown)); //Select tag for Selecting the month
@@ -80,19 +100,70 @@ public class SignUPPage {
 		
 	}
 	
-	//Method for filling address information
-	public void AddressInfo(String FirstName, String LastName, String Company, String Address, String Country, String State, String City, String ZipCode, String MobileNumber) {
+	//Method for filling Account Information
+	public void AccountInfo(String Title,String password, String date, String month,String year) {
+		//Explicit wait until the Account information page loads
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
+		titleSelect(Title);
+		enterPassword(password);
+		enterDOB(date,month,year);
+	}
+	//
+	public void enterFirstName(String FirstName) {
 		driver.findElement(firstNameField).sendKeys(FirstName); //Enters firstName
+
+	}
+	public void enterLastName(String LastName) {
 		driver.findElement(lastNameField).sendKeys(LastName); //Enters lastName
+
+	}
+	public void enterCompany(String Company) {
 		driver.findElement(companyField).sendKeys(Company); //Enters Company details
+
+	}
+	public void enterAddress(String Address) {
 		driver.findElement(addressField).sendKeys(Address); //Enters address for billing and delivery
+
+	}
+	public void selectCountry(String Country) {
 		Select select=new Select(driver.findElement(countryDropdown)); //Select tag for Country
 		select.selectByValue(Country); //Selects the desired Country
+	}
+	public void enterState(String State) {
 		driver.findElement(stateField).sendKeys(State); //Enters the state
+
+	}
+	public void enterCity(String City) {
 		driver.findElement(cityField).sendKeys(City); //Enters the city
+
+	}
+	public void enterZipcode(String ZipCode) {
 		driver.findElement(zipcodeField).sendKeys(ZipCode); //Enters the Zipcode
+
+	}
+	public void enterMobileNumber(String MobileNumber) {
 		driver.findElement(mobileNumberField).sendKeys(MobileNumber); //Enters mobile number
+
+	}
+	public void clickAccountButton() {
 		driver.findElement(CreateAccountButton).click(); //Clicks on Create Account button
+
+	}
+	//Method for filling address information
+	public void AddressInfo(String FirstName, String LastName, String Company, String Address, String Country, String State, String City, String ZipCode, String MobileNumber) {
+		enterFirstName(FirstName);
+		enterLastName(LastName);
+		enterCompany(Company);
+		enterAddress(Address);
+		selectCountry(Country);
+		enterState(State);
+		enterCity(City);
+		enterZipcode(ZipCode);
+		enterMobileNumber(MobileNumber);
+		clickAccountButton();
+		
+		
 	}
 
 
