@@ -75,11 +75,11 @@ public class SignUPPage {
 	}
 	
 	public void titleSelect(String Title) {
-		if(Title=="Mr") {
+		if(Title.equals("Mr")) {
 			//If the title selected is Mr then clicks on Mr radio input.
 			driver.findElement(MrTitle).click();
 		}
-		else if(Title=="Mrs"){
+		else if(Title.equals("Mrs")){
 			//If the title selected is Mrs then clicks on Mrs radio input.
 			driver.findElement(MrsTitle).click();
 		}
