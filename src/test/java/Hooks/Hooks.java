@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class Hooks {
     public static WebDriver driver;
-//Executes before every scenario
+    //Executes before every scenario
     @Before
     public void setup(){
 
@@ -24,9 +24,9 @@ public class Hooks {
 
     }
     @After
-        public void teartDown(){
+    public void teartDown(){
         DriverUtil.quitDriver();
-        }
+    }
 
 
 
