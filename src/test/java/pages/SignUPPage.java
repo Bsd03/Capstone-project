@@ -1,6 +1,7 @@
 package pages;
 
 import java.time.Duration;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SignUPPage {
 	WebDriver driver;
+	Random random=new Random();
 	//Constructor for WebDriver
 	public SignUPPage(WebDriver driver) { 
 		this.driver=driver;
@@ -44,7 +46,7 @@ public class SignUPPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(nameField));
 		
 		driver.findElement(nameField).sendKeys(name); //Enters name
-		driver.findElement(emailField).sendKeys(email); //Enters email
+		driver.findElement(emailField).sendKeys(email+random.nextInt(100)+"@gmail.com"); //Enters email
 		driver.findElement(signUpButton).click(); //clicks on signUp button
 	}
 	
