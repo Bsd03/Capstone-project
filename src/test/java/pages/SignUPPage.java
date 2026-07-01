@@ -46,10 +46,12 @@ public class SignUPPage {
 			driver.findElement(nameField).sendKeys(name); //Enters name
 
 	 }
+	 //
 	 public void enterEmailRandom(String email) {
 			driver.findElement(emailField).sendKeys(email+random.nextInt(100)+"@gmail.com"); //Enters email with random integers at end
 
 	 }
+	 //
 	 public void EnterEmail(String email) {
 		 driver.findElement(emailField).sendKeys(email); //Enters email
 	 }
@@ -63,8 +65,10 @@ public class SignUPPage {
 		//Waits until the SignUp page is loaded
 		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(nameField));
+		
 		enterUsername(name);
 		enterEmailRandom(email);
+		
 		signUpClick();
 		
 		
@@ -105,9 +109,9 @@ public class SignUPPage {
 		//Explicit wait until the Account information page loads
 		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
-		titleSelect(Title);
-		enterPassword(password);
-		enterDOB(date,month,year);
+		titleSelect(Title); //Enters Title information
+		enterPassword(password); //Enters password information
+		enterDOB(date,month,year); //Enters Date of Birth information
 	}
 	//
 	public void enterFirstName(String FirstName) {
@@ -152,16 +156,16 @@ public class SignUPPage {
 	}
 	//Method for filling address information
 	public void AddressInfo(String FirstName, String LastName, String Company, String Address, String Country, String State, String City, String ZipCode, String MobileNumber) {
-		enterFirstName(FirstName);
-		enterLastName(LastName);
-		enterCompany(Company);
-		enterAddress(Address);
-		selectCountry(Country);
-		enterState(State);
-		enterCity(City);
-		enterZipcode(ZipCode);
-		enterMobileNumber(MobileNumber);
-		clickAccountButton();
+		enterFirstName(FirstName); //Enters FirstName
+		enterLastName(LastName); //Enters LastName
+		enterCompany(Company); //Enters Company name
+		enterAddress(Address);  //Enters Address details
+		selectCountry(Country); //Enters Country details
+		enterState(State); //Enters State
+		enterCity(City); //Enters City
+		enterZipcode(ZipCode); //Enters ZipCode
+		enterMobileNumber(MobileNumber); //Enters mobileNumber
+		clickAccountButton(); //Clicks SignUp button
 		
 		
 	}
