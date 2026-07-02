@@ -57,15 +57,6 @@ public class ProductsPage {
 		driver.findElement(quantity).sendKeys("qty");
 	}
 	
-	//increase the quantity by one
-	public void increaseQuantityByOne() {
-		driver.findElement(test).click();;
-	}
-	
-	//Decrease the quantity by one
-	public void decreaseQuantityByOne() {
-		driver.findElement(quantity).click();
-	}
 
 	
 	
