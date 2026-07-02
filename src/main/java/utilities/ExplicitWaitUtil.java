@@ -21,7 +21,7 @@ public class ExplicitWaitUtil {
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
  
-    // Wait until element is clickable
+    // Wait until element is clickable.
     public WebElement waitForClickable(WebElement element) {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
