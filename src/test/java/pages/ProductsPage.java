@@ -1,15 +1,18 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class ProductsPage {
 	WebDriver driver;
-	Actions actions=new Actions(driver);
+	Actions actions;
 	
 	public ProductsPage(WebDriver driver) {
 		this.driver=driver;
+		actions=new Actions(driver);
 	}
 	
 	By products=By.xpath("//a[@href='/products']"); //products category
@@ -21,7 +24,7 @@ public class ProductsPage {
 	
 	By quantity =By.id("quantity"); //Quantity textbox
 	
-	
+	By test=By.id("product_id");	
 	public void productsPage() {  //takes user to Products page
 		driver.findElement(products).click();
 	}
@@ -33,8 +36,14 @@ public class ProductsPage {
 	}
 	
 	
-	public void ViewProduct(String product_ID) { //View product by product ID
-		driver.findElement(By.xpath("//a[@href='/product_details/" + product_ID + "']")).click();
+	public void ViewProduct(String i) { //View product by product ID
+		WebElement viewProduct=driver.findElement(By.xpath("//a[@href='/product_details/" + i + "']"));
+
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		    js.executeScript("arguments[0].scrollIntoView(true);", viewProduct);
+		    viewProduct.click();
+
 	}
 	
 	
@@ -47,6 +56,8 @@ public class ProductsPage {
 		driver.findElement(quantity).clear();
 		driver.findElement(quantity).sendKeys("qty");
 	}
+	
+
 	
 	
 	
