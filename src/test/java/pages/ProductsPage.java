@@ -19,6 +19,8 @@ public class ProductsPage {
 	//
 	By viewCart=By.xpath("//a[@href='/view_cart']"); //viewCart icon
 	
+	By quantity =By.id("quantity"); //Quantity textbox
+	
 	
 	public void productsPage() {  //takes user to Products page
 		driver.findElement(products).click();
@@ -38,6 +40,12 @@ public class ProductsPage {
 	
 	public void addToCart(String id) { //adds item to the cart by item ID
 		driver.findElement(By.xpath("//a[@data-product-id='"+id+"']")).click();
+	}
+	
+	//increase product quantity
+	public void increaseQuantity(String qty) {
+		driver.findElement(quantity).clear();
+		driver.findElement(quantity).sendKeys("qty");
 	}
 	
 	
