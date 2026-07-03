@@ -87,8 +87,8 @@ public class SignUPPage {
     }
 
     // Click Scroll signup
- // Scroll the Signup section upward
- // Scroll Signup button into view
+    // Scroll the Signup section upward
+    // Scroll Signup button into view
     public void scrollSignupSection() {
 
         WebElement signupBtn = driver.findElement(signUpButton);
@@ -104,8 +104,8 @@ public class SignUPPage {
         wait.until(ExpectedConditions.visibilityOf(signupBtn));
     }
     // Click Signup button
- // Click Signup button
- // Click Signup button
+    // Click Signup button
+    // Click Signup button
     public void clickSignupButton() {
 
         WebElement signupBtn = driver.findElement(signUpButton);

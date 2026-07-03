@@ -16,8 +16,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-public class SignUpSteps {
-	private static final Logger logger = LogManager.getLogger(SignUpSteps.class);
+public class A_SignUpSteps {
+	private static final Logger logger = LogManager.getLogger(A_SignUpSteps.class);
     WebDriver driver = Hooks.driver;
     SignUPPage signUpPage = new SignUPPage(driver);
 
@@ -85,16 +85,16 @@ public class SignUpSteps {
     // Enters email address
     @And("the user enters Email Address {string}")
     public void the_user_enters_email_address(String email) {
-    	logger.info("Entering Email : " + email);
+    		logger.info("Entering Email : " + email);
 
-    	signUpPage.EnterEmail(email);
+    		signUpPage.EnterEmail(email);
     }
 
     // Clicks Signup button
     @And("the user clicks the Signup button")
     public void the_user_clicks_the_signup_button() {
     	 logger.info("Clicking Signup button");
-signUpPage.scrollSignupSection();
+    	 signUpPage.scrollSignupSection();
     	 signUpPage.clickSignupButton();
     }
 
