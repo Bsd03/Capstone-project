@@ -1,196 +1,110 @@
 package StepDefinitions;
 
-import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
+import org.junit.Assert;
 
+import Hooks.Hooks;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.BrandsPage;
-import utilities.DriverUtil;
 
 public class BrandStep {
 
-    // Get WebDriver instance from DriverUtil
-    WebDriver driver = DriverUtil.getDriver("chrome");
+    BrandsPage brandsPage = new BrandsPage(Hooks.driver);
 
-    // Create BrandsPage object
-    BrandsPage brandsPage = new BrandsPage(driver);
-
-//     Verify Brands section is displayed on the Products page
+    // Verify Brands Section
     @Then("the Brands section should be visible on the left side")
     public void the_brands_section_should_be_visible_on_the_left_side() {
-
-        Assert.assertTrue(
-                brandsPage.getBrandTitle() != null,
-                "Brands section is not visible");
+        brandsPage.verifyBrandsSection();
     }
 
-   
-//     Verify all available brand names are displayed
-    
-    @Then("all available brand names should be displayed")
+    // Verify Brand Names
+    @And("all available brand names should be displayed")
     public void all_available_brand_names_should_be_displayed() {
-
-        System.out.println("All brands are displayed successfully");
+        brandsPage.verifyBrandNames();
     }
 
-    
-//     Click on a specific brand based on the brand name
-     
+    // Click Any Brand
     @When("the user clicks on {string} brand")
     public void the_user_clicks_on_brand(String brandName) {
-
-        switch (brandName.toUpperCase()) {
-
-        case "POLO":
-            brandsPage.clickPoloBrand();
-            break;
-
-        case "H&M":
-            brandsPage.clickHMBrand();
-            break;
-
-        case "MADAME":
-            brandsPage.clickMadameBrand();
-            break;
-
-        case "BABYHUG":
-            brandsPage.clickBabyHug();
-            break;
-
-        case "ALLEN SOLLY JUNIOR":
-            brandsPage.clickAllenSolleyJunior();
-            break;
-
-        case "KOOKIE KIDS":
-            brandsPage.clickKookieKids();
-            break;
-
-        case "BIBA":
-            brandsPage.clickBiba();
-            break;
-
-        default:
-            throw new RuntimeException("Brand not found : " + brandName);
-        }
+        brandsPage.clickBrand(brandName);
     }
 
-   
-//   Verify selected brand page is displayed
-     
+    // Verify Brand Page
     @Then("the {string} brand page should be displayed")
     public void the_brand_page_should_be_displayed(String brandName) {
-
-        String title = brandsPage.getBrandTitle();
-
-        Assert.assertTrue(
-                title.toUpperCase().contains(brandName.toUpperCase()),
-                "Brand page not displayed");
+        brandsPage.verifyBrandPage(brandName);
     }
 
-   
-//   Verify all displayed products belong to selected brand
-    
-    @Then("all displayed products should belong to {string}")
+    // Verify Products Displayed
+    @And("all displayed products should belong to {string}")
     public void all_displayed_products_should_belong_to(String brandName) {
-
-        System.out.println("Products belong to : " + brandName);
+        brandsPage.verifyProductsDisplayed();
     }
 
-   
-//   Verify products of the selected brand are displayed
-    
+    // Verify Products after Switching Brands
     @Then("the {string} products should be displayed")
     public void the_products_should_be_displayed(String brandName) {
-
-        String title = brandsPage.getBrandTitle();
-
-        Assert.assertTrue(
-                title.toUpperCase().contains(brandName.toUpperCase()));
+        brandsPage.verifyProductsDisplayed();
     }
 
-//     Verify current URL contains expected text
-   
-    @Then("the URL should contain {string}")
-    public void the_url_should_contain(String expectedText) {
-
-        String currentUrl = driver.getCurrentUrl();
-
-        Assert.assertTrue(
-                currentUrl.contains(expectedText),
-                "URL does not contain expected text");
+    // Verify URL
+    @And("the URL should contain {string}")
+    public void the_url_should_contain(String urlText) {
+        Assert.assertTrue(brandsPage.getCurrentPageURL().contains(urlText));
     }
 
-//   Open the first product from the brand product list
-     
-    @Then("the user opens the first product")
+    // Open First Product
+    @And("the user opens the first product")
     public void the_user_opens_the_first_product() {
-
-        System.out.println("First product opened");
+        brandsPage.openFirstProduct();
     }
 
-//    Verify product name is displayed
-     
+    // Verify Product Name
     @Then("the product name should be displayed")
     public void the_product_name_should_be_displayed() {
-
-        System.out.println("Product name displayed");
+        brandsPage.verifyProductName();
     }
 
-//   Verify product category is displayed
-     
-    @Then("the product category should be displayed")
+    // Verify Product Category
+    @And("the product category should be displayed")
     public void the_product_category_should_be_displayed() {
-
-        System.out.println("Product category displayed");
+        brandsPage.verifyCategory();
     }
 
-    
-//     Verify product price is displayed
-    
-    @Then("the product price should be displayed")
+    // Verify Product Price
+    @And("the product price should be displayed")
     public void the_product_price_should_be_displayed() {
-
-        System.out.println("Product price displayed");
+        brandsPage.verifyPrice();
     }
 
-//   Verify product availability is displayed
-     
-    @Then("the product availability should be displayed")
+    // Verify Product Availability
+    @And("the product availability should be displayed")
     public void the_product_availability_should_be_displayed() {
-
-        System.out.println("Product availability displayed");
+        brandsPage.verifyAvailability();
     }
 
-//    Verify product belongs to selected brand
-     
-    @Then("the product brand should be {string}")
+    // Verify Product Brand
+    @And("the product brand should be {string}")
     public void the_product_brand_should_be(String brandName) {
-
-        System.out.println("Brand verified : " + brandName);
+        brandsPage.verifyBrand(brandName);
     }
 
-//    Add first displayed product to cart
-     
+    // Add Product to Cart
     @When("the user adds the first product to the cart")
     public void the_user_adds_the_first_product_to_the_cart() {
-
-        System.out.println("Product added to cart");
+        brandsPage.addFirstProductToCart();
     }
 
-//    Open shopping cart page
-     
-    @When("the user opens the cart")
+    // Open Cart
+    @And("the user opens the cart")
     public void the_user_opens_the_cart() {
-
-        System.out.println("Cart opened");
+        brandsPage.openCart();
     }
 
-//     Verify selected brand product is present in cart
-     
+    // Verify Product in Cart
     @Then("the selected {string} product should be displayed in the cart")
     public void the_selected_product_should_be_displayed_in_the_cart(String brandName) {
-
-        System.out.println("Cart contains brand product : " + brandName);
+        brandsPage.verifyCartProduct();
     }
 }

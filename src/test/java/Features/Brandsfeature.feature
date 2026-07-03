@@ -20,12 +20,12 @@ Feature: Verify Brands functionality on Automation Exercise Website
       | BrandName |
       | Polo      |
       | H&M       |
-      | MADAME    |
-      | MAST & HARBOUR     |
-      |BABYHUG             |
-      |ALLEN SOLLY JUNIOR  |
-      |KOOKIE KIDS         |
-      |BIBA                |
+      | Madame |
+      | Mast & Harbour |
+      | Babyhug |
+      | Allen Solly Junior |
+      | Kookie Kids |
+      | Biba |
 
 
   Scenario Outline: Switch between two brands
