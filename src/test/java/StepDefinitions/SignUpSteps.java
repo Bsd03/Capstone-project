@@ -94,8 +94,8 @@ public class SignUpSteps {
     @And("the user clicks the Signup button")
     public void the_user_clicks_the_signup_button() {
     	 logger.info("Clicking Signup button");
-
-    	signUpPage.signUpClick();
+signUpPage.scrollSignupSection();
+    	 signUpPage.clickSignupButton();
     }
 
     // Enters account information from DataTable
@@ -134,6 +134,7 @@ public class SignUpSteps {
     @And("the user clicks the Create Account button")
     public void the_user_clicks_the_create_account_button() {
     	logger.info("Clicking Create Account button");
+    	
     	signUpPage.clickAccountButton();
     }
 
@@ -175,7 +176,8 @@ public class SignUpSteps {
     @When("the user clicks the Signup button without entering Name and Email")
     public void the_user_clicks_the_signup_button_without_entering_name_and_email() {
     	  logger.info("Clicking Signup without entering mandatory fields");
-        signUpPage.signUpClick();
+    	  signUpPage.scrollSignupSection();
+    	  signUpPage.clickSignupButton();
     }
 
     // Verifies required field validation message

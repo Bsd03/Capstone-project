@@ -3,7 +3,9 @@ package pages;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -84,11 +86,45 @@ public class SignUPPage {
         driver.findElement(emailField).sendKeys(email);
     }
 
-    // Click Signup button
-    public void signUpClick() {
-        driver.findElement(signUpButton).click();
-    }
+    // Click Scroll signup
+ // Scroll the Signup section upward
+ // Scroll Signup button into view
+    public void scrollSignupSection() {
 
+        WebElement signupBtn = driver.findElement(signUpButton);
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // Scroll the Signup button to the center of the screen
+        js.executeScript(
+                "arguments[0].scrollIntoView({block:'center', inline:'nearest'});",
+                signupBtn);
+
+        // Wait for scrolling to complete
+        wait.until(ExpectedConditions.visibilityOf(signupBtn));
+    }
+    // Click Signup button
+ // Click Signup button
+ // Click Signup button
+    public void clickSignupButton() {
+
+        WebElement signupBtn = driver.findElement(signUpButton);
+
+        wait.until(ExpectedConditions.visibilityOf(signupBtn));
+
+        try {
+
+            // Normal Selenium click
+            wait.until(ExpectedConditions.elementToBeClickable(signupBtn));
+            signupBtn.click();
+
+        } catch (Exception e) {
+
+            // Fallback if the click is intercepted
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].click();", signupBtn);
+        }
+    }
     // Complete Signup
     public void Signup(String name) {
 
@@ -99,7 +135,7 @@ public class SignUPPage {
         enterUsername(name);
         enterEmailRandom();
 
-        signUpClick();
+        clickSignupButton();
     }
 
     // ******************** Account Information ********************
