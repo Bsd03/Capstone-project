@@ -13,7 +13,11 @@ public class ExplicitWaitUtil {
  
     public ExplicitWaitUtil(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+    }
+
+    public void  waitExplicitily(WebDriver driver){
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
  
     // Wait until element is visible
