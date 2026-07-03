@@ -86,9 +86,15 @@ public class SignUPPage {
         driver.findElement(emailField).sendKeys(email);
     }
 
+
     // Click Scroll signup
     // Scroll the Signup section upward
     // Scroll Signup button into view
+
+
+ // Scroll the Signup section upward
+ // Scroll Signup button into view
+
     public void scrollSignupSection() {
 
         WebElement signupBtn = driver.findElement(signUpButton);
@@ -103,9 +109,14 @@ public class SignUPPage {
         // Wait for scrolling to complete
         wait.until(ExpectedConditions.visibilityOf(signupBtn));
     }
+
     // Click Signup button
     // Click Signup button
     // Click Signup button
+
+
+ // Click Signup button
+
     public void clickSignupButton() {
 
         WebElement signupBtn = driver.findElement(signUpButton);
@@ -242,10 +253,7 @@ public class SignUPPage {
         driver.findElement(mobileNumberField).sendKeys(mobileNumber);
     }
 
-    // Click Create Account button
-    public void clickAccountButton() {
-        driver.findElement(createAccountButton).click();
-    }
+
 
     // Fill complete Address Information
     public void AddressInfo(String firstName,
@@ -268,7 +276,43 @@ public class SignUPPage {
         enterZipcode(zipcode);
         enterMobileNumber(mobileNumber);
 
-        clickAccountButton();
+
+    }
+    // Scroll the Create Account section upward
+    // Scroll Create Account button into view
+    public void scrollCreateAccountSection() {
+
+        WebElement signupBtn = driver.findElement(createAccountButton);
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // Scroll the Signup button to the center of the screen
+        js.executeScript(
+                "arguments[0].scrollIntoView({block:'center', inline:'nearest'});",
+                signupBtn);
+
+        // Wait for scrolling to complete
+        wait.until(ExpectedConditions.visibilityOf(signupBtn));
+    }
+    // Click Create Account button
+    public void clickAccountButton() {
+        WebElement signupBtn = driver.findElement(createAccountButton);
+
+        wait.until(ExpectedConditions.visibilityOf(signupBtn));
+
+        try {
+
+            // Normal Selenium click
+            wait.until(ExpectedConditions.elementToBeClickable(signupBtn));
+            signupBtn.click();
+
+        } catch (Exception e) {
+
+            // Fallback if the click is intercepted
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].click();", signupBtn);
+        }
+
     }
 
     // ******************** Verification Methods ********************

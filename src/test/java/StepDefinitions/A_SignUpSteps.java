@@ -16,10 +16,15 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import utilities.ExplicitWaitUtil;
+
+
 public class A_SignUpSteps {
 	private static final Logger logger = LogManager.getLogger(A_SignUpSteps.class);
+
     WebDriver driver = Hooks.driver;
     SignUPPage signUpPage = new SignUPPage(driver);
+    ExplicitWaitUtil explicitWaitutil=new ExplicitWaitUtil(driver);
 
     // Launches the browser (browser is opened in Hooks)
     @Given("the user launches the browser")
@@ -95,6 +100,10 @@ public class A_SignUpSteps {
     public void the_user_clicks_the_signup_button() {
     	 logger.info("Clicking Signup button");
     	 signUpPage.scrollSignupSection();
+
+
+       explicitWaitutil.waitExplicitily(driver);
+
     	 signUpPage.clickSignupButton();
     }
 
@@ -134,7 +143,10 @@ public class A_SignUpSteps {
     @And("the user clicks the Create Account button")
     public void the_user_clicks_the_create_account_button() {
     	logger.info("Clicking Create Account button");
-    	
+
+        signUpPage.scrollCreateAccountSection();
+        explicitWaitutil.waitExplicitily(driver);
+
     	signUpPage.clickAccountButton();
     }
 
@@ -177,6 +189,7 @@ public class A_SignUpSteps {
     public void the_user_clicks_the_signup_button_without_entering_name_and_email() {
     	  logger.info("Clicking Signup without entering mandatory fields");
     	  signUpPage.scrollSignupSection();
+        explicitWaitutil.waitExplicitily(driver);
     	  signUpPage.clickSignupButton();
     }
 
