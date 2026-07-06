@@ -23,7 +23,6 @@ public class ExplicitWaitUtil {
  
     // Wait until element is visible
     public WebElement waitForVisibility(WebElement element) {
-        //return wait.until(ExpectedConditions.visibilityOf(element));
     	 return wait.until(ExpectedConditions.visibilityOf(element));
     }
  
