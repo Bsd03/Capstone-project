@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>35/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/7/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Jul 06 14:14:51 IST 2026</td>
+<td>Started on:</td><td>Mon Jul 06 19:43:31 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>570 seconds (570898 ms)</td>
+<tr><td>Total time:</td><td>43 seconds (43815 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,188 +67,313 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Brands section is displayed", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>18</td>
-<td>runner.runner@4f83df68</td></tr>
+<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Women Dress Category", "Category Navigation on AutomationExercise"</td>
+<td><div><pre>io.cucumber.core.runner.DuplicateStepDefinitionException: Duplicate step definitions in StepDefinitions.BrandStep.the_product_price_should_be_displayed() and StepDefinitions.ProductSteps.the_product_price_should_be_displayed()
+	at io.cucumber.core.runner.CachingGlue.lambda$prepareGlue$3(CachingGlue.java:313)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at io.cucumber.core.runner.CachingGlue.prepareGlue(CachingGlue.java:307)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:71)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:135)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:132)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1187410086", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1187410086'><pre>io.cucumber.core.runner.DuplicateStepDefinitionException: Duplicate step definitions in StepDefinitions.BrandStep.the_product_price_should_be_displayed() and StepDefinitions.ProductSteps.the_product_price_should_be_displayed()
+	at io.cucumber.core.runner.CachingGlue.lambda$prepareGlue$3(CachingGlue.java:313)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at io.cucumber.core.runner.CachingGlue.prepareGlue(CachingGlue.java:307)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:71)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:135)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:132)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:766)
+	at org.testng.TestRunner.run(TestRunner.java:587)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+	at org.testng.TestNG.runSuites(TestNG.java:1039)
+	at org.testng.TestNG.run(TestNG.java:1007)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>runner.runner@689604d9</td></tr>
 <tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify products displayed for selected brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>12</td>
-<td>runner.runner@4f83df68</td></tr>
+<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Women Tops Category", "Category Navigation on AutomationExercise"</td>
+<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;User navigates to Automation Exercise Website&apos; and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;User navigates to Automation Exercise Website&quot;)
+public void user_navigates_to_automation_exercise_website() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given(&quot;User is on the home page&quot;)
+public void user_is_on_the_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.User navigates to Automation Exercise Website(file:///C:/Users/Rohini/eclipse-workspace/Capstone-project/src/test/java/Features/Category.feature:5)
+</pre></div><a href='#' onClick='toggleBox("stack-trace337777621", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace337777621'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;User navigates to Automation Exercise Website&apos; and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;User navigates to Automation Exercise Website&quot;)
+public void user_navigates_to_automation_exercise_website() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given(&quot;User is on the home page&quot;)
+public void user_is_on_the_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.User navigates to Automation Exercise Website(file:///C:/Users/Rohini/eclipse-workspace/Capstone-project/src/test/java/Features/Category.feature:5)
+</pre></div></td>
+<td>8</td>
+<td>runner.runner@689604d9</td></tr>
 <tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify products displayed for selected brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>12</td>
-<td>runner.runner@4f83df68</td></tr>
+<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Women Saree Category", "Category Navigation on AutomationExercise"</td>
+<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;User navigates to Automation Exercise Website&apos; and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;User navigates to Automation Exercise Website&quot;)
+public void user_navigates_to_automation_exercise_website() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given(&quot;User is on the home page&quot;)
+public void user_is_on_the_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.User navigates to Automation Exercise Website(file:///C:/Users/Rohini/eclipse-workspace/Capstone-project/src/test/java/Features/Category.feature:5)
+</pre></div><a href='#' onClick='toggleBox("stack-trace2070372626", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2070372626'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;User navigates to Automation Exercise Website&apos; and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;User navigates to Automation Exercise Website&quot;)
+public void user_navigates_to_automation_exercise_website() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given(&quot;User is on the home page&quot;)
+public void user_is_on_the_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.User navigates to Automation Exercise Website(file:///C:/Users/Rohini/eclipse-workspace/Capstone-project/src/test/java/Features/Category.feature:5)
+</pre></div></td>
+<td>6</td>
+<td>runner.runner@689604d9</td></tr>
 <tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify products displayed for selected brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>15</td>
-<td>runner.runner@4f83df68</td></tr>
+<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Men Tshirt Category", "Category Navigation on AutomationExercise"</td>
+<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;User navigates to Automation Exercise Website&apos; and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;User navigates to Automation Exercise Website&quot;)
+public void user_navigates_to_automation_exercise_website() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given(&quot;User is on the home page&quot;)
+public void user_is_on_the_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.User navigates to Automation Exercise Website(file:///C:/Users/Rohini/eclipse-workspace/Capstone-project/src/test/java/Features/Category.feature:5)
+</pre></div><a href='#' onClick='toggleBox("stack-trace670996243", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace670996243'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;User navigates to Automation Exercise Website&apos; and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;User navigates to Automation Exercise Website&quot;)
+public void user_navigates_to_automation_exercise_website() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given(&quot;User is on the home page&quot;)
+public void user_is_on_the_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.User navigates to Automation Exercise Website(file:///C:/Users/Rohini/eclipse-workspace/Capstone-project/src/test/java/Features/Category.feature:5)
+</pre></div></td>
+<td>6</td>
+<td>runner.runner@689604d9</td></tr>
 <tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify products displayed for selected brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>14</td>
-<td>runner.runner@4f83df68</td></tr>
+<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Men Jeans Category", "Category Navigation on AutomationExercise"</td>
+<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;User navigates to Automation Exercise Website&apos; and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;User navigates to Automation Exercise Website&quot;)
+public void user_navigates_to_automation_exercise_website() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given(&quot;User is on the home page&quot;)
+public void user_is_on_the_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.User navigates to Automation Exercise Website(file:///C:/Users/Rohini/eclipse-workspace/Capstone-project/src/test/java/Features/Category.feature:5)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1679160862", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1679160862'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;User navigates to Automation Exercise Website&apos; and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;User navigates to Automation Exercise Website&quot;)
+public void user_navigates_to_automation_exercise_website() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given(&quot;User is on the home page&quot;)
+public void user_is_on_the_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.User navigates to Automation Exercise Website(file:///C:/Users/Rohini/eclipse-workspace/Capstone-project/src/test/java/Features/Category.feature:5)
+</pre></div></td>
+<td>6</td>
+<td>runner.runner@689604d9</td></tr>
 <tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify products displayed for selected brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>15</td>
-<td>runner.runner@4f83df68</td></tr>
+<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Kids Dress Category", "Category Navigation on AutomationExercise"</td>
+<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;User navigates to Automation Exercise Website&apos; and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;User navigates to Automation Exercise Website&quot;)
+public void user_navigates_to_automation_exercise_website() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given(&quot;User is on the home page&quot;)
+public void user_is_on_the_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.User navigates to Automation Exercise Website(file:///C:/Users/Rohini/eclipse-workspace/Capstone-project/src/test/java/Features/Category.feature:5)
+</pre></div><a href='#' onClick='toggleBox("stack-trace895259838", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace895259838'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;User navigates to Automation Exercise Website&apos; and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;User navigates to Automation Exercise Website&quot;)
+public void user_navigates_to_automation_exercise_website() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given(&quot;User is on the home page&quot;)
+public void user_is_on_the_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.User navigates to Automation Exercise Website(file:///C:/Users/Rohini/eclipse-workspace/Capstone-project/src/test/java/Features/Category.feature:5)
+</pre></div></td>
+<td>7</td>
+<td>runner.runner@689604d9</td></tr>
 <tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify products displayed for selected brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>14</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify products displayed for selected brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>11</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify products displayed for selected brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>12</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Switch between two brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>13</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Switch between two brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>16</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify brand page URL for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>11</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify brand page URL for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>18</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify brand page URL for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>15</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify brand page URL for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>11</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify brand page URL for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>14</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify brand page URL for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>12</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify brand page URL for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>26</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify brand page URL for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>12</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify product details under each brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>15</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify product details under each brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>15</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify product details under each brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>13</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify product details under each brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>11</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify product details under each brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>12</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify product details under each brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>13</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify product details under each brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>36</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify product details under each brand", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>15</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Add a brand product to cart for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>17</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Add a brand product to cart for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>15</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Add a brand product to cart for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>17</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Add a brand product to cart for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>16</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Add a brand product to cart for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>15</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Add a brand product to cart for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>14</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Add a brand product to cart for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>16</td>
-<td>runner.runner@4f83df68</td></tr>
-<tr>
-<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Add a brand product to cart for all brands", "Verify Brands functionality on Automation Exercise Website"</td>
-<td></td>
-<td>40</td>
-<td>runner.runner@4f83df68</td></tr>
+<td title='runner.runner.runScenario()'><b>runScenario</b><br>Test class: runner.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Kids Tops & Shirts Category", "Category Navigation on AutomationExercise"</td>
+<td><div><pre>io.cucumber.testng.UndefinedStepException: The step &apos;User navigates to Automation Exercise Website&apos; and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;User navigates to Automation Exercise Website&quot;)
+public void user_navigates_to_automation_exercise_website() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given(&quot;User is on the home page&quot;)
+public void user_is_on_the_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.User navigates to Automation Exercise Website(file:///C:/Users/Rohini/eclipse-workspace/Capstone-project/src/test/java/Features/Category.feature:5)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1252069894", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1252069894'><pre>io.cucumber.testng.UndefinedStepException: The step &apos;User navigates to Automation Exercise Website&apos; and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given(&quot;User navigates to Automation Exercise Website&quot;)
+public void user_navigates_to_automation_exercise_website() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given(&quot;User is on the home page&quot;)
+public void user_is_on_the_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at ✽.User navigates to Automation Exercise Website(file:///C:/Users/Rohini/eclipse-workspace/Capstone-project/src/test/java/Features/Category.feature:5)
+</pre></div></td>
+<td>6</td>
+<td>runner.runner@689604d9</td></tr>
 </table><p>
 </body>
 </html>
