@@ -23,7 +23,6 @@ public class HomePageSteps {
     WebDriver driver = Hooks.driver;
     HomePage home=new HomePage(driver);
     Actions actions=new Actions(driver);
-
     ExplicitWaitUtil util=new ExplicitWaitUtil(driver);
 	@Given("User launches the browser")
 	public void user_launches_the_browser() {

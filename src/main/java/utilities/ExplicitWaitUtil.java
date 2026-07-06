@@ -8,11 +8,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ExplicitWaitUtil {
-	private WebDriver driver;
-    private WebDriverWait wait;
+	public WebDriver driver;
+    public WebDriverWait wait;
  
     public ExplicitWaitUtil(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
     }
 
@@ -22,7 +23,8 @@ public class ExplicitWaitUtil {
  
     // Wait until element is visible
     public WebElement waitForVisibility(WebElement element) {
-        return wait.until(ExpectedConditions.visibilityOf(element));
+        //return wait.until(ExpectedConditions.visibilityOf(element));
+    	 return wait.until(ExpectedConditions.visibilityOf(element));
     }
  
     // Wait until element is clickable.
