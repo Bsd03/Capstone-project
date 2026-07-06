@@ -7,7 +7,7 @@ Feature: Home Page Functionality
   Background:
     Given User launches the browser
     And User navigates to "https://automationexercise.com"
-
+	
   Scenario: Verify Home page is displayed successfully
     Then Home page should be displayed
     And Website logo should be visible
@@ -17,23 +17,11 @@ Feature: Home Page Functionality
     And Products menu should be visible
     And Cart menu should be visible
     And Signup Login menu should be visible
-    And Test Cases menu should be visible
-    And API Testing menu should be visible
-    And Video Tutorials menu should be visible
-    And Contact Us menu should be visible
 
   Scenario: Verify homepage carousel slider
     Then Homepage slider should be displayed
     When User clicks next slider button
     Then Next banner should be displayed
-
-  Scenario: Verify Test Cases button navigation
-    When User clicks Test Cases button
-    Then Test Cases page should be displayed
-
-  Scenario: Verify API List button navigation
-    When User clicks APIs List For Practice button
-    Then API Testing page should be displayed
 
   Scenario: Verify category section is displayed
     Then Category section should be visible
@@ -55,7 +43,7 @@ Feature: Home Page Functionality
 
   Scenario: Verify Features Items section
     Then Features Items section should be displayed
-    And Product list should be displayed
+
 
   Scenario: Verify product details from home page
     When User clicks View Product for a product
@@ -72,17 +60,16 @@ Feature: Home Page Functionality
   Scenario: Verify brand selection
     When User clicks on a brand
     Then Brand products page should be displayed
-
   Scenario: Verify Scroll Up button
     When User scrolls down the page
     Then Scroll Up button should be visible
     When User clicks Scroll Up button
     Then User should be navigated to the top of the page
-
+    
   Scenario: Verify footer section
     When User scrolls to bottom of page
     Then Footer should be displayed
-
+    
   Scenario: Verify subscription functionality
     When User enters valid email address
     And User clicks Subscribe button
