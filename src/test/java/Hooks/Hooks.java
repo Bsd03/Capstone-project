@@ -2,8 +2,10 @@ package Hooks;
 
 import java.time.Duration;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
+import io.cucumber.java.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import utilities.ConfigReader;
@@ -28,8 +30,9 @@ public class Hooks {
     }
 
     @After
-    public void tearDown() {
-
-        DriverUtil.quitDriver();
+    public void tearDown(Scenario scenario) {
+    		byte[] screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+    		scenario.attach(screenshot,"image/png",scenario.getName());
+    		DriverUtil.quitDriver();
     }
 }
