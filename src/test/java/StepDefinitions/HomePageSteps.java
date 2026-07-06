@@ -23,22 +23,22 @@ public class HomePageSteps {
     HomePage home=new HomePage(driver);
     Actions actions=new Actions(driver);
     ExplicitWaitUtil util=new ExplicitWaitUtil(driver);
-	@Given("User launches the browser")
-	public void user_launches_the_browser() {
-		logger.info("Launching a browser");
-	}
-
-	@Given("User navigates to {string}")
-	public void user_navigates_to(String string) {
-	  driver.get(string);
-	  logger.info("navigated to "+ string);
-	}
-
-	@Then("Home page should be displayed")
-	public void home_page_should_be_displayed() {
-		 logger.info("Verifying Home Page");
-	    Assert.assertTrue(driver.getTitle().contains("Automation Exercise"));
-	}
+//	@Given("User launches the browser")
+//	public void user_launches_the_browser() {
+//		logger.info("Launching a browser");
+//	}
+//
+//	@Given("User navigates to {string}")
+//	public void user_navigates_to(String string) {
+//	  driver.get(string);
+//	  logger.info("navigated to "+ string);
+//	}
+//
+//	@Then("Home page should be displayed")
+//	public void home_page_should_be_displayed() {
+//		 logger.info("Verifying Home Page");
+//	    Assert.assertTrue(driver.getTitle().contains("Automation Exercise"));
+//	}
 
 	@Then("Website logo should be visible")
 	public void website_logo_should_be_visible() {

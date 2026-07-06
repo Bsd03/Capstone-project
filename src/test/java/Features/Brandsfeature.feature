@@ -59,11 +59,11 @@ Feature: Verify Brands functionality on Automation Exercise Website
     When the user clicks on "<BrandName>" brand
     Then the "<BrandName>" brand page should be displayed
     And the user opens the first product
-    Then the product name should be displayed
-    And the product category should be displayed
-    And the product price should be displayed
-    And the product availability should be displayed
-    And the product brand should be "<BrandName>"
+    Then the Brands Page product name should be displayed
+    And the Brands Page product category should be displayed
+    And the Brands Page product price should be displayed
+    And the Brands Page product availability should be displayed
+    And the Brands Page product brand should be "<BrandName>"
 
     Examples:
       | BrandName |
@@ -80,7 +80,7 @@ Feature: Verify Brands functionality on Automation Exercise Website
     When the user clicks on "<BrandName>" brand
     Then the "<BrandName>" brand page should be displayed
     When the user adds the first product to the cart
-    And the user opens the cart
+    And  User opens the cart from Brands page
     Then the selected "<BrandName>" product should be displayed in the cart
 
     Examples:

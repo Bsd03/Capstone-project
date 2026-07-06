@@ -12,25 +12,25 @@ import pages.ProductsPage;
 public class BrandStep {
 
     BrandsPage brandsPage = new BrandsPage(Hooks.driver);
-    ProductsPage productsPage = new ProductsPage(Hooks.driver);
+//    ProductsPage productsPage = new ProductsPage(Hooks.driver);
+//    
     
-    
- // Click Products Menu
-    @When("the user clicks on the {string} menu")
-    public void the_user_clicks_on_the_menu(String menu) {
-
-        if (menu.equalsIgnoreCase("Products")) {
-            productsPage.clickProducts();
-        }
-    }
+// // Click Products Menu
+//    @When("the user clicks on the {string} menu")
+//    public void the_user_clicks_on_the_menu(String menu) {
+//
+//        if (menu.equalsIgnoreCase("Products")) {
+//            productsPage.clickProducts();
+//        }
+//    }
 
     // Verify All Products Page
-    @Then("the All Products page should be displayed")
-    public void the_all_products_page_should_be_displayed() {
-
-        Assert.assertTrue(
-                Hooks.driver.getCurrentUrl().contains("/products"));
-    }
+//    @Then("the All Products page should be displayed")
+//    public void the_all_products_page_should_be_displayed() {
+//
+//        Assert.assertTrue(
+//                Hooks.driver.getCurrentUrl().contains("/products"));
+//    }
 
     // Verify Brands Section
     @Then("the Brands section should be visible on the left side")
@@ -81,32 +81,32 @@ public class BrandStep {
     }
 
     // Verify Product Name
-    @Then("the product name should be displayed")
-    public void the_product_name_should_be_displayed() {
+    @Then("the Brands Page product name should be displayed")
+    public void the_Brands_Page_product_name_should_be_displayed() {
         brandsPage.verifyProductName();
     }
 
     // Verify Product Category
-    @And("the product category should be displayed")
-    public void the_product_category_should_be_displayed() {
+    @And("the Brands Page product category should be displayed")
+    public void the_Brands_Page_product_category_should_be_displayed() {
         brandsPage.verifyCategory();
     }
 
     // Verify Product Price
-    @And("the product price should be displayed")
-    public void the_product_price_should_be_displayed() {
+    @And("the Brands Page product price should be displayed")
+    public void the_Brands_Page_product_price_should_be_displayed() {
         brandsPage.verifyPrice();
     }
 
     // Verify Product Availability
-    @And("the product availability should be displayed")
-    public void the_product_availability_should_be_displayed() {
+    @And("the Brands Page product availability should be displayed")
+    public void the_Brands_Page_product_availability_should_be_displayed() {
         brandsPage.verifyAvailability();
     }
 
     // Verify Product Brand
-    @And("the product brand should be {string}")
-    public void the_product_brand_should_be(String brandName) {
+    @And("the Brands Page product brand should be {string}")
+    public void the_Brands_Page_product_brand_should_be(String brandName) {
         brandsPage.verifyBrand(brandName);
     }
 
@@ -117,8 +117,8 @@ public class BrandStep {
     }
 
     // Open Cart
-    @And("the user opens the cart")
-    public void the_user_opens_the_cart() {
+    @When("User opens the cart from Brands page")
+    public void  User_opens_the_cart_from_Brands_page() {
         brandsPage.openCart();
     }
 
