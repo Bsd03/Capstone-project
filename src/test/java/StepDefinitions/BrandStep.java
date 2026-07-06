@@ -1,16 +1,36 @@
 package StepDefinitions;
 
-import org.junit.Assert;
+import org.testng.Assert;
 
 import Hooks.Hooks;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.BrandsPage;
+import pages.ProductsPage;
 
 public class BrandStep {
 
     BrandsPage brandsPage = new BrandsPage(Hooks.driver);
+    ProductsPage productsPage = new ProductsPage(Hooks.driver);
+    
+    
+ // Click Products Menu
+    @When("the user clicks on the {string} menu")
+    public void the_user_clicks_on_the_menu(String menu) {
+
+        if (menu.equalsIgnoreCase("Products")) {
+            productsPage.clickProducts();
+        }
+    }
+
+    // Verify All Products Page
+    @Then("the All Products page should be displayed")
+    public void the_all_products_page_should_be_displayed() {
+
+        Assert.assertTrue(
+                Hooks.driver.getCurrentUrl().contains("/products"));
+    }
 
     // Verify Brands Section
     @Then("the Brands section should be visible on the left side")
