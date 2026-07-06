@@ -1,4 +1,4 @@
-Feature: Checkout
+Feature: Checkout Page Functionality
  
 Background:
     Given the user launches the browser
