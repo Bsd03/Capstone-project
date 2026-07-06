@@ -19,7 +19,7 @@ import pages.HomePage;
 import utilities.ExplicitWaitUtil;
 
 public class HomePageSteps {
-	private static final Logger logger = LogManager.getLogger(A_SignUpSteps.class);
+	private static final Logger logger = LogManager.getLogger(HomePageSteps.class);
     WebDriver driver = Hooks.driver;
     HomePage home=new HomePage(driver);
     Actions actions=new Actions(driver);
