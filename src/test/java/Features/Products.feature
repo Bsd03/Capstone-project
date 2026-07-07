@@ -2,10 +2,10 @@ Feature: Verify Products functionality on Automation Exercise Website
 
 Background:
 Given the user launches the browser
-And the user navigates to Automationexercise Website
+And the user navigates to Automation exercise Website
 Then the Home page should be displayed successfully
 When the user clicks on the "Products" menu
-Then the All Products page should be displayed
+Then the Products Page of All Products page should be displayed
  
 Scenario: Verify all products are displayed
 Then the list of all products should be displayed
@@ -35,7 +35,7 @@ Examples:
 | ProductName |
 | Blue Top |
 | Men Tshirt |
-| Dress |
+| Sleeveless Dress |
  
 Scenario Outline: Add product to cart
 When the user opens the "<ProductName>" product
