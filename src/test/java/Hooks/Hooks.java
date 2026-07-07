@@ -10,7 +10,8 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import utilities.ConfigReader;
 import utilities.DriverUtil;
-import org.openqa.selenium.chrome.ChromeOptions;
+import utilities.allureScreenshotUtil;
+
 public class Hooks {
 
     public static WebDriver driver;
@@ -33,6 +34,7 @@ public class Hooks {
     public void tearDown(Scenario scenario) {
     		byte[] screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
     		scenario.attach(screenshot,"image/png",scenario.getName());
+    		allureScreenshotUtil.captureScreenshot(driver);
     		DriverUtil.quitDriver();
     }
 }
