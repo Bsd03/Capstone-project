@@ -20,8 +20,8 @@ Automation Exercise is a demo e-commerce application designed for QA Engineers t
 
 | Category | Technology |
 |----------|------------|
-| Programming Language | Java 17 |
-| Automation Tool | Selenium WebDriver |
+| Programming Language | Java |
+| Automation Tool | Selenium |
 | BDD Framework | Cucumber |
 | Test Framework | TestNG |
 | Build Tool | Maven |
@@ -215,11 +215,13 @@ test-output/
 
 # Utility Classes
 
-The framework includes reusable utility classes for common automation tasks.
+The framework contains reusable utility classes that simplify common automation tasks and improve code maintainability.
 
-- ConfigReader
-- DriverUtil
-- ExplicitWaitUtil
+| Utility Class | Description |
+|---------------|-------------|
+| **ConfigReader** | Reads configuration values such as browser name, application URL, and other execution settings from the `config.properties` file. |
+| **DriverUtil** | Initializes and manages the Selenium WebDriver instance for different browsers. It is responsible for browser setup and driver lifecycle management. |
+| **ExplicitWaitUtil** | Provides reusable explicit wait methods to synchronize test execution by waiting for elements to become visible, clickable, or present before performing actions. |
 
 ---
 
@@ -240,9 +242,272 @@ url=https://automationexercise.com
 
 ---
 
-# Running the Framework
+Verify the installations by running the following commands:
 
-## Execute All Tests
+```bash
+java -version
+```
+
+```bash
+mvn -version
+```
+
+```bash
+git --version
+```
+
+---
+
+# Project Setup Guide
+
+Follow the steps below to set up and execute the project on your local machine.
+
+## Step 1: Clone the Repository
+
+Open Command Prompt or Git Bash and run:
+
+```bash
+git clone https://github.com/<your-github-username>/Capstone-project.git
+```
+
+Or click **Code → Download ZIP** from GitHub and extract the project.
+
+---
+
+## Step 2: Open the Project
+
+### Eclipse
+
+1. Open Eclipse.
+2. Go to **File → Import**.
+3. Select **Existing Maven Projects**.
+4. Click **Next**.
+5. Browse to the downloaded project folder.
+6. Click **Finish**.
+
+### IntelliJ IDEA
+
+1. Open IntelliJ IDEA.
+2. Click **Open**.
+3. Select the project folder.
+4. Wait for Maven dependencies to download.
+
+---
+
+## Step 3: Update Maven Dependencies
+
+If Maven dependencies are not downloaded automatically:
+
+### Eclipse
+
+Right-click the project
+
+```
+Maven
+    └── Update Project
+```
+
+Select **Force Update of Snapshots/Releases**
+
+Click **Finish**.
+
+### IntelliJ IDEA
+
+Right-click **pom.xml**
+
+```
+Maven
+    └── Reload Project
+```
+
+---
+
+## Step 4: Configure the Framework
+
+Open:
+
+```text
+src/test/resources/config.properties
+```
+
+Update the required values.
+
+Example:
+
+```properties
+browser=chrome
+url=https://automationexercise.com
+```
+
+---
+
+## Step 5: Verify Browser
+
+Ensure that:
+
+- Google Chrome or edge should be installed.
+- Chrome version or edge are compatible with Selenium/WebDriver.
+- Internet connection is available.
+
+---
+
+## Step 6: Build the Project
+
+Open Terminal in the project directory and run:
+
+```bash
+mvn clean install
+```
+
+This command:
+
+- Downloads all project dependencies
+- Compiles the project
+- Builds the framework
+
+---
+
+## Step 7: Execute the Test Suite
+
+Run all test cases:
+
+```bash
+mvn clean test
+```
+
+or
+
+Run the Test Runner class from Eclipse or IntelliJ.
+
+---
+
+## Step 8: Execute Individual Feature Files
+
+To execute a specific feature:
+
+```bash
+mvn test -Dcucumber.features=src/test/java/Features/B_LoginPage.feature
+```
+
+Replace the feature name with the required feature file.
+
+Example:
+
+```bash
+mvn test -Dcucumber.features=src/test/java/Features/Products.feature
+```
+
+---
+
+## Step 9: View Reports
+
+After execution, reports are generated automatically.
+
+### Extent Report
+
+```text
+test-output/ExtentReport.html
+```
+
+### Cucumber Report
+
+```text
+target/cucumber-reports.html
+```
+
+### Allure Report
+
+Generate the Allure report:
+
+```bash
+allure serve allure-results
+```
+
+or
+
+```bash
+allure generate allure-results --clean
+```
+
+---
+
+## Step 10: Screenshots
+
+Screenshots are captured automatically for every executed scenario.
+
+They are embedded in:
+
+- Extent Report
+- Allure Report
+
+This helps in debugging and validating test execution.
+
+---
+
+# Project Workflow
+
+```
+Clone Repository
+        │
+        ▼
+Import Maven Project
+        │
+        ▼
+Download Maven Dependencies
+        │
+        ▼
+Update config.properties
+        │
+        ▼
+Execute Test Runner / mvn clean test
+        │
+        ▼
+Generate Reports
+        │
+        ▼
+View Extent / Cucumber / Allure Reports
+```
+
+---
+
+# Troubleshooting
+
+### Maven Dependencies Not Downloaded
+
+```bash
+mvn clean install
+```
+
+or
+
+```
+Right Click Project
+        ↓
+Maven
+        ↓
+Update Project
+```
+
+---
+
+### Browser Not Opening
+
+- Verify Java installation.
+- Verify Chrome or edge is installed.
+- Verify Selenium dependencies are downloaded.
+- Run Maven Update.
+
+---
+
+### Build Failure
+
+Execute:
+
+```bash
+mvn clean install
+```
+
+Then execute:
 
 ```bash
 mvn clean test
@@ -250,49 +515,23 @@ mvn clean test
 
 ---
 
-## Execute Using TestNG
+### Allure Report Not Opening
 
-Run the TestNG Runner class.
+Ensure Allure is installed.
 
----
-
-## Execute a Specific Feature
+Verify installation:
 
 ```bash
-mvn test -Dcucumber.features=src/test/java/Features/B_LoginPage.feature
+allure --version
 ```
 
----
+If not installed, download it from the official Allure website and add it to your system PATH.
 
-# Reports
+Then run:
 
-After execution, the framework automatically generates the following reports:
-
-- Extent Report
-- Cucumber HTML Report
-- Allure Report
-
-Each report contains:
-
-- Test Execution Summary
-- Pass and Fail Statistics
-- Step-wise Execution Details
-- Execution Time
-- Screenshots for Every Executed Scenario (Pass & Fail)
-- Failure Logs
-
----
-
-# Screenshots
-
-The framework automatically captures screenshots for every executed scenario.
-
-- Passed Scenarios
-- Failed Scenarios
-
-Screenshots are attached to the generated reports, making it easier to analyze failures and verify successful executions.
-
----
+```bash
+allure serve allure-results
+```
 
 # Framework Design
 
