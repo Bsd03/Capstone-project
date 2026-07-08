@@ -1,140 +1,233 @@
-# 🛒 Automation Exercise - Selenium BDD Automation Framework
+# Automation Exercise Selenium BDD Automation Framework
 
-A robust test automation framework developed using **Java**, **Selenium WebDriver**, **Cucumber (BDD)**, **TestNG**, and **Page Object Model (POM)** to automate the **Automation Exercise** e-commerce website.
+A robust UI automation framework developed using **Java**, **Selenium WebDriver**, **Cucumber (BDD)**, **TestNG**, and **Maven** for automating the Automation Exercise e-commerce website.
 
-This project demonstrates industry-standard Selenium automation practices including reusable page objects, BDD implementation, reporting, logging, screenshots, configuration management, and utility classes.
-
----
-
-## 🌐 Application Under Test
-
-**Website:** https://automationexercise.com/
-
-Automation Exercise is a free e-commerce practice website designed for QA Engineers to learn and practice UI automation, API automation, and end-to-end testing. It provides realistic shopping, authentication, product search, cart, and checkout workflows. :contentReference[oaicite:2]{index=2}
+The framework follows the **Page Object Model (POM)** design pattern and is designed with a modular architecture to ensure code reusability, maintainability, and scalability. It includes reusable utility classes, centralized configuration management, explicit waits, logging, automatic screenshot capture, and multiple reporting mechanisms.
 
 ---
 
-# 🚀 Technologies Used
+# Application Under Test
 
-- Java
-- Selenium WebDriver
-- Cucumber (BDD)
-- TestNG
-- Maven
+**Website**
+
+https://automationexercise.com/
+
+Automation Exercise is a demo e-commerce application designed for QA Engineers to practice end-to-end UI automation. The application includes modules such as user registration, login, product search, brands, categories, shopping cart, checkout, and contact us.
+
+---
+
+# Technologies Used
+
+| Category | Technology |
+|----------|------------|
+| Programming Language | Java 17 |
+| Automation Tool | Selenium WebDriver |
+| BDD Framework | Cucumber |
+| Test Framework | TestNG |
+| Build Tool | Maven |
+| Design Pattern | Page Object Model (POM) |
+| Logging | Log4j2 |
+| Reporting | Extent Report, Cucumber HTML Report, Allure Report |
+| Version Control | Git & GitHub |
+
+---
+
+# Framework Features
+
+- Selenium WebDriver Automation
 - Page Object Model (POM)
-- Apache POI
-- Log4j2
-- Extent Reports
-- Git & GitHub
+- Behavior Driven Development (BDD)
+- TestNG Integration
+- Maven Build Management
+- Configurable Framework using Properties File
+- Explicit Wait Utility
+- Driver Utility
+- Reusable Page Classes
+- Modular Framework Architecture
+- Automatic Screenshot Capture for Every Test Scenario (Pass & Fail)
+- Extent Report Generation
+- Cucumber HTML Report Generation
+- Allure Report Generation
+- Log4j2 Logging
+- Easy Maintenance and Scalability
 
 ---
 
-# 📁 Project Structure
+# Project Structure
 
-```
-CapstoneProject
+```text
+Capstone-project
 │
 ├── pom.xml
-├── testng.xml
 ├── README.md
 │
 ├── src
-│   ├── test
-│   │
-│   ├── java
-│   │   ├── base
-│   │   ├── hooks
-│   │   ├── pages
-│   │   ├── runners
-│   │   ├── stepdefinitions
-│   │   └── utilities
-│   │
-│   └── resources
-│       ├── Features
-│       ├── config.properties
-│       ├── log4j2.xml
-│       └── testdata
 │
-├── Reports
-├── Screenshots
-└── Logs
+├── main
+│   └── java
+│       └── utilities
+│           ├── ConfigReader.java
+│           ├── DriverUtil.java
+│           └── ExplicitWaitUtil.java
+│
+├── test
+│   ├── java
+│   │
+│   ├── base
+│   │   └── BaseClass.java
+│   │
+│   ├── Features
+│   │   ├── A_SignUPfeature.feature
+│   │   ├── B_LoginPage.feature
+│   │   ├── HomePage.feature
+│   │   ├── Products.feature
+│   │   ├── Brandsfeature.feature
+│   │   ├── Category.feature
+│   │   ├── Checkout.feature
+│   │   └── Contact.feature
+│   │
+│   ├── Hooks
+│   │   └── Hooks.java
+│   │
+│   ├── pages
+│   │   ├── HomePage.java
+│   │   ├── LoginPage.java
+│   │   ├── SignUPPage.java
+│   │   ├── ProductsPage.java
+│   │   ├── BrandsPage.java
+│   │   ├── CategoryPage.java
+│   │   ├── ContactusPage.java
+│   │   └── CheckOutPage.java
+│   │
+│   ├── StepDefinitions
+│   │   ├── A_SignUpSteps.java
+│   │   ├── B_LoginSteps.java
+│   │   ├── HomePageSteps.java
+│   │   ├── ProductSteps.java
+│   │   ├── BrandStep.java
+│   │   ├── CategorySteps.java
+│   │   ├── ContactUsSteps.java
+│   │   └── CheckoutSteps.java
+│   │
+│   └── runner
+│       └── runner.java
+│
+└── resources
+    ├── config.properties
+    └── log4j2.xml
+
+logs/
+target/
+test-output/
 ```
 
 ---
 
-# ✨ Framework Features
+# Automated Test Modules
 
-- Selenium WebDriver Automation
-- BDD using Cucumber
-- Page Object Model (POM)
-- TestNG Integration
-- Cross Browser Execution
-- Configuration using Properties File
-- Excel Data Handling using Apache POI
-- Explicit Wait Utilities
-- Screenshot Capture on Failure
-- Log4j2 Logging
-- Extent Report Generation
-- Reusable Utility Classes
-- Easy Maintenance & Scalability
+## Home Module
+
+- Verify Home Page
+- Verify Website Logo
+- Verify Navigation Menu
+- Verify Home Page Slider
+- Verify Featured Products
+- Verify Subscription Functionality
+- Verify Scroll Up and Scroll Down
+- Verify Brands Section
+- Verify Categories Section
 
 ---
 
-# ✅ Automated Modules
-
-### 🏠 Home
-
-- Verify Home Page
-- Verify Navigation Menu
-
-### 👤 User Registration
+## User Registration Module
 
 - Register New User
 - Validate Mandatory Fields
-- Invalid Registration Validation
-
-### 🔐 Login
-
-- Login with Valid Credentials
-- Login with Invalid Credentials
-- Verify Error Messages
-- Logout Validation
-
-### 🛍 Products
-
-- View All Products
-- Search Products
-- Verify Product Details
-
-### 🏷 Brands
-
-- Verify Brands Section
-- Filter Products by Brand
-
-### 📂 Categories
-
-- Verify Category Navigation
-- Verify Category Products
-
-### 📞 Contact Us
-
-- Submit Contact Form
-- Validate Success Message
-
-### 🛒 Cart & Checkout
-
-- Add Products to Cart
-- Verify Cart Details
-- Checkout Workflow
-- Order Confirmation Validation
+- Validate Existing Email
+- Complete Account Registration
+- Verify Account Creation
 
 ---
 
-# ⚙ Configuration
+## Login Module
 
-Update execution settings inside:
+- Login with Valid Credentials
+- Login with Invalid Credentials
+- Verify Login Error Message
+- Verify Logged-in User
+- Logout Successfully
 
-```
+---
+
+## Products Module
+
+- View All Products
+- Search Products
+- View Product Details
+- Add Products to Cart
+- Update Product Quantity
+- Navigate to Cart
+
+---
+
+## Brands Module
+
+- Verify Brands Section
+- Verify Available Brands
+- Navigate Between Brands
+- Verify Brand Products
+- View Product Details
+- Add Brand Products to Cart
+
+---
+
+## Categories Module
+
+- Verify Women Category
+- Verify Men Category
+- Verify Kids Category
+- Verify Dress Category
+- Verify Tops Category
+- Verify Saree Category
+- Navigate Between Categories
+- Handle Google Vignette Advertisement Automatically
+
+---
+
+## Contact Us Module
+
+- Submit Contact Form
+- Upload File
+- Validate Success Message
+
+---
+
+## Checkout Module
+
+- Proceed to Checkout
+- Place Order
+- Enter Payment Details
+- Confirm Order
+- Download Invoice
+- Continue Shopping
+
+---
+
+# Utility Classes
+
+The framework includes reusable utility classes for common automation tasks.
+
+- ConfigReader
+- DriverUtil
+- ExplicitWaitUtil
+
+---
+
+# Configuration
+
+Framework execution settings are managed through:
+
+```text
 src/test/resources/config.properties
 ```
 
@@ -143,120 +236,100 @@ Example:
 ```properties
 browser=chrome
 url=https://automationexercise.com
-implicitWait=10
 ```
 
 ---
 
-# ▶ Running the Project
+# Running the Framework
 
-### Run All Tests
+## Execute All Tests
 
 ```bash
 mvn clean test
 ```
 
-### Run Using TestNG
+---
+
+## Execute Using TestNG
+
+Run the TestNG Runner class.
+
+---
+
+## Execute a Specific Feature
 
 ```bash
-testng.xml
-```
-
-### Run a Specific Feature
-
-```bash
-mvn test -Dcucumber.features=src/test/resources/Features/Login.feature
+mvn test -Dcucumber.features=src/test/java/Features/B_LoginPage.feature
 ```
 
 ---
 
-# 📊 Reports
+# Reports
 
-After execution, Extent Reports are generated under:
+After execution, the framework automatically generates the following reports:
 
-```
-Reports/
-```
+- Extent Report
+- Cucumber HTML Report
+- Allure Report
 
-or
+Each report contains:
 
-```
-test-output/
-```
-
-(depending on project configuration)
-
----
-
-# 📸 Screenshots
-
-Failed test screenshots are automatically saved under:
-
-```
-Screenshots/
-```
+- Test Execution Summary
+- Pass and Fail Statistics
+- Step-wise Execution Details
+- Execution Time
+- Screenshots for Every Executed Scenario (Pass & Fail)
+- Failure Logs
 
 ---
 
-# 🧩 Framework Design
+# Screenshots
 
+The framework automatically captures screenshots for every executed scenario.
+
+- Passed Scenarios
+- Failed Scenarios
+
+Screenshots are attached to the generated reports, making it easier to analyze failures and verify successful executions.
+
+---
+
+# Framework Design
+
+The framework follows a layered architecture consisting of:
+
+- Base Class
+- Hooks
 - Page Object Model (POM)
-- Cucumber BDD
-- TestNG Runner
-- Maven Build Management
-- Utility-Based Architecture
-- Config Reader
-- Driver Factory
-- Screenshot Utility
-- Wait Utility
-- Excel Utility
-- Logger Utility
+- Step Definitions
+- Feature Files
+- Driver Utility
+- Explicit Wait Utility
+- Configuration Management
+- Logging
+- Reporting
 
 ---
 
-# 📦 Maven Dependencies
+# Major Maven Dependencies
 
-- Selenium Java
+- Selenium WebDriver
 - Cucumber Java
 - Cucumber TestNG
 - TestNG
-- Apache POI
-- WebDriverManager
 - Log4j2
 - Extent Reports
+- Allure Reports
 
 ---
 
-# 🎯 Project Highlights
+# Future Enhancements
 
-✔ Selenium WebDriver Automation
-
-✔ Java-Based Framework
-
-✔ Cucumber BDD Implementation
-
-✔ Page Object Model Design
-
-✔ Cross Browser Support
-
-✔ Data-Driven Testing
-
-✔ Logging & Reporting
-
-✔ Screenshot Capture
-
-✔ Reusable Utilities
-
-✔ Easy to Maintain
-
-✔ GitHub Version Controlled
-
----
-
-# 👩‍💻 Author
-
-**Sayani Maity**
-
-SDET | Selenium Automation Engineer
-
-Java • Selenium • Cucumber • TestNG • Maven • POM • Apache POI • Extent Reports
+- Cross Browser Execution
+- Parallel Test Execution
+- Selenium Grid Integration
+- Jenkins CI/CD Integration
+- Docker Support
+- GitHub Actions
+- API Automation
+- Database Validation
