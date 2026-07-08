@@ -357,7 +357,7 @@ public class ProductSteps {
                 driver.findElements(
                         By.xpath("//td[@class='cart_description']//a[text()='"
                                 + product + "']")
-                ).size() > 0;
+                ) .size() > 0;
 
         Assert.assertTrue(
                 productDisplayed,
