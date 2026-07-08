@@ -14,6 +14,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
+    
   </properties>
 
   <dependencyManagement>
@@ -29,17 +30,8 @@
   </dependencyManagement>
 
   <dependencies>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <!-- Optionally: parameterized tests support -->
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-params</artifactId>
-      <scope>test</scope>
-    </dependency>
+    
+    
     <dependency>
      <groupId>org.seleniumhq.selenium</groupId>
     <artifactId>selenium-java</artifactId>
@@ -68,22 +60,22 @@
  
 <!-- Source: https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
 <dependency>
-<groupId>org.apache.poi</groupId>
-<artifactId>poi-ooxml</artifactId>
-<version>5.5.1</version>
+	<groupId>org.apache.poi</groupId>
+	<artifactId>poi-ooxml</artifactId>
+	<version>5.5.1</version>
 </dependency>
 
 <dependency>
-<groupId>com.aventstack</groupId>
-<artifactId>extentreports</artifactId>
-<version>5.1.1</version>
+	<groupId>com.aventstack</groupId>
+	<artifactId>extentreports</artifactId>
+	<version>5.1.1</version>
 </dependency>
 
 <dependency>
-<groupId>commons-io</groupId>
-<artifactId>commons-io</artifactId>
-<version>2.16.1</version>
-</dependency>
+	<groupId>commons-io</groupId>
+	<artifactId>commons-io</artifactId>
+	<version>2.16.1</version>
+	</dependency>
 <!-- Source: https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-grid -->
 <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
@@ -135,7 +127,6 @@
     <scope>compile</scope>
     
 </dependency>
-
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j-core</artifactId>
@@ -161,12 +152,16 @@
             </configuration>
         </plugin>
         <plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
+    			<groupId>org.apache.maven.plugins</groupId>
     			<artifactId>maven-surefire-plugin</artifactId>
     			<version>3.2.5</version>
-    </plugin>
- 
+    			<configuration>
+        			<suiteXmlFiles>
+            			<suiteXmlFile>xml/testng.xml</suiteXmlFile>
+        			</suiteXmlFiles>
+    			</configuration>
+</plugin>
+    
     </plugins>
-
   </build>
 </project>
