@@ -5,7 +5,7 @@ Feature: Home Page Functionality
   So that I can browse products and navigate through the website
 
   Background:
-    Given User launches the browser
+    Given User launches the Browser
     And User navigates to "https://automationexercise.com"
 	
   Scenario: Verify Home page is displayed successfully

@@ -23,22 +23,22 @@ public class HomePageSteps {
     HomePage home=new HomePage(driver);
     Actions actions=new Actions(driver);
     ExplicitWaitUtil util=new ExplicitWaitUtil(driver);
-//	@Given("User launches the browser")
-//	public void user_launches_the_browser() {
-//		logger.info("Launching a browser");
-//	}
-//
-//	@Given("User navigates to {string}")
-//	public void user_navigates_to(String string) {
-//	  driver.get(string);
-//	  logger.info("navigated to "+ string);
-//	}
-//
-//	@Then("Home page should be displayed")
-//	public void home_page_should_be_displayed() {
-//		 logger.info("Verifying Home Page");
-//	    Assert.assertTrue(driver.getTitle().contains("Automation Exercise"));
-//	}
+	@Given("User launches the Browser")
+	public void user_launches_the_Browser() {
+		logger.info("Launching a browser");
+	}
+
+	@Given("User navigates to {string}")
+	public void user_navigates_to(String string) {
+	  driver.get(string);
+	  logger.info("navigated to "+ string);
+	}
+
+	@Then("Home page should be displayed")
+	public void home_page_should_be_displayed() {
+		 logger.info("Verifying Home Page");
+	    Assert.assertTrue(driver.getTitle().contains("Automation Exercise"));
+	}
 
 	@Then("Website logo should be visible")
 	public void website_logo_should_be_visible() {
@@ -150,27 +150,25 @@ public class HomePageSteps {
 	public void kids_category_should_be_displayed() {
 		logger.info("Scroll to Kids Section of home Page");
 		actions.moveToElement(home.KidsSection()).perform();
-		  Assert.assertTrue(home.KidsSection().isDisplayed());
-			logger.info("Kids Section is visible");
+		Assert.assertTrue(home.KidsSection().isDisplayed());
+		logger.info("Kids Section is visible");
 
 	   
 	}
 
 	@When("User expands Women category")
 	public void user_expands_women_category() {
-		   logger.info("Expanding Women category");
-		    home.clickWomensSection();
-
+		logger.info("Expanding Women category");
+		home.clickWomensSection();
 	}
 
 	@Then("Women category subcategories should be displayed")
 	public void women_category_subcategories_should_be_displayed() {
 
 	    logger.info("Verifying Women subcategories");
-
 	    util.waitForVisibility(home.WomenSubCategory());
 	    Assert.assertTrue(home.WomenSubCategory().isDisplayed());
-
+	    actions.moveToElement(home.WomenSubCategory()).perform();
 	    logger.info("Women subcategories displayed successfully");
 
 	   
@@ -178,17 +176,19 @@ public class HomePageSteps {
 
 	@When("User expands Men category")
 	public void user_expands_men_category() {
-		   logger.info("Expanding Men category");
-
+		logger.info("Expanding Men category");
 		home.clickMensSection();
 	}
 
 	@Then("Men category subcategories should be displayed")
 	public void men_category_subcategories_should_be_displayed() {
+	   
+
 	    logger.info("Verifying Men subcategories");
 
 	   util.waitForVisibility(home.MenSubCategory());
 	   Assert.assertTrue(home.MenSubCategory().isDisplayed());
+	   actions.moveToElement(home.MenSubCategory()).perform();
 	    logger.info("Men subcategories displayed successfully");
 
 	}
@@ -203,10 +203,13 @@ public class HomePageSteps {
 
 	@Then("Kids category subcategories should be displayed")
 	public void kids_category_subcategories_should_be_displayed() {
+	    
+
 	    logger.info("Verifying Kids subcategories");
 
 		util.waitForVisibility(home.KidsSubCategory());
 	  Assert.assertTrue(home.KidsSubCategory().isDisplayed());
+	  actions.moveToElement(home.KidsSubCategory()).perform();
 	    logger.info("Kids subcategories displayed successfully");
 
 	  
@@ -216,6 +219,7 @@ public class HomePageSteps {
 	public void features_items_section_should_be_displayed() {
 		logger.info("Verifying feature items are visible");
 	  Assert.assertTrue(home.FeatureItems().isDisplayed());
+	  actions.moveToElement(home.FeatureItems());
 	  logger.info("Feature items are visible");
 	}
 
