@@ -14,10 +14,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.ProductsPage;
  
-public class ProductSteps {
+public class F_ProductSteps {
  
     private static final Logger logger =
-            LogManager.getLogger(ProductSteps.class);
+            LogManager.getLogger(F_ProductSteps.class);
  
   WebDriver driver=Hooks.driver;
   ProductsPage productsPage= new ProductsPage(driver);
