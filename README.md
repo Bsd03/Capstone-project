@@ -49,7 +49,6 @@ Automation Exercise is a demo e-commerce application designed for QA Engineers t
 - Cucumber HTML Report Generation
 - Allure Report Generation
 - Log4j2 Logging
-- Easy Maintenance and Scalability
 
 ---
 
