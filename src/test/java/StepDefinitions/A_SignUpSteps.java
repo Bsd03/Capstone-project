@@ -163,6 +163,39 @@ public class A_SignUpSteps {
     	 logger.info("Verifying Message : " + message);
     	Assert.assertEquals(signUpPage.getCreatedMessage(), message);
     }
+//User Clicks on Continue Button
+    @And("User clicks on Continue Button")
+    public void user_clicks_on_continue_button() {
+
+      logger.info("Click on Continue Button");
+      signUpPage.clickContinueButton();
+        signUpPage.handleGoogleVignette(() -> {
+            signUpPage.clickContinueButton();
+        });
+
+    }
+//Delete Account
+    @Given("User is on the Home page")
+    public void user_is_on_the_home_page() {
+      String verifyhome= signUpPage.VerifyHomePage();
+      Assert.assertTrue(verifyhome.contains("AutomationExercise"),"User is on homepage");
+        System.out.println("User is on Home Page");
+    }
+
+    @When("User clicks on Delete Account")
+    public void user_clicks_on_delete_account() {
+         signUpPage.ClickonDeleteAccount();
+
+    }
+
+    @Then("Account Deleted message should be displayed")
+    public void account_deleted_message_should_be_displayed() {
+
+ String deleteAccountMessage= signUpPage.AccountDeletedMessage();
+        Assert.assertTrue(
+                deleteAccountMessage.equalsIgnoreCase("ACCOUNT DELETED!"),
+                "Account Deleted message not displayed");
+    }
 
     // Verifies email already exists error
     @Then("the error message {string} should be displayed")
@@ -205,5 +238,6 @@ public class A_SignUpSteps {
 
         System.out.println(validation);
     }
+
 
 }

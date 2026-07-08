@@ -54,9 +54,14 @@ public class SignUPPage {
     By createAccountButton = By.xpath("//button[@data-qa='create-account']");
 
     By accountCreatedMessage = By.xpath("//h2[@data-qa='account-created']");
+    By homepageverify=By.xpath("//*[@id=\"slider-carousel\"]/div/div[1]/div[1]/h1");
+
+
+    By continueButton=By.xpath("//*[@id=\"form\"]/div/div/div/div/a");
+    By deleteAccount=By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[5]/a");
+    By accountDeletedMessage=By.xpath("//*[@id=\"form\"]/div/div/div/h2/b");
     By emailExistsMessage = By.xpath("//p[text()='Email Address already exist!']");
 
-    // ******************** Signup Page Methods ********************
 
     // Click Signup/Login menu
     public void ClickLogin() {
@@ -77,8 +82,10 @@ public class SignUPPage {
         driver.findElement(emailField).clear();
         driver.findElement(emailField).sendKeys(email);
 
-        System.out.println("Generated Email : " + email);
+
+
     }
+
 
     // Enter email
     public void EnterEmail(String email) {
@@ -86,10 +93,6 @@ public class SignUPPage {
         driver.findElement(emailField).sendKeys(email);
     }
 
-
-    // Click Scroll signup
-    // Scroll the Signup section upward
-    // Scroll Signup button into view
 
 
  // Scroll the Signup section upward
@@ -110,9 +113,7 @@ public class SignUPPage {
         wait.until(ExpectedConditions.visibilityOf(signupBtn));
     }
 
-    // Click Signup button
-    // Click Signup button
-    // Click Signup button
+
 
 
  // Click Signup button
@@ -149,7 +150,7 @@ public class SignUPPage {
         clickSignupButton();
     }
 
-    // ******************** Account Information ********************
+
 
     // Select title
     public void titleSelect(String title) {
@@ -194,7 +195,7 @@ public class SignUPPage {
         enterPassword(password);
         enterDOB(date, month, year);
     }
-    // ******************** Address Information ********************
+
 
     // Enter First Name
     public void enterFirstName(String firstName) {
@@ -278,7 +279,7 @@ public class SignUPPage {
 
 
     }
-    // Scroll the Create Account section upward
+
     // Scroll Create Account button into view
     public void scrollCreateAccountSection() {
 
@@ -315,9 +316,29 @@ public class SignUPPage {
 
     }
 
-    // ******************** Verification Methods ********************
+    //click on Continue Button
+    public void clickContinueButton(){
+        driver.findElement(continueButton).click();
+    }
+public String  VerifyHomePage(){
+    wait.until(ExpectedConditions.visibilityOfElementLocated(homepageverify));
 
-    // Verify Signup section is displayed
+       return driver.findElement(homepageverify).getText();
+
+}
+public void ClickonDeleteAccount(){
+      driver.findElement(deleteAccount).click();
+
+}
+    public String AccountDeletedMessage() {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement msg = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(accountDeletedMessage));
+
+        return msg.getText().trim();
+    } // Verify Signup section is displayed
     public boolean isSignupSectionDisplayed() {
         return driver.findElement(signupHeading).isDisplayed();
     }
@@ -343,5 +364,31 @@ public class SignUPPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(emailExistsMessage));
         return driver.findElement(emailExistsMessage).getText();
     }
+    public void handleGoogleVignette(Runnable retryAction) {
 
+        System.out.println("Current URL : " + driver.getCurrentUrl());
+
+        if (driver.getCurrentUrl().contains("google_vignette")) {
+
+            System.out.println("======================================");
+            System.out.println("Google Vignette Advertisement Detected");
+            System.out.println("Refreshing the current page...");
+
+            driver.navigate().refresh();
+
+            System.out.println("Page Refreshed Successfully");
+            System.out.println("Re-clicking Category and Subcategory...");
+
+            retryAction.run();
+
+            System.out.println("Category and Subcategory Re-clicked Successfully");
+            System.out.println("Current URL : " + driver.getCurrentUrl());
+            System.out.println("Google Advertisement Handled Successfully");
+            System.out.println("======================================");
+
+        } else {
+
+            System.out.println("No Google Advertisement Detected");
+        }
+    }
 }

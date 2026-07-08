@@ -32,6 +32,12 @@ Feature: User Registration
     And the user clicks the Create Account button
     Then the account should be created successfully
     And the "ACCOUNT CREATED!" message should be displayed
+    And User clicks on Continue Button
+
+    Given User is on the Home page
+    When User clicks on Delete Account
+    Then Account Deleted message should be displayed
+
 
   Scenario Outline: Verify registration with an existing email address
     When the user enters Name "<Name>"
@@ -59,3 +65,6 @@ Feature: User Registration
   Scenario: Verify registration with mandatory fields left empty
     When the user clicks the Signup button without entering Name and Email
     Then the required field validation messages should displayed.
+
+
+
