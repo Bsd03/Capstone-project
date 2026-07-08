@@ -1,10 +1,15 @@
 package pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProductsPage {
 
@@ -22,7 +27,46 @@ public class ProductsPage {
     By searchButton = By.id("submit_search");
     By quantity = By.id("quantity");
     By viewCart = By.xpath("//a[@href='/view_cart']");
+    
+    By addtoCart = By.xpath("//button[contains(@class,'cart')]");
+    By continueshopping=By.xpath("//*[@id=\"cartModal\"]/div/div/div[3]/button");
 
+//    By BlueTop = By.xpath("//a[@href='/product_details/1']");
+    
+   
+    @FindBy(xpath="/html/body/section/div/div/div[2]/div[2]/div[2]/div/h2") WebElement BlueTopTitle;
+  
+    
+    
+
+ // Handle Google Vignette Advertisement
+ 		public void handleGoogleVignette(Runnable retryAction) {
+
+ 		    System.out.println("Current URL : " + driver.getCurrentUrl());
+
+ 		    if (driver.getCurrentUrl().contains("google_vignette")) {
+
+ 		        System.out.println("======================================");
+ 		        System.out.println("Google Vignette Advertisement Detected");
+ 		        System.out.println("Refreshing the current page...");
+ 		        
+ 		        driver.navigate().refresh();
+
+ 		        System.out.println("Page Refreshed Successfully");
+ 		        System.out.println("Re-clicking Category and Subcategory...");
+
+ 		        retryAction.run();
+
+ 		        System.out.println("Category and Subcategory Re-clicked Successfully");
+ 		        System.out.println("Current URL : " + driver.getCurrentUrl());
+ 		        System.out.println("Google Advertisement Handled Successfully");
+ 		        System.out.println("======================================");
+
+ 		    } else {
+
+ 		        System.out.println("No Google Advertisement Detected");
+ 		    }
+ 		}
     // Click Products Menu
     public void clickProducts() {
 
@@ -31,7 +75,39 @@ public class ProductsPage {
         ((JavascriptExecutor) driver)
                 .executeScript("arguments[0].click();", productMenu);
     }
+  
+    public void clickBluetop() {
 
+        WebElement blueTop = driver.findElement(
+                By.xpath("//a[@href='/product_details/1']")
+        );
+
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].click();", blueTop);
+    }
+//	public String getBlueTopTitle() {
+//
+//        WebDriverWait  wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+//		wait.until(ExpectedConditions.visibilityOf(BlueTopTitle));
+//
+//			return BlueTopTitle.getText();
+//		}
+	public void clickMenTshirt() {
+		WebElement MenTshirt=driver.findElement(By.xpath("//a[@href='/product_details/2']"));
+		  ((JavascriptExecutor) driver)
+          .executeScript("arguments[0].click();",MenTshirt);
+}
+//	public String getMenTshirtTitle() {
+//		 WebDriverWait  wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+//			wait.until(ExpectedConditions.visibilityOf());
+//
+//				return BlueTopTitle.getText();
+//	}
+public void clickSleevelessDress() {
+	WebElement SleevelessDress=driver.findElement(By.xpath("//a[@href='/product_details/3']"));
+	  ((JavascriptExecutor) driver)
+    .executeScript("arguments[0].click();",SleevelessDress);
+}
     // Search Product
     public void searchProduct(String product) {
 
@@ -53,17 +129,35 @@ public class ProductsPage {
     }
 
     // Add To Cart
-    public void addToCart(String id) {
+    public void addToCart() {
 
-        WebElement product = driver.findElement(
-                By.xpath("//a[@data-product-id='" + id + "']"));
-
-        actions.moveToElement(product).perform();
+        WebElement addToCartButton = driver.findElement(addtoCart);
 
         ((JavascriptExecutor) driver)
-                .executeScript("arguments[0].click();", product);
-    }
+                .executeScript("arguments[0].click();", addToCartButton);
 
+        System.out.println("Add To Cart Button Clicked");
+
+    }
+    public void continueShopping() {
+
+    	 WebDriverWait wait =
+    	            new WebDriverWait(driver, Duration.ofSeconds(10));
+
+    	    WebElement continueBtn = wait.until(
+    	            ExpectedConditions.elementToBeClickable(
+    	                    continueshopping));
+
+    	    continueBtn.click();
+
+    }
+    //open cart()
+    public void viewCartFromPopup() {
+
+        driver.findElement(
+                By.xpath("//u[text()='View Cart']")
+        ).click();
+    }
     // Increase Quantity
     public void increaseQuantity(String qty) {
 
@@ -72,8 +166,5 @@ public class ProductsPage {
     }
 
     // Open Cart
-    public void openCart() {
-
-        driver.findElement(viewCart).click();
-    }
+    
 }
