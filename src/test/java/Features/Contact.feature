@@ -2,7 +2,7 @@ Feature: Contact Us Functionality
 
   Background:
     Given User launches browser
-    And User navigates to Automation Exercise website
+    And User navigates to the Automation Exercise website
     When User clicks Contact Us menu
 
   Scenario: Verify Contact Us page
