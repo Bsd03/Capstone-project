@@ -60,6 +60,8 @@ Feature: Home Page Functionality
   Scenario: Verify brand selection
     When User clicks on a brand
     Then Brand products page should be displayed
+
+  @topPageCheck
   Scenario: Verify Scroll Up button
     When User scrolls down the page
     Then Scroll Up button should be visible

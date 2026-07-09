@@ -328,6 +328,9 @@ public class C_HomePageSteps {
 	    logger.info("Clicking Scroll Up button");
 
 	    home.clickScrollUpButton();
+	home.handleGoogleVignette(() -> {
+		home.clickScrollUpButton();
+		});
 
 	}
 

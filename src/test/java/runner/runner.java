@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 
 @CucumberOptions(features="src/test/java/Features/C_HomePage.feature",
-				glue={"StepDefinitions","Hooks"},
+				glue={"StepDefinitions","Hooks"},tags="@topPageCheck",
 				plugin= {"pretty","html:target/cucumber-reports/CucumberReport.html",
 						"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
 	)
