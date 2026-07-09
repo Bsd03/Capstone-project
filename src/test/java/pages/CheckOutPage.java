@@ -14,11 +14,11 @@ public class CheckOutPage {
 		private ExplicitWaitUtil wait;
 		
 		//Constructor to initialize PageFactory elements
-		public CheckOutPage(WebDriver driver ) {
-			this.driver=driver;
-			PageFactory.initElements(driver,this);
-			
-			}
+		public CheckOutPage(WebDriver driver) {
+		    this.driver = driver;
+		    this.wait = new ExplicitWaitUtil(driver);
+		    PageFactory.initElements(driver, this);
+		}
 		
 		//proceed to checkout button
 		@FindBy(
@@ -83,15 +83,17 @@ public class CheckOutPage {
 		public void expire_year(String year) {
 			ExpireYear.sendKeys(year);
 		}
-		
+		public void enterCVC(String cvcNumber) {
+		    cvc.sendKeys(cvcNumber);
+		}
 		
 		//Confirm order 
 		public void confirmOrder() {
 			wait.waitForClickable(ConfirmOrder).click();
 		}
 		//Display Alert
-		public void alert() {
-			System.out.println(Alert);
+		public String getSuccessMessage() {
+		    return Alert.getText();
 		}
 		//Download invoice
 		public void invoice_Download() {
