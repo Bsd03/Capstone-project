@@ -13,7 +13,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.ProductsPage;
- 
+import utilities.GoogleAdsHandler;
+
 public class F_ProductSteps {
  
     private static final Logger logger =
@@ -23,6 +24,7 @@ public class F_ProductSteps {
     			
     			private String productId;
     			private String productName;
+               GoogleAdsHandler googleHandler=new GoogleAdsHandler(driver);
     // -------------------------------------------------
     // Click Products menu
     // Feature:
@@ -36,9 +38,9 @@ public class F_ProductSteps {
     @Then("the Products Page of All Products page should be displayed")
     public void the_products_page_of_all_products_page_should_be_displayed() {
         logger.info("Verifying All Products page");
- 
+   String currentUrl=productsPage.getCurrentUrl();
         Assert.assertTrue(
-                driver.getCurrentUrl().contains("/products"),
+               currentUrl.contains("/products"),
                 "All Products page is not displayed"
         );
     }
@@ -50,6 +52,7 @@ public class F_ProductSteps {
  
         if (menu.equalsIgnoreCase("Products")) {
             productsPage.clickProducts();
+
         } else {
             Assert.fail("Unsupported menu: " + menu);
         }
@@ -61,7 +64,14 @@ public class F_ProductSteps {
     public void the_list_of_all_products_should_be_displayed() {
  
         logger.info("Verifying product list");
-        
+        String currenturl= productsPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                productsPage.clickProducts();
+            });
+        }
         int productCount = driver.findElements(
                 By.xpath("//div[contains(@class,'product-image-wrapper')]")
         ).size();
@@ -84,16 +94,40 @@ public class F_ProductSteps {
         
         if(productName.equals("Blue Top")) {
             productsPage.clickBluetop();
+            String currenturl= productsPage.getCurrentUrl();
+            //if broser redirecting to the ad
+            if(currenturl.contains("#google_vignette")) {
+                //calling the googleHandler
+                googleHandler.handleGoogleVignette(() -> {
+                    productsPage.clickBluetop();
+                });
+            }
+
             System.out.println("Blue top clicked");
         }
         else if(productName.equals("Men Tshirt")) {
         	productsPage.clickMenTshirt();
+            String currenturl= productsPage.getCurrentUrl();
+            //if broser redirecting to the ad
+            if(currenturl.contains("#google_vignette")) {
+                //calling the googleHandler
+                googleHandler.handleGoogleVignette(() -> {
+                    productsPage.clickMenTshirt();
+                });
+            }
         	System.out.println("Men Tshirt Clikced");
-        	
         }
         else {
         	
         	productsPage.clickSleevelessDress();
+            String currenturl= productsPage.getCurrentUrl();
+            //if broser redirecting to the ad
+            if(currenturl.contains("#google_vignette")) {
+                //calling the googleHandler
+                googleHandler.handleGoogleVignette(() -> {
+                    productsPage.clickSleevelessDress();
+                });
+            }
         	System.out.println("Sleeveless Dress Clicked");
         	
         }
@@ -106,11 +140,10 @@ public class F_ProductSteps {
     @Then("the product details page should be displayed")
     public void the_product_details_page_should_be_displayed() {
     	System.out.println("verifing");
+
     	System.out.println("Current URL: " + driver.getCurrentUrl());
         logger.info("Verifying Product Details page");
-
-        String currentUrl = driver.getCurrentUrl();
-
+        String currentUrl=productsPage.getCurrentUrl();
         Assert.assertTrue(
                 currentUrl.contains("/product_details/"),
                 "User is not navigated to Product Details page. Current URL: " + currentUrl
@@ -234,10 +267,17 @@ public class F_ProductSteps {
     public void the_user_searches_for(String product) {
  
         logger.info("Searching product: " + product);
- 
+        String currenturl= productsPage.getCurrentUrl();
+
         productName = product;
  
         productsPage.searchProduct(product);
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                productsPage.searchProduct(product);
+            });
+        }
     }
  
     // -------------------------------------------------
@@ -296,7 +336,9 @@ public class F_ProductSteps {
     @When("the user clicks the Add to Cart button")
     public void the_user_clicks_the_add_to_cart_button() {
  
-      productsPage.addToCart();   
+      productsPage.addToCart();
+
+
     }
  
     // -------------------------------------------------
@@ -308,7 +350,16 @@ public class F_ProductSteps {
         logger.info("Opening Cart");
        
         System.out.println("opening cart");
-        productsPage.viewCartFromPopup(); 
+        String currenturl= productsPage.getCurrentUrl();
+        //
+        productsPage.viewCartFromPopup();
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                productsPage.addToCart();
+                productsPage.viewCartFromPopup();
+            });
+        }
         
     }
  
@@ -324,7 +375,7 @@ public class F_ProductSteps {
                 driver.findElements(
                         By.xpath("//td[@class='cart_description']//a[text()='"
                                 + product + "']")
-                ) .size() > 0;
+                ).size() > 0;
 
         Assert.assertTrue(
                 productDisplayed,
@@ -340,6 +391,16 @@ public class F_ProductSteps {
         logger.info("Changing quantity to: " + quantity);
         
         productsPage.increaseQuantity(quantity);
+        String currenturl= productsPage.getCurrentUrl();
+        //
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                productsPage.addToCart();
+                productsPage.viewCartFromPopup();
+                productsPage.increaseQuantity(quantity);
+            });
+        }
     }
     
     //Verify quantity
@@ -348,7 +409,16 @@ public class F_ProductSteps {
     public void the_product_quantity_should_be(String quantity) {
     	 
     	logger.info("Verifying quantity:" + quantity);
-    	
+        String currenturl= productsPage.getCurrentUrl();
+        //
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                productsPage.addToCart();
+                productsPage.viewCartFromPopup();
+                productsPage.increaseQuantity(quantity);
+            });
+        }
     	String actualQuantity = driver.findElement(By.xpath("//td[contains(@class,'cart_quantity')]//button")).getText().trim();
     	
     	Assert.assertEquals(actualQuantity, quantity, "Product quantity does not match");

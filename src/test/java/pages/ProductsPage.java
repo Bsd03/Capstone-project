@@ -35,42 +35,14 @@ public class ProductsPage {
     By addtoCart = By.xpath("//button[contains(@class,'cart')]");
     By continueshopping=By.xpath("//*[@id=\"cartModal\"]/div/div/div[3]/button");
 
-//    By BlueTop = By.xpath("//a[@href='/product_details/1']");
-    
-   
     @FindBy(xpath="/html/body/section/div/div/div[2]/div[2]/div[2]/div/h2") WebElement BlueTopTitle;
-  
-    
-    
 
- // Handle Google Vignette Advertisement
- 		public void handleGoogleVignette(Runnable retryAction) {
 
- 		    System.out.println("Current URL : " + driver.getCurrentUrl());
 
- 		    if (driver.getCurrentUrl().contains("google_vignette")) {
-
- 		        System.out.println("======================================");
- 		        System.out.println("Google Vignette Advertisement Detected");
- 		        System.out.println("Refreshing the current page...");
- 		        
- 		        driver.navigate().refresh();
-
- 		        System.out.println("Page Refreshed Successfully");
- 		        System.out.println("Re-clicking Category and Subcategory...");
-
- 		        retryAction.run();
-
- 		        System.out.println("Category and Subcategory Re-clicked Successfully");
- 		        System.out.println("Current URL : " + driver.getCurrentUrl());
- 		        System.out.println("Google Advertisement Handled Successfully");
- 		        System.out.println("======================================");
-
- 		    } else {
-
- 		        System.out.println("No Google Advertisement Detected");
- 		    }
- 		}
+//Get CurrentUrl
+    public String getCurrentUrl(){
+        return driver.getCurrentUrl();
+    }
     // Click Products Menu
     public void clickProducts() {
 
@@ -89,24 +61,13 @@ public class ProductsPage {
         ((JavascriptExecutor) driver)
                 .executeScript("arguments[0].click();", blueTop);
     }
-//	public String getBlueTopTitle() {
-//
-//        WebDriverWait  wait=new WebDriverWait(driver,Duration.ofSeconds(10));
-//		wait.until(ExpectedConditions.visibilityOf(BlueTopTitle));
-//
-//			return BlueTopTitle.getText();
-//		}
+
 	public void clickMenTshirt() {
 		WebElement MenTshirt=driver.findElement(By.xpath("//a[@href='/product_details/2']"));
 		  ((JavascriptExecutor) driver)
           .executeScript("arguments[0].click();",MenTshirt);
 }
-//	public String getMenTshirtTitle() {
-//		 WebDriverWait  wait=new WebDriverWait(driver,Duration.ofSeconds(10));
-//			wait.until(ExpectedConditions.visibilityOf());
-//
-//				return BlueTopTitle.getText();
-//	}
+
 public void clickSleevelessDress() {
 	WebElement SleevelessDress=driver.findElement(By.xpath("//a[@href='/product_details/3']"));
 	  ((JavascriptExecutor) driver)

@@ -60,38 +60,10 @@ public class CategoryPage {
 		//Brand page title
 		@FindBy(css = "h2.title.text-center")
 		WebElement brandTitle;
-//google add
-	
-		// Handle Google Vignette Advertisement
-		public void handleGoogleVignette(Runnable retryAction) {
 
-		    System.out.println("Current URL : " + driver.getCurrentUrl());
-
-		    if (driver.getCurrentUrl().contains("google_vignette")) {
-
-		        System.out.println("======================================");
-		        System.out.println("Google Vignette Advertisement Detected");
-		        System.out.println("Refreshing the current page...");
-		        
-		        driver.navigate().refresh();
-
-		        System.out.println("Page Refreshed Successfully");
-		        System.out.println("Re-clicking Category and Subcategory...");
-
-		        retryAction.run();
-
-		        System.out.println("Category and Subcategory Re-clicked Successfully");
-		        System.out.println("Current URL : " + driver.getCurrentUrl());
-		        System.out.println("Google Advertisement Handled Successfully");
-		        System.out.println("======================================");
-
-		    } else {
-
-		        System.out.println("No Google Advertisement Detected");
-		    }
+		public String getCurrentUrl(){
+			return driver.getCurrentUrl();
 		}
-		//Action Methods
-		
 		//Click on Women Category
 		public void click_Women_Category() {
 			JavascriptExecutor js = (JavascriptExecutor) driver;

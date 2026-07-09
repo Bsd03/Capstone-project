@@ -2,6 +2,7 @@ package StepDefinitions;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import Hooks.Hooks;
@@ -9,10 +10,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.BrandsPage;
+import utilities.GoogleAdsHandler;
 
 public class E_BrandStep {
 	private static final Logger logger=LogManager.getLogger(E_BrandStep.class);
+    WebDriver driver=Hooks.driver;
     BrandsPage brandsPage = new BrandsPage(Hooks.driver);
+
+    GoogleAdsHandler googleHandler=new GoogleAdsHandler(driver);
     // Verify Brands Section
     @Then("the Brands section should be visible on the left side")
     public void the_brands_section_should_be_visible_on_the_left_side() {
@@ -34,6 +39,14 @@ public class E_BrandStep {
     public void the_user_clicks_on_brand(String brandName) {
     		logger.info("Clicking on brand : {}",brandName);
         brandsPage.clickBrand(brandName);
+        String currenturl= brandsPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                brandsPage.clickBrand(brandName);
+            });
+        }
         logger.info("Successfully clicked brand : {}",brandName);
     }
  // Verify All Products Page
@@ -54,6 +67,15 @@ public class E_BrandStep {
     public void the_brand_page_should_be_displayed(String brandName) {
     		logger.info("Verifying brand page for: {}",brandName);
         brandsPage.verifyBrandPage(brandName);
+        String currenturl= brandsPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                brandsPage.clickBrand(brandName);
+                brandsPage.verifyBrandPage(brandName);
+            });
+        }
         logger.info("{} brand page displayed successfully",brandName);
     }
 
@@ -70,6 +92,17 @@ public class E_BrandStep {
     public void the_products_should_be_displayed(String brandName) {
     		logger.info("Verifying switched brand products for: {}",brandName);
         brandsPage.verifyProductsDisplayed();
+        String currenturl= brandsPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+
+                brandsPage.clickBrand(brandName);
+                brandsPage.verifyBrandPage(brandName);
+                brandsPage.verifyProductsDisplayed();
+            });
+        }
         logger.info("{} products displayed successfully",brandName);
     }
 
@@ -86,6 +119,8 @@ public class E_BrandStep {
     public void the_user_opens_the_first_product() {
     		logger.info("Opening first product");
         brandsPage.openFirstProduct();
+        String currenturl= brandsPage.getCurrentUrl();
+
         logger.info("First product opened successfully");
     }
 
@@ -134,6 +169,15 @@ public class E_BrandStep {
     public void the_user_adds_the_first_product_to_the_cart() {
     		logger.info("Adding first product to cart");
         brandsPage.addFirstProductToCart();
+        String currenturl= brandsPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                brandsPage.addFirstProductToCart();
+            });
+        }
         logger.info("Product added to cart successfully");
     }
 
@@ -142,6 +186,15 @@ public class E_BrandStep {
     public void  User_opens_the_cart_from_Brands_page() {
     		logger.info("Opening cart from Brands page");
         brandsPage.openCart();
+        String currenturl= brandsPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                brandsPage.addFirstProductToCart();
+                brandsPage.openCart();
+            });
+        }
         logger.info("Cart opened successfully");
     }
 
@@ -150,6 +203,15 @@ public class E_BrandStep {
     public void the_selected_product_should_be_displayed_in_the_cart(String brandName) {
     		logger.info("Verifying selected product in cart for brand: {}",brandName);
         brandsPage.verifyCartProduct();
+        String currenturl= brandsPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                brandsPage.addFirstProductToCart();
+                brandsPage.openCart();
+            });
+        }
         logger.info("Product verified successfully in cart");
     }
 }

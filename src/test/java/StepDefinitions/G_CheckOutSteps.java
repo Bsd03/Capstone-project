@@ -16,6 +16,7 @@ import pages.CartPage;
 import pages.CheckOutPage;
 import pages.LoginPage;
 import pages.ProductsPage;
+import utilities.GoogleAdsHandler;
 
 public class G_CheckOutSteps {
 	
@@ -24,6 +25,7 @@ public class G_CheckOutSteps {
     ProductsPage productsPage = new ProductsPage(Hooks.driver);
     CartPage cartPage = new CartPage(Hooks.driver);
     CheckOutPage checkoutPage = new CheckOutPage(Hooks.driver);
+    GoogleAdsHandler googleHandler=new GoogleAdsHandler(Hooks.driver);
 
     @Given("User is on Automation Exercise home page")
     public void user_is_on_home_page() {
@@ -245,6 +247,14 @@ public class G_CheckOutSteps {
 	 
 	 logger.info("Placing the order");
      checkoutPage.clickPlaceOrder();
+     String currenturl= productsPage.getCurrentUrl();
+     //
+     if(currenturl.contains("#google_vignette")) {
+         //calling the googleHandler
+         googleHandler.handleGoogleVignette(() -> {
+             checkoutPage.clickPlaceOrder();
+         });
+     }
      logger.info("Place order clicked successfully");
 
  }

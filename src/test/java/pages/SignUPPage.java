@@ -62,7 +62,9 @@ public class SignUPPage {
     By accountDeletedMessage=By.xpath("//*[@id=\"form\"]/div/div/div/h2/b");
     By emailExistsMessage = By.xpath("//p[text()='Email Address already exist!']");
 
-
+public String getCurrentUrl(){
+    return driver.getCurrentUrl();
+}
     // Click Signup/Login menu
     public void ClickLogin() {
         driver.findElement(loginLink).click();

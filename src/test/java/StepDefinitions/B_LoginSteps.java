@@ -10,21 +10,24 @@ import io.cucumber.java.en.When;
 import pages.LoginPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
- 
+import utilities.GoogleAdsHandler;
+
 public class B_LoginSteps {
 	
 	private static final Logger logger =
 	        LogManager.getLogger(B_LoginSteps.class);
-    WebDriver driver;
+    WebDriver driver= Hooks.driver;
+    GoogleAdsHandler googleHandler=new GoogleAdsHandler(driver);
     LoginPage loginPage;
- 
+
+
     // Browser Launch
     @Given("the login browser is launched successfully")
     public void the_login_browser_is_launched_successfully() {
  
         driver = Hooks.driver;
         loginPage = new LoginPage(driver);
- 
+
         logger.info("Login Browser Launched Successfully");
     }
     // Navigate URL
@@ -50,10 +53,18 @@ public class B_LoginSteps {
     // Click Login Menu
     @When("the user clicks on the login menu")
     public void the_user_clicks_on_the_login_menu() {
- 
+
         loginPage.clickSignupLogin();
- 
-        logger.info("Login Menu Clicked");
+        String currenturl= loginPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                loginPage.clickSignupLogin();
+            });
+        }
+            logger.info("Login Menu Clicked");
     }
     // Verify Login Section
     @Then("the login section should be displayed")
@@ -117,7 +128,15 @@ public class B_LoginSteps {
     public void the_user_clicks_the_login_button() {
  
         loginPage.clickLogin();
- 
+        String currenturl= loginPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                loginPage.clickLogin();
+            });
+        }
         logger.info("Login Button Clicked");
     }
     // Verify Login Success
@@ -181,6 +200,15 @@ public class B_LoginSteps {
     public void the_user_clicks_the_login_button_without_entering_email_address_and_password() {
  
         loginPage.clickLogin();
+        String currenturl= loginPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                loginPage.clickLogin();
+            });
+        }
     }
     // Required Field Validation
     @Then("the login required field validation messages should be displayed")
@@ -238,6 +266,15 @@ public class B_LoginSteps {
     public void the_user_clicks_the_logout_button() {
  
         loginPage.clickLogout();
+        String currenturl= loginPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                loginPage.clickLogout();
+            });
+        }
  
         logger.info("Logout Clicked");
     }

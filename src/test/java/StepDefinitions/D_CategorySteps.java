@@ -13,6 +13,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.CategoryPage;
 import utilities.ExplicitWaitUtil;
+import utilities.GoogleAdsHandler;
 
 public class D_CategorySteps{
 
@@ -20,6 +21,7 @@ public class D_CategorySteps{
 	private static final Logger logger = LogManager.getLogger(D_CategorySteps.class);
     WebDriver driver = Hooks.driver;
     CategoryPage categoryPage = new CategoryPage(driver);
+    GoogleAdsHandler googleHandler=new GoogleAdsHandler(driver);
     ExplicitWaitUtil explicitWaitutil=new ExplicitWaitUtil(driver);
     @Given("User launches the browser")
     public void User_launches_the_browser() {
@@ -44,6 +46,15 @@ public class D_CategorySteps{
     public void user_clicks_on_women_category() {
 
         categoryPage.click_Women_Category();
+        String currenturl= categoryPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                categoryPage.click_Women_Category();
+            });
+        }
         logger.info("Women Category Clicked");
 
     }
@@ -54,12 +65,16 @@ public class D_CategorySteps{
 
     	categoryPage.click_Dress_Category();
 
-    	categoryPage.handleGoogleVignette(() -> {
-
-    	    categoryPage.click_Women_Category();
-    	    categoryPage.click_Dress_Category();
-
-    	});
+        String currenturl= categoryPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                categoryPage.click_Women_Category();
+              categoryPage.click_Dress_Category();
+            });
+        }
 
     }
     // Verify Dress category page title is displayed.
@@ -82,12 +97,16 @@ public class D_CategorySteps{
         logger.info("Women Tops Category Clicked");
         categoryPage.click_Tops_Category();
 
-        categoryPage.handleGoogleVignette(() -> {
-
-            categoryPage.click_Women_Category();
-            categoryPage.click_Tops_Category();
-
-        });
+        String currenturl= categoryPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                categoryPage.click_Women_Category();
+                categoryPage.click_Tops_Category();
+            });
+        }
       
 
     }
@@ -111,12 +130,16 @@ public class D_CategorySteps{
 
     	categoryPage.click_Saree_Category();
 
-    	categoryPage.handleGoogleVignette(() -> {
-
-    	    categoryPage.click_Women_Category();
-    	    categoryPage.click_Saree_Category();
-
-    	});
+        String currenturl= categoryPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                categoryPage.click_Women_Category();
+                categoryPage.click_Saree_Category();
+            });
+        }
 
         logger.info("Women Saree Category Clicked");
 
@@ -125,7 +148,10 @@ public class D_CategorySteps{
     @Then("User should see Saree page title")
     public void User_should_see_Saree_category_title() {
         logger.info("Women Saree Category Verifying__");
-        logger.info("Current URL : {}",driver.getCurrentUrl());
+        String currenturl= categoryPage.getCurrentUrl();
+        //if broser redirecting to the ad
+
+        logger.info("Current URL : {}",currenturl);
      
         String actualTitle = categoryPage.getBrandTitle();
 
@@ -142,6 +168,15 @@ public class D_CategorySteps{
     public void user_clicks_on_men_category() {
 
         categoryPage.click_Men_Category();
+        String currenturl= categoryPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                categoryPage.click_Men_Category();
+            });
+        }
         logger.info("men Category click");
     }
 
@@ -150,13 +185,16 @@ public class D_CategorySteps{
     public void user_clicks_on_tshirt_subcategory() {
     	categoryPage.click_Tshirt_Category();
 
-    	categoryPage.handleGoogleVignette(() -> {
-
-    	    categoryPage.click_Men_Category();
-    	    categoryPage.click_Tshirt_Category();
-
-    	});
-      
+        String currenturl= categoryPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                categoryPage.click_Men_Category();
+                categoryPage.click_Tshirt_Category();
+            });
+        }
         logger.info("men  Category  Tshirt click");
     }
     @Then("User should see Tshirt category page title")
@@ -176,12 +214,16 @@ public class D_CategorySteps{
     public void user_clicks_on_jeans_subcategory() {
     	categoryPage.click_Jeans_Category();
 
-    	categoryPage.handleGoogleVignette(() -> {
-
-    	    categoryPage.click_Men_Category();
-    	    categoryPage.click_Jeans_Category();
-
-    	});
+        String currenturl= categoryPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                categoryPage.click_Men_Category();
+                categoryPage.click_Jeans_Category();
+            });
+        }
         logger.info("men Jeans Category click");
     }
     @Then("User should see Jeans category page title")
@@ -203,6 +245,16 @@ public class D_CategorySteps{
     public void user_clicks_on_kids_category() {
 
         categoryPage.click_Kids_Category();
+        String currenturl= categoryPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+
+                categoryPage.click_Kids_Category();
+            });
+        }
         logger.info("clicked on Kids Category");
     }
 
@@ -212,12 +264,16 @@ public class D_CategorySteps{
 
     	categoryPage.click_KidsDress_Category();
 
-    	categoryPage.handleGoogleVignette(() -> {
-
-    	    categoryPage.click_Kids_Category();
-    	    categoryPage.click_KidsDress_Category();
-
-    	});;
+        String currenturl= categoryPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                categoryPage.click_Kids_Category();
+                categoryPage.click_KidsDress_Category();
+            });
+        }
         logger.info("clicked on Kids Dress Category");
     }
     @Then("User should see Dress page title")
@@ -238,12 +294,16 @@ public class D_CategorySteps{
 
     	categoryPage.click_TopsAndShirts_Category();
 
-    	categoryPage.handleGoogleVignette(() -> {
-
-    	    categoryPage.click_Kids_Category();
-    	    categoryPage.click_TopsAndShirts_Category();
-
-    	});
+        String currenturl= categoryPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                categoryPage.click_Kids_Category();
+                categoryPage.click_TopsAndShirts_Category();
+            });
+        }
         logger.info("clicked on Kids Tops & Shirts Category");
 
     }

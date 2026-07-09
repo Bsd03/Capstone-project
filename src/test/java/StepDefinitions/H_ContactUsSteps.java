@@ -10,10 +10,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.ContactusPage;
+import utilities.GoogleAdsHandler;
 
 public class H_ContactUsSteps {
+
 	private static final Logger logger = LogManager.getLogger(H_ContactUsSteps.class);
 	WebDriver driver=Hooks.driver;
+    GoogleAdsHandler googleHandle=new GoogleAdsHandler(driver);
     ContactusPage contactUs = new ContactusPage(driver);
     
     @Given("User launches browser")

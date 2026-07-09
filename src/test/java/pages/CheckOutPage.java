@@ -104,7 +104,9 @@ public class CheckOutPage {
     //==========================================
     // Actions
     //==========================================
-
+public String getCurrentUrl(){
+    return driver.getCurrentUrl();
+}
     public void clickProceedToCheckout() {
 
         wait.waitForClickable(proceedToCheckoutBtn).click();

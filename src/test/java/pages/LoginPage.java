@@ -16,6 +16,9 @@ public class LoginPage {
         this.driver = driver;
         this.waitUtil = new ExplicitWaitUtil(driver);
     }
+    public String getCurrentUrl(){
+        return driver.getCurrentUrl();
+    }
 
     // Locators
     By signupLoginMenu = By.xpath("//a[contains(text(),'Signup / Login')]");//menu

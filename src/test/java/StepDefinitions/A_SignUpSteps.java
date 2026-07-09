@@ -17,6 +17,7 @@ import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utilities.ExplicitWaitUtil;
+import utilities.GoogleAdsHandler;
 
 
 public class A_SignUpSteps {
@@ -25,6 +26,7 @@ public class A_SignUpSteps {
     WebDriver driver = Hooks.driver;
     SignUPPage signUpPage = new SignUPPage(driver);
     ExplicitWaitUtil explicitWaitutil=new ExplicitWaitUtil(driver);
+    GoogleAdsHandler googleHandler=new GoogleAdsHandler(driver);
 
     // Launches the browser (browser is opened in Hooks)
     @Given("the user launches the browser")
@@ -49,7 +51,22 @@ public class A_SignUpSteps {
     @When("the user clicks on the Signup \\/ Login menu")
     public void the_user_clicks_on_the_signup_login_menu() {
     	logger.info("Clicking Signup/Login menu");
-    	signUpPage.ClickLogin();
+
+        signUpPage.ClickLogin();
+        //get the current url of browser to check if its redirecting to the google Ads After clicking
+        String currenturl= signUpPage.getCurrentUrl();
+        //if broser redirecting to the ad
+       if(currenturl.contains("#google_vignette")) {
+           //calling the googleHandler
+           googleHandler.handleGoogleVignette(() -> {
+               //reperforming the previous step.
+               signUpPage.ClickLogin();
+           });
+
+       }
+
+
+
     }
 
     // Verifies New User Signup section is displayed
@@ -148,6 +165,17 @@ public class A_SignUpSteps {
         explicitWaitutil.waitExplicitily(driver);
 
     	signUpPage.clickAccountButton();
+        //get the current url of browser to check if its redirecting to the google Ads After clicking
+        String currenturl= signUpPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                signUpPage.clickAccountButton();
+            });
+
+        }
     }
 
     // Verifies account is created
@@ -169,15 +197,24 @@ public class A_SignUpSteps {
 
       logger.info("Click on Continue Button");
       signUpPage.clickContinueButton();
-        signUpPage.handleGoogleVignette(() -> {
-            signUpPage.clickContinueButton();
-        });
+        //get the current url of browser to check if its redirecting to the google Ads After clicking
+        String currenturl= signUpPage.getCurrentUrl();
+        //if broser redirecting to the ad
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                signUpPage.clickContinueButton();
+            });
+
+        }
 
     }
 //Delete Account
     @Given("User is on the Home page")
     public void user_is_on_the_home_page() {
       String verifyhome= signUpPage.VerifyHomePage();
+
       Assert.assertTrue(verifyhome.contains("AutomationExercise"),"User is on homepage");
         System.out.println("User is on Home Page");
     }
@@ -185,8 +222,17 @@ public class A_SignUpSteps {
     @When("User clicks on Delete Account")
     public void user_clicks_on_delete_account() {
          signUpPage.ClickonDeleteAccount();
+        //if broser redirecting to the ad
+        String currenturl= signUpPage.getCurrentUrl();
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                signUpPage.ClickonDeleteAccount();
+            });
+        }
 
-    }
+        }
 
     @Then("Account Deleted message should be displayed")
     public void account_deleted_message_should_be_displayed() {
@@ -224,6 +270,18 @@ public class A_SignUpSteps {
     	  signUpPage.scrollSignupSection();
         explicitWaitutil.waitExplicitily(driver);
     	  signUpPage.clickSignupButton();
+
+        //if broser redirecting to the ad
+        String currenturl= signUpPage.getCurrentUrl();
+        if(currenturl.contains("#google_vignette")) {
+            //calling the googleHandler
+            googleHandler.handleGoogleVignette(() -> {
+                //reperforming the previous step.
+                signUpPage.scrollSignupSection();
+                explicitWaitutil.waitExplicitily(driver);
+                signUpPage.clickSignupButton();
+            });
+        }
     }
 
     // Verifies required field validation message

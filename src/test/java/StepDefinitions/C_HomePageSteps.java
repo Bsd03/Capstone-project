@@ -16,6 +16,7 @@ import io.cucumber.java.en.When;
 import pages.HomePage;
 
 import utilities.ExplicitWaitUtil;
+import utilities.GoogleAdsHandler;
 
 public class C_HomePageSteps {
 	private static final Logger logger = LogManager.getLogger(C_HomePageSteps.class);
@@ -23,6 +24,7 @@ public class C_HomePageSteps {
     HomePage home=new HomePage(driver);
     Actions actions=new Actions(driver);
     ExplicitWaitUtil util=new ExplicitWaitUtil(driver);
+	GoogleAdsHandler googleHandler=new GoogleAdsHandler(driver);
 	@Given("User launches the Browser")
 	public void user_launches_the_Browser() {
 		logger.info("Launching a browser");
@@ -106,6 +108,15 @@ public class C_HomePageSteps {
 
 		 logger.info("Clicking next slider button");
 		 home.RightSlider().click();
+		String currenturl= home.getCurrentUrl();
+		//if broser redirecting to the ad
+		if(currenturl.contains("#google_vignette")) {
+			//calling the googleHandler
+			googleHandler.handleGoogleVignette(() -> {
+				//reperforming the previous step.
+				home.RightSlider().click();
+			});
+		}
 
 	  
 	}
@@ -160,6 +171,15 @@ public class C_HomePageSteps {
 	public void user_expands_women_category() {
 		logger.info("Expanding Women category");
 		home.clickWomensSection();
+		String currenturl= home.getCurrentUrl();
+		//if broser redirecting to the ad
+		if(currenturl.contains("#google_vignette")) {
+			//calling the googleHandler
+			googleHandler.handleGoogleVignette(() -> {
+				//reperforming the previous step.
+				home.clickWomensSection();
+			});
+		}
 	}
 
 	@Then("Women category subcategories should be displayed")
@@ -178,6 +198,15 @@ public class C_HomePageSteps {
 	public void user_expands_men_category() {
 		logger.info("Expanding Men category");
 		home.clickMensSection();
+		String currenturl= home.getCurrentUrl();
+		//if broser redirecting to the ad
+		if(currenturl.contains("#google_vignette")) {
+			//calling the googleHandler
+			googleHandler.handleGoogleVignette(() -> {
+				//reperforming the previous step.
+				home.clickMensSection();
+			});
+		}
 	}
 
 	@Then("Men category subcategories should be displayed")
@@ -198,6 +227,15 @@ public class C_HomePageSteps {
 		   logger.info("Expanding Kids category");
 
 		home.clickKidsSection();
+		String currenturl= home.getCurrentUrl();
+		//if broser redirecting to the ad
+		if(currenturl.contains("#google_vignette")) {
+			//calling the googleHandler
+			googleHandler.handleGoogleVignette(() -> {
+				//reperforming the previous step.
+				home.clickKidsSection();
+			});
+		}
 	  
 	}
 
@@ -227,6 +265,15 @@ public class C_HomePageSteps {
 	public void user_clicks_view_product_for_a_product() {
 		logger.info("Clicking view Product on a product");
 		home.clickViewProduct();
+		String currenturl= home.getCurrentUrl();
+		//if broser redirecting to the ad
+		if(currenturl.contains("#google_vignette")) {
+			//calling the googleHandler
+			googleHandler.handleGoogleVignette(() -> {
+				//reperforming the previous step.
+				home.clickViewProduct();
+			});
+		}
 	   
 	}
 
@@ -250,6 +297,15 @@ public class C_HomePageSteps {
 
 	    logger.info("Clicking Add To Cart");
 	    home.clickAddtoCart();
+		String currenturl= home.getCurrentUrl();
+		//if broser redirecting to the ad
+		if(currenturl.contains("#google_vignette")) {
+			//calling the googleHandler
+			googleHandler.handleGoogleVignette(() -> {
+				//reperforming the previous step.
+				home.clickAddtoCart();
+			});
+		}
 	}
 
 	@Then("Product should be added to cart successfully")
@@ -295,6 +351,15 @@ public class C_HomePageSteps {
 	    logger.info("Clicking first available brand");
 
 	    home.clickFirstBrand();
+		String currenturl= home.getCurrentUrl();
+		//if broser redirecting to the ad
+		if(currenturl.contains("#google_vignette")) {
+			//calling the googleHandler
+			googleHandler.handleGoogleVignette(() -> {
+				//reperforming the previous step.
+				home.clickFirstBrand();
+			});
+		}
 
 	}
 	@Then("Brand products page should be displayed")
@@ -312,6 +377,15 @@ public class C_HomePageSteps {
 	    logger.info("Scrolling to bottom of page");
 
 	    home.scrollToBottom();
+		String currenturl= home.getCurrentUrl();
+		//if broser redirecting to the ad
+		if(currenturl.contains("#google_vignette")) {
+			//calling the googleHandler
+			googleHandler.handleGoogleVignette(() -> {
+				//reperforming the previous step.
+				home.scrollToBottom();
+			});
+		}
 
 	}
 
@@ -328,7 +402,7 @@ public class C_HomePageSteps {
 	    logger.info("Clicking Scroll Up button");
 
 	    home.clickScrollUpButton();
-	home.handleGoogleVignette(() -> {
+	googleHandler.handleGoogleVignette(() -> {
 		home.clickScrollUpButton();
 		});
 
@@ -350,6 +424,15 @@ public class C_HomePageSteps {
 	@When("User scrolls to bottom of page")
 	public void user_scrolls_to_bottom_of_page() {
 	   home.scrollToBottom();
+		String currenturl= home.getCurrentUrl();
+		//if broser redirecting to the ad
+		if(currenturl.contains("#google_vignette")) {
+			//calling the googleHandler
+			googleHandler.handleGoogleVignette(() -> {
+				//reperforming the previous step.
+				home.scrollToBottom();
+			});
+		}
 	logger.info("User scrolls to bottom of the page");
 
 	   
@@ -359,6 +442,7 @@ public class C_HomePageSteps {
 	public void footer_should_be_displayed() {
 		logger.info("Verifiying footer is displayed or not");
 	  home.Footer().isDisplayed();
+
 	  logger.info("footer is displayed");
 	  
 	}
@@ -376,6 +460,15 @@ public class C_HomePageSteps {
 	    logger.info("Clicking Subscribe button");
 
 	    home.clickSubscribeButton();
+		String currenturl= home.getCurrentUrl();
+		//if broser redirecting to the ad
+		if(currenturl.contains("#google_vignette")) {
+			//calling the googleHandler
+			googleHandler.handleGoogleVignette(() -> {
+				//reperforming the previous step.
+				home.clickSubscribeButton();
+			});
+		}
 
 	}
 
