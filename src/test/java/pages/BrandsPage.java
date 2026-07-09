@@ -82,6 +82,10 @@ public class BrandsPage {
     // never finds the element and times out. Instead we reuse the
     // href-based locators already defined above, which match regardless
     // of the count suffix.
+    
+    public boolean isAllProductsPageDisplayed() {
+        return driver.getCurrentUrl().contains("/products");
+    }
     public void clickBrand(String brandName) {
 
         By locator;

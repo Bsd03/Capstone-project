@@ -36,6 +36,18 @@ public class E_BrandStep {
         brandsPage.clickBrand(brandName);
         logger.info("Successfully clicked brand : {}",brandName);
     }
+ // Verify All Products Page
+    @Then("the All Products page should be displayed")
+    public void the_all_products_page_should_be_displayed() {
+        logger.info("Verifying All Products page is displayed");
+
+        Assert.assertTrue(
+            brandsPage.isAllProductsPageDisplayed(),
+            "All Products page is not displayed"
+        );
+
+        logger.info("All Products page displayed successfully");
+    }
 
     // Verify Brand Page
     @Then("the {string} brand page should be displayed")
