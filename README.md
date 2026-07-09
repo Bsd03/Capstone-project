@@ -68,6 +68,7 @@ Capstone-project
 │           ├── ConfigReader.java
 │           ├── DriverUtil.java
 │           └── ExplicitWaitUtil.java
+│           |__ AllureScreenshotUtil.java
 │
 ├── test
 │   ├── java
@@ -221,6 +222,7 @@ The framework contains reusable utility classes that simplify common automation 
 | **ConfigReader** | Reads configuration values such as browser name, application URL, and other execution settings from the `config.properties` file. |
 | **DriverUtil** | Initializes and manages the Selenium WebDriver instance for different browsers. It is responsible for browser setup and driver lifecycle management. |
 | **ExplicitWaitUtil** | Provides reusable explicit wait methods to synchronize test execution by waiting for elements to become visible, clickable, or present before performing actions. |
+| **AllureScreenshotUtil** | Captures screenshot during test execution and attatches them to Allure Report for better report and failure  scenarios. |
 
 ---
 
