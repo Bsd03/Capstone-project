@@ -437,6 +437,7 @@ Screenshots are captured automatically for every executed scenario.
 They are embedded in:
 
 - Extent Report
+- Cucumber Report
 - Allure Report
 
 This helps in debugging and validating test execution.
