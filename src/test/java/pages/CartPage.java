@@ -34,7 +34,7 @@ public class CartPage {
             By.xpath("//a[contains(@class,'check_out')]");
 
     private By cartRows =
-            By.xpath("//tbody/tr");
+    		By.xpath("//tr[@id[contains(.,'product-')]]");
 
     private By productNames =
             By.xpath("//td[@class='cart_description']/h4/a");
@@ -51,19 +51,17 @@ public class CartPage {
     private By deleteButtons =
             By.xpath("//a[contains(@class,'cart_quantity_delete')]");
 
-    private By emptyCartMessage =
-            By.xpath("//*[contains(text(),'Cart is empty')]");
-
+    By emptyCartMessage =
+    		By.xpath("//*[contains(text(),'Cart is empty!') or contains(text(),'No products')]");
     //==========================
     // Navigation
     //==========================
 
     public void openCart() {
 
-        wait.waitForClickable(driver.findElement(cartMenu)).click();
+        driver.findElement(cartMenu).click();
 
     }
-
     //==========================
     // Checkout
     //==========================

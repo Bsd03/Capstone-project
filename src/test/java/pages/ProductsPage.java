@@ -11,14 +11,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.ExplicitWaitUtil;
+
 public class ProductsPage {
 
     WebDriver driver;
     Actions actions;
+    ExplicitWaitUtil util;
 
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
         actions = new Actions(driver);
+        util=new ExplicitWaitUtil(driver);
     }
 
     // Locators
@@ -153,10 +157,9 @@ public void clickSleevelessDress() {
     }
     //open cart()
     public void viewCartFromPopup() {
+        WebElement cart=util.waitForClickable(driver.findElement( By.xpath("//u[text()='View Cart']")));
+        cart.click();
 
-        driver.findElement(
-                By.xpath("//u[text()='View Cart']")
-        ).click();
     }
     // Increase Quantity
     public void increaseQuantity(String qty) {
@@ -165,6 +168,7 @@ public void clickSleevelessDress() {
         driver.findElement(quantity).sendKeys(qty);
     }
 
-    // Open Cart
+  
+    
     
 }
