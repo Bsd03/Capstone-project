@@ -1,8 +1,8 @@
 package MavenProject.Captsone_project;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.testng.annotations.Test;
 
-import org.junit.jupiter.api.Test;
+import static org.testng.Assert.assertTrue;
 
 /**
  * Unit test for simple App.
