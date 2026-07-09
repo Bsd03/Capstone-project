@@ -3,6 +3,7 @@ package utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
  
 public class DriverUtil {
  
@@ -15,6 +16,11 @@ public class DriverUtil {
             if (browser.equalsIgnoreCase("chrome")) {
                 driver = new ChromeDriver();
             } else if (browser.equalsIgnoreCase("edge")) {
+            		EdgeOptions options=new EdgeOptions();
+            		options.addArguments("--headless=new");
+            		options.addArguments("--disable-gpu");
+            		options.addArguments("--no-sandbox");
+            		options.addArguments("--disable-dev-shm-usage");
                 driver = new EdgeDriver();
             }
  
