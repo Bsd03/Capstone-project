@@ -437,6 +437,7 @@ Screenshots are captured automatically for every executed scenario.
 They are embedded in:
 
 - Extent Report
+- Cucumber Report
 - Allure Report
 
 This helps in debugging and validating test execution.
@@ -531,22 +532,6 @@ Then run:
 ```bash
 allure serve allure-results
 ```
-
-# Framework Design
-
-The framework follows a layered architecture consisting of:
-
-- Base Class
-- Hooks
-- Page Object Model (POM)
-- Step Definitions
-- Feature Files
-- Driver Utility
-- Explicit Wait Utility
-- Configuration Management
-- Logging
-- Reporting
-
 ---
 
 # Major Maven Dependencies
@@ -557,6 +542,7 @@ The framework follows a layered architecture consisting of:
 - TestNG
 - Log4j2
 - Extent Reports
+- Cucumber Reports
 - Allure Reports
 
 ---

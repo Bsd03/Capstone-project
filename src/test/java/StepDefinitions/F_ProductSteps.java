@@ -18,19 +18,11 @@ public class F_ProductSteps {
  
     private static final Logger logger =
             LogManager.getLogger(F_ProductSteps.class);
- 
-  WebDriver driver=Hooks.driver;
-  ProductsPage productsPage= new ProductsPage(driver);
- 
-    private String productId;
-    private String productName;
-
-    // Constructor
-   // public ProductSteps() {
-     //   this.driver = Hooks.driver;
-       // this.productsPage = new ProductsPage(driver);
-   // }
- 
+    			WebDriver driver=Hooks.driver;
+    			ProductsPage productsPage= new ProductsPage(driver);
+    			
+    			private String productId;
+    			private String productName;
     // -------------------------------------------------
     // Click Products menu
     // Feature:
@@ -39,14 +31,10 @@ public class F_ProductSteps {
     
     @Given("the user navigates to Automation exercise Website")
     public void the_user_navigates_to_automation_exercise_website() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
-    	System.out.println("Navigated to the automation website");
+    		logger.info("Navigated to the automation website");
     }
     @Then("the Products Page of All Products page should be displayed")
     public void the_products_page_of_all_products_page_should_be_displayed() {
-        // Write code here that turns the phrase above into concrete actions
-
         logger.info("Verifying All Products page");
  
         Assert.assertTrue(
@@ -58,7 +46,6 @@ public class F_ProductSteps {
     
     @When("the user clicks on the {string} menu")
     public void the_user_clicks_on_the_menu(String menu) {
- 
         logger.info("Clicking menu: " + menu);
  
         if (menu.equalsIgnoreCase("Products")) {
@@ -67,23 +54,6 @@ public class F_ProductSteps {
             Assert.fail("Unsupported menu: " + menu);
         }
     }
- 
-    // -------------------------------------------------
-    // Verify All Products page
-    // Feature:
-    // Then the All Products page should be displayed
-//    // -------------------------------------------------
-//    @Then("the Products Page All Products page should be displayed")
-//    public void the_Products_Page_all_products_page_should_be_displayed() {
-// 
-//        logger.info("Verifying All Products page");
-// 
-//        Assert.assertTrue(
-//                driver.getCurrentUrl().contains("/products"),
-//                "All Products page is not displayed"
-//        );
-//    }
-// 
     // -------------------------------------------------
     // Verify all products list
     // -------------------------------------------------
@@ -326,10 +296,7 @@ public class F_ProductSteps {
     @When("the user clicks the Add to Cart button")
     public void the_user_clicks_the_add_to_cart_button() {
  
-      productsPage.addToCart();
-     
- 
-        
+      productsPage.addToCart();   
     }
  
     // -------------------------------------------------
