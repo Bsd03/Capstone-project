@@ -68,6 +68,7 @@ Capstone-project
 │           ├── ConfigReader.java
 │           ├── DriverUtil.java
 │           └── ExplicitWaitUtil.java
+│           |__ AllureScreenshotUtil.java
 │
 ├── test
 │   ├── java
