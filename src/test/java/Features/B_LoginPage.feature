@@ -21,7 +21,7 @@ Scenario Outline: Verify login with valid credentials
 
 Examples:
 | Email         | Password  | UserName |
-| iut@gmail.com | Afrin*123 | afrin    |
+| iut@gmail.com | Afrin*123 | Afrin    |
 
 Scenario Outline: Verify login with invalid credentials
     When the user enters login Email Address "<Email>"
