@@ -1,9 +1,10 @@
 package StepDefinitions;
 
 import io.cucumber.java.en.Given;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import Hooks.Hooks;
@@ -16,24 +17,24 @@ import utilities.ExplicitWaitUtil;
 public class D_CategorySteps{
 
     // Create CategoryPage object
-	
+	private static final Logger logger = LogManager.getLogger(D_CategorySteps.class);
     WebDriver driver = Hooks.driver;
     CategoryPage categoryPage = new CategoryPage(driver);
     ExplicitWaitUtil explicitWaitutil=new ExplicitWaitUtil(driver);
     @Given("User launches the browser")
     public void User_launches_the_browser() {
         // Write code here that turns the phrase above into concrete actions
-        System.out.println("Launching Browser");
+        logger.info("Launching Browser");
     }
     @Given("User navigates to Automation Exercise Website")
     public void user_navigates_to_automation_exercise_website() {
         // Write code here that turns the phrase above into concrete actions
-        System.out.println("Navigated to Automation Exercise Website");
+        logger.info("Navigated to Automation Exercise Website");
     }
     @Given("User is on the home page")
     public void user_is_on_the_home_page() {
         // Write code here that turns the phrase above into concrete actions
-        System.out.println("Verifying Home Page");
+        logger.info("Verifying Home Page");
         Assert.assertTrue(driver.getTitle().contains("Automation Exercise"));
     }
     // ========================= WOMEN CATEGORY =========================
@@ -43,7 +44,7 @@ public class D_CategorySteps{
     public void user_clicks_on_women_category() {
 
         categoryPage.click_Women_Category();
-        System.out.println("Women Category Clicked");
+        logger.info("Women Category Clicked");
 
     }
 
@@ -64,10 +65,10 @@ public class D_CategorySteps{
     // Verify Dress category page title is displayed.
     @Then("User should see Dress category title")
     public void User_should_see_Dress_category_title() {
-        System.out.println("Women Dress Category Verifying__");
+        logger.info("Women Dress Category Verifying.");
 
         String actualTitle = categoryPage.getBrandTitle();
-        System.out.println(actualTitle);
+        logger.info("Actual Title :{} ",actualTitle);
 
 
         Assert.assertTrue(actualTitle.contains("DRESS") || actualTitle.contains("Dress"),
@@ -78,7 +79,7 @@ public class D_CategorySteps{
     @And("User clicks on Tops subcategory")
     public void user_clicks_on_tops_subcategory() {
 
-        System.out.println("Women Tops Category Clicked");
+        logger.info("Women Tops Category Clicked");
         categoryPage.click_Tops_Category();
 
         categoryPage.handleGoogleVignette(() -> {
@@ -93,10 +94,10 @@ public class D_CategorySteps{
     // Verify tops category page title
     @Then("User should see Top category page title")
     public void User_should_see_Top_category_title() {
-        System.out.println("Women Tops Category Verifying__");
+        logger.info("Women Tops Category Verifying__");
       
         String actualTitle = categoryPage.getBrandTitle();
-        System.out.println(actualTitle);
+        logger.info("Actual Title : {} ",actualTitle);
 
 
         Assert.assertTrue(actualTitle.contains("TOPS") || actualTitle.contains("Tops"),
@@ -117,18 +118,18 @@ public class D_CategorySteps{
 
     	});
 
-        System.out.println("Women Saree Category Clicked");
+        logger.info("Women Saree Category Clicked");
 
     }
     // Verify Saree category page title
     @Then("User should see Saree page title")
     public void User_should_see_Saree_category_title() {
-        System.out.println("Women Saree Category Verifying__");
-        System.out.println(driver.getCurrentUrl());
+        logger.info("Women Saree Category Verifying__");
+        logger.info("Current URL : {}",driver.getCurrentUrl());
      
         String actualTitle = categoryPage.getBrandTitle();
 
-        System.out.println(actualTitle);
+        logger.info("Actual Title: {}",actualTitle);
 
 
         Assert.assertTrue(actualTitle.contains("SAREE") || actualTitle.contains("Saree"),
@@ -141,7 +142,7 @@ public class D_CategorySteps{
     public void user_clicks_on_men_category() {
 
         categoryPage.click_Men_Category();
-        System.out.println("men Category click");
+        logger.info("men Category click");
     }
 
     // Click on Tshirts subcategory
@@ -156,7 +157,7 @@ public class D_CategorySteps{
 
     	});
       
-        System.out.println("men  Category  Tshirt click");
+        logger.info("men  Category  Tshirt click");
     }
     @Then("User should see Tshirt category page title")
     public void User_should_see_Tshirt_category_title() {
@@ -164,7 +165,7 @@ public class D_CategorySteps{
    
         String actualTitle = categoryPage.getBrandTitle();
 
-        System.out.println(actualTitle);
+        logger.info("Actual Title :{}",actualTitle);
 
 
         Assert.assertTrue(actualTitle.contains("TSHIRTS") || actualTitle.contains("Tshirts"),
@@ -181,15 +182,15 @@ public class D_CategorySteps{
     	    categoryPage.click_Jeans_Category();
 
     	});
-        System.out.println("men Jeans Category click");
+        logger.info("men Jeans Category click");
     }
     @Then("User should see Jeans category page title")
     public void User_should_see_Jeans_category_title() {
-        System.out.println("men Category Jeans Verifying__");
+        logger.info("men Category Jeans Verifying__");
       
         String actualTitle = categoryPage.getBrandTitle();
 
-        System.out.println(actualTitle);
+        logger.info("ActualTitle : {}",actualTitle);
 
 
         Assert.assertTrue(actualTitle.contains("JEANS") || actualTitle.contains("Jeans"),
@@ -202,7 +203,7 @@ public class D_CategorySteps{
     public void user_clicks_on_kids_category() {
 
         categoryPage.click_Kids_Category();
-        System.out.println("clicked on Kids Category");
+        logger.info("clicked on Kids Category");
     }
 
     // Click on Kids Dress subcategory
@@ -217,15 +218,15 @@ public class D_CategorySteps{
     	    categoryPage.click_KidsDress_Category();
 
     	});;
-        System.out.println("clicked on Kids Dress Category");
+        logger.info("clicked on Kids Dress Category");
     }
     @Then("User should see Dress page title")
     public void User_should_see_Dress_page_title() {
-        System.out.println("Verifying on Kids Dress Category");
+        logger.info("Verifying on Kids Dress Category");
       
         String actualTitle = categoryPage.getBrandTitle();
 
-        System.out.println(actualTitle);
+        logger.info("Actual Title : {}",actualTitle);
 
 
         Assert.assertTrue(actualTitle.contains("DRESS") || actualTitle.contains("Dress"),
@@ -243,16 +244,16 @@ public class D_CategorySteps{
     	    categoryPage.click_TopsAndShirts_Category();
 
     	});
-        System.out.println("clicked on Kids Tops & Shirts Category");
+        logger.info("clicked on Kids Tops & Shirts Category");
 
     }
     @Then("User should see Tops & Shirts  page title")
     public void User_should_see_Tops_Shirts_title() {
-        System.out.println("Verifying on Kids Tops & Shirts Category");
+        logger.info("Verifying on Kids Tops & Shirts Category");
      
         String actualTitle = categoryPage.getBrandTitle();
 
-        System.out.println(actualTitle);
+        logger.info("Actual Title :{}",actualTitle);
 
 
         Assert.assertTrue(actualTitle.contains("Tops & Shirts") || actualTitle.contains("TOPS & SHIRTS"),
