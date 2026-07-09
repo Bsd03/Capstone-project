@@ -1,8 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite  name="Cucumber Suite">
-	<test name="Cucumber Test">
-		<classes>
-			<class name="runner.runner"/>
-		</classes>
-	</test>
+
+
+
+<suite
+    name="Automation Exercise TestNG Suite"
+    parallel="false">
+
+    <test name="Automation Exercise Tests">
+
+        <!-- ===================================== -->
+        <!-- CHECKOUT TEST PARAMETERS              -->
+        <!-- ===================================== -->
+
+        <parameter
+            name="checkoutEmail"
+            value="iut@gmail.com"/>
+
+        <parameter
+            name="checkoutPassword"
+            value="Afrin*123"/>
+
+        <parameter
+            name="productId"
+            value="1"/>
+
+        <parameter
+            name="cardName"
+            value="Rohini"/>
+
+        <parameter
+            name="cardNumber"
+            value="4111111111111111"/>
+
+        <parameter
+            name="cvc"
+            value="123"/>
+
+        <parameter
+            name="expiryMonth"
+            value="12"/>
+
+        <parameter
+            name="expiryYear"
+            value="2030"/>
+
+
+        <!-- ===================================== -->
+        <!-- ALL TESTNG TEST CLASSES               -->
+        <!-- ===================================== -->
+
+        <classes>
+
+            <class name="testngTests.HomeTest"/>
+
+            <class name="testngTests.LoginTest"/>
+
+            <class name="testngTests.SignupTest"/>
+
+            <class name="testngTests.CategoryTest"/>
+
+            <class name="testngTests.BrandsTest"/>
+
+            <class name="testngTests.ContactUsTest"/>
+
+            <class name="testngTests.ProductsTest"/>
+
+            <class name="testngTests.CheckoutTest"/>
+
+        </classes>
+
+    </test>
+
 </suite>

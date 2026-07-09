@@ -393,4 +393,91 @@ public void ClickonDeleteAccount(){
             System.out.println("No Google Advertisement Detected");
         }
     }
+  //For Testng
+    public String getCreatedMessageTest() {
+
+        WebDriverWait wait =
+                new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        wait.until(ExpectedConditions.or(
+                ExpectedConditions.urlContains("account_created"),
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.cssSelector("[data-qa='account-created']")
+                )
+        ));
+
+        WebElement message = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.cssSelector("[data-qa='account-created']")
+                )
+        );
+
+        return message.getText().trim();
+    }
+    
+    public boolean isAccountInformationPageDisplayed() {
+
+        WebDriverWait wait =
+                new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        try {
+
+            WebElement heading = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(
+                            By.xpath(
+                                "//*[contains(text(),'Enter Account Information')]"
+                            )
+                    )
+            );
+
+            return heading.isDisplayed();
+
+        } catch (Exception e) {
+
+            System.out.println(
+                    "Account Information page not displayed");
+
+            System.out.println(
+                    "Current URL: " + driver.getCurrentUrl());
+
+            return false;
+        }
+    }
+    
+    public boolean isAccountCreatedPageDisplayed() {
+
+        WebDriverWait wait =
+                new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        try {
+
+            wait.until(
+                    ExpectedConditions.urlContains(
+                            "account_created"));
+
+            WebElement message = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(
+                            By.cssSelector(
+                                    "[data-qa='account-created']")
+                    )
+            );
+
+            return message.isDisplayed();
+
+        } catch (Exception e) {
+
+            System.out.println(
+                    "Account Created page not displayed");
+
+            System.out.println(
+                    "Current URL: "
+                    + driver.getCurrentUrl());
+
+            System.out.println(
+                    "Current Title: "
+                    + driver.getTitle());
+
+            return false;
+        }
+    }
 }
