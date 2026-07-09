@@ -21,7 +21,7 @@ public class DriverUtil {
             		options.addArguments("--disable-gpu");
             		options.addArguments("--no-sandbox");
             		options.addArguments("--disable-dev-shm-usage");
-                driver = new EdgeDriver();
+                driver = new EdgeDriver(options);
             }
  
             driver.manage().window().maximize();
