@@ -34,6 +34,7 @@ public class ProductsPage {
     
     By addtoCart = By.xpath("//button[contains(@class,'cart')]");
     By continueshopping=By.xpath("//*[@id=\"cartModal\"]/div/div/div[3]/button");
+    
 
     @FindBy(xpath="/html/body/section/div/div/div[2]/div[2]/div[2]/div/h2") WebElement BlueTopTitle;
 
@@ -128,8 +129,21 @@ public void clickSleevelessDress() {
         driver.findElement(quantity).clear();
         driver.findElement(quantity).sendKeys(qty);
     }
+	public void addToCart(String string) {
+		String cart=
+				"//a[@data-product-id='PRODUCT_ID']"
+                .replace("PRODUCT_ID", string);
+
+		  WebElement addToCartButton = driver.findElement(By.xpath(cart));
+
+	        ((JavascriptExecutor) driver)
+	                .executeScript("arguments[0].click();", addToCartButton);
+		// TODO Auto-generated method stub
+		
+		
+	}
+	
+	
 
   
-    
-    
 }

@@ -10,6 +10,7 @@ import pages.BrandsPage;
 import utilities.ExcelReader;
 
 public class BrandsTest extends BaseClassTestng {
+	
 
     private BrandsPage brandsPage;
 

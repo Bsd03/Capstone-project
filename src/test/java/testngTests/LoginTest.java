@@ -1,21 +1,37 @@
 package testngTests;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 
 import base.BaseClassTestng;
 import pages.LoginPage;
 import utilities.ExcelReader;
+import utilities.Extentreport;
 
 public class LoginTest extends BaseClassTestng {
 
     private LoginPage loginPage;
+    public static ExtentReports extent;
+    public static ExtentTest test;
+
+        @BeforeSuite
+        public void setupReport() {
+
+            extent = Extentreport.getReportInstance();
+
+        }
 
     @BeforeMethod(alwaysRun = true)
     public void initializeLoginPage() {
 
+    	
         System.out.println(
                 "Opening Login Page directly");
 
@@ -40,6 +56,13 @@ public class LoginTest extends BaseClassTestng {
             String email,
             String password,
             String expectedResult) {
+
+    	 test = extent.createTest(
+    	            "Verify Login Using Excel - " + email);
+
+    	    test.info("Email: " + email);
+    	    test.info("Expected Result: " + expectedResult);
+
 
         System.out.println("==========================");
 
@@ -70,6 +93,7 @@ public class LoginTest extends BaseClassTestng {
 
             System.out.println(
                     "Invalid login verified successfully");
+            test.pass("Invalid login verified successfully");
 
         } else if (
                 expectedResult.equalsIgnoreCase("Valid")) {
@@ -80,9 +104,10 @@ public class LoginTest extends BaseClassTestng {
 
             System.out.println(
                     "Valid login verified successfully");
+            test.pass("Valid login verified successfully");
 
         } else {
-
+        	 test.fail("Incorrect ExpectedResult in Excel");
             Assert.fail(
                     "Wrong ExpectedResult in Excel: "
                     + expectedResult);
@@ -91,6 +116,11 @@ public class LoginTest extends BaseClassTestng {
 
     @Test(priority = 1)
     public void verifyLoginPageLoadsSuccessfully() {
+
+    	 test = extent.createTest(
+    	            "Verify Login Page Loads Successfully");
+
+    	    test.info("Validating Login Page UI");
 
         Assert.assertTrue(
                 loginPage.isLoginSectionDisplayed(),
@@ -107,10 +137,19 @@ public class LoginTest extends BaseClassTestng {
         Assert.assertTrue(
                 loginPage.isLoginButtonEnabled(),
                 "Login button is not enabled");
+
+        test.pass("Login page loaded successfully");
+
     }
 
     @Test(priority = 2)
     public void verifyValidLogin() {
+
+test = extent.createTest(
+            "Verify Valid Login");
+
+    test.info("Entering valid credentials");
+
 
         loginPage.enterEmail(
                 "iut@gmail.com");
@@ -123,6 +162,9 @@ public class LoginTest extends BaseClassTestng {
         Assert.assertTrue(
                 loginPage.isLoggedIn(),
                 "User login failed");
+
+        test.pass("User logged in successfully");
+
     }
 
     @DataProvider(name = "invalidLoginData")
@@ -156,6 +198,12 @@ public class LoginTest extends BaseClassTestng {
             String email,
             String password) {
 
+test = extent.createTest(
+            "Verify Invalid Login - " + email);
+
+    test.info("Testing invalid login");
+
+
         loginPage.enterEmail(email);
 
         loginPage.enterPassword(password);
@@ -166,10 +214,20 @@ public class LoginTest extends BaseClassTestng {
                 loginPage.getLoginErrorMessage(),
                 "Your email or password is incorrect!",
                 "Incorrect error message");
+
+        test.pass("Invalid login validation successful");
+
     }
 
     @Test(priority = 4)
     public void verifyEmptyFieldsValidation() {
+
+test = extent.createTest(
+            "Verify Empty Fields Validation");
+
+    test.info(
+            "Clicking login without entering credentials");
+
 
         loginPage.clickLogin();
 
@@ -186,10 +244,20 @@ public class LoginTest extends BaseClassTestng {
         Assert.assertFalse(
                 validationMessage.isEmpty(),
                 "Validation message not displayed");
+
+        test.pass(
+                   "Validation message displayed successfully");
+
     }
 
     @Test(priority = 5)
     public void verifyLogout() {
+
+test = extent.createTest(
+            "Verify Logout");
+
+    test.info("Logging into application");
+
 
         loginPage.enterEmail(
                 "iut@gmail.com");
@@ -208,5 +276,13 @@ public class LoginTest extends BaseClassTestng {
         Assert.assertTrue(
                 loginPage.isLoginSectionDisplayed(),
                 "Login page not displayed after logout");
+
+        test.pass(
+                   "Logout completed successfully");
+
+    }
+    @AfterSuite
+    public void flushReport() {
+        extent.flush();
     }
 }
