@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Automation Exercise TestNG Suite]">
+  <test thread-count="5" name="Automation Exercise Tests(failed)">
+    <parameter name="cvc" value="123"/>
+    <parameter name="productId" value="1"/>
+    <parameter name="cardName" value="Rohini"/>
+    <parameter name="expiryMonth" value="12"/>
+    <parameter name="checkoutEmail" value="iut@gmail.com"/>
+    <parameter name="checkoutPassword" value="Afrin*123"/>
+    <parameter name="expiryYear" value="2030"/>
+    <parameter name="cardNumber" value="4111111111111111"/>
     <classes>
-      <class name="runner.runner">
+      <class name="testngTests.CheckoutTest">
         <methods>
-          <include name="runScenario" invocation-numbers="34"/>
-          <include name="tearDownClass"/>
-          <include name="setUpClass"/>
+          <include name="setupReport"/>
+          <include name="verifyPaymentDetailsEntry" invocation-numbers="0"/>
+          <include name="verifyReviewOrderDisplayed" invocation-numbers="0"/>
+          <include name="verifyCompleteOrder" invocation-numbers="0"/>
+          <include name="verifyCheckoutPageDisplayed" invocation-numbers="0"/>
+          <include name="setup"/>
+          <include name="verifyDeliveryAddressDisplayed" invocation-numbers="0"/>
+          <include name="verifyPlaceOrder" invocation-numbers="0"/>
+          <include name="flushReport"/>
+          <include name="initializeCheckoutTest"/>
+          <include name="tearDown"/>
+          <include name="verifyBillingAddressDisplayed" invocation-numbers="0"/>
+          <include name="verifyDownloadInvoiceButton" invocation-numbers="0"/>
         </methods>
-      </class> <!-- runner.runner -->
+      </class> <!-- testngTests.CheckoutTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Automation Exercise Tests(failed) -->
+</suite> <!-- Failed suite [Automation Exercise TestNG Suite] -->

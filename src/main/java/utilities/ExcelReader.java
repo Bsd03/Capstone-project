@@ -16,7 +16,7 @@ public class ExcelReader {
     // Your Excel file is directly inside src/test/resources
     private static final String EXCEL_PATH =
             System.getProperty("user.dir")
-            + "/src/test/resources/testdata.xlsx";
+            + "/src/test/resources/testdata/testdata.xlsx";
 
     public static Object[][] getExcelData(String sheetName) {
 

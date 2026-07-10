@@ -128,6 +128,8 @@ public void clickSleevelessDress() {
         driver.findElement(quantity).clear();
         driver.findElement(quantity).sendKeys(qty);
     }
+    
+    
 
   
     
