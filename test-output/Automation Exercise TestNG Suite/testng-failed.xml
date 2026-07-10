@@ -11,23 +11,16 @@
     <parameter name="expiryYear" value="2030"/>
     <parameter name="cardNumber" value="4111111111111111"/>
     <classes>
-      <class name="testngTests.CheckoutTest">
+      <class name="testngTests.CategoryTest">
         <methods>
           <include name="setupReport"/>
-          <include name="verifyPaymentDetailsEntry" invocation-numbers="0"/>
-          <include name="verifyReviewOrderDisplayed" invocation-numbers="0"/>
-          <include name="verifyCompleteOrder" invocation-numbers="0"/>
-          <include name="verifyCheckoutPageDisplayed" invocation-numbers="0"/>
           <include name="setup"/>
-          <include name="verifyDeliveryAddressDisplayed" invocation-numbers="0"/>
-          <include name="verifyPlaceOrder" invocation-numbers="0"/>
           <include name="flushReport"/>
-          <include name="initializeCheckoutTest"/>
+          <include name="initializeCategoryPage"/>
           <include name="tearDown"/>
-          <include name="verifyBillingAddressDisplayed" invocation-numbers="0"/>
-          <include name="verifyDownloadInvoiceButton" invocation-numbers="0"/>
+          <include name="verifyKidsTopsCategory"/>
         </methods>
-      </class> <!-- testngTests.CheckoutTest -->
+      </class> <!-- testngTests.CategoryTest -->
     </classes>
   </test> <!-- Automation Exercise Tests(failed) -->
 </suite> <!-- Failed suite [Automation Exercise TestNG Suite] -->

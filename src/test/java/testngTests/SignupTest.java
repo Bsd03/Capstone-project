@@ -10,14 +10,28 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.AfterSuite; 
+import org.testng.annotations.BeforeSuite;  
+import org.testng.annotations.Test;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.ExtentReports;
 import base.BaseClassTestng;
 import pages.SignUPPage;
 import utilities.ExcelReader;
+import utilities.Extentreport;
 
 public class SignupTest extends BaseClassTestng {
 
     private SignUPPage signUpPage;
+    private ExtentReports extent;
+    private ExtentTest test;
+
+
+@BeforeSuite
+    public void setupReport() {
+
+        extent = Extentreport.getReportInstance();
+    }
 
     @BeforeMethod(alwaysRun = true)
     public void initializeSignupPage() {
@@ -58,6 +72,7 @@ public class SignupTest extends BaseClassTestng {
             String city,
             String zipcode,
             String mobile) {
+    	test = extent.createTest("Verify Signup Using Excel Data");
 
         System.out.println("Starting Excel Signup Test");
 
@@ -129,6 +144,7 @@ public class SignupTest extends BaseClassTestng {
     
     @Test(priority = 1)
     public void verifySignupSection() {
+    	test = extent.createTest("Verify Signup Section");
 
         Assert.assertTrue(
                 signUpPage.isSignupSectionDisplayed(),
@@ -141,10 +157,12 @@ public class SignupTest extends BaseClassTestng {
         Assert.assertTrue(
                 signUpPage.isSignupButtonEnabled(),
                 "Signup button is not enabled");
+        test.pass("Signup Section verified successfully");
     }
 
     @Test(priority = 2)
     public void verifyValidRegistration() {
+    	test = extent.createTest("Verify Valid Registration");
 
         System.out.println(
                 "Starting Valid Registration Test");
@@ -223,10 +241,12 @@ public class SignupTest extends BaseClassTestng {
 
         System.out.println(
                 "Valid Registration Test Passed");
+        test.pass("Valid Registration completed successfully");
     }
 
     @Test(priority = 3)
     public void verifyExistingEmailRegistration() {
+    	test = extent.createTest("Verify Existing Email Registration");
 
         signUpPage.enterUsername(
                 "Rohini");
@@ -240,8 +260,9 @@ public class SignupTest extends BaseClassTestng {
                 signUpPage.getEmailExistsMessage(),
                 "Email Address already exist!",
                 "Existing email error message mismatch");
+    
+    test.pass("Existing Email validation verified successfully");
     }
-
     @DataProvider(name = "invalidEmails")
     public Object[][] invalidEmailData() {
 
@@ -264,6 +285,9 @@ public class SignupTest extends BaseClassTestng {
     public void verifyInvalidEmailFormat(
             String name,
             String email) {
+    	test = extent.createTest(
+                "Verify Invalid Email Format : " + email);
+
 
         signUpPage.enterUsername(name);
 
@@ -289,10 +313,12 @@ public class SignupTest extends BaseClassTestng {
         Assert.assertFalse(
                 validationMessage.isEmpty(),
                 "Email validation message not displayed");
+        test.pass("Invalid email validation verified successfully");
     }
 
     @Test(priority = 5)
     public void verifyMandatoryFieldsEmpty() {
+    	test = extent.createTest("Verify Mandatory Fields Empty");
 
         signUpPage.clickSignupButton();
 
@@ -314,5 +340,15 @@ public class SignupTest extends BaseClassTestng {
         Assert.assertFalse(
                 validationMessage.isEmpty(),
                 "Required validation message not displayed");
+        test.pass("Mandatory field validation verified successfully");
     }
+
+@AfterSuite
+    public void flushReport() {
+
+        if (extent != null) {
+            extent.flush();
+        }
+    }
+
 }

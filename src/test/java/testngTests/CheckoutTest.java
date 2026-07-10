@@ -12,6 +12,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterSuite;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
+import utilities.Extentreport;
+
 import base.BaseClassTestng;
 import pages.CheckOutPage;
 import pages.LoginPage;
@@ -23,6 +31,16 @@ public class CheckoutTest extends BaseClassTestng {
     private ProductsPage productsPage;
     private LoginPage loginPage;
     private WebDriverWait wait;
+    ExtentReports extent;
+    ExtentTest test;
+
+
+@BeforeSuite
+public void setupReport() {
+
+    extent = Extentreport.getReportInstance();
+}
+
 
     // =====================================================
     // BEFORE EACH TEST
@@ -83,7 +101,7 @@ public class CheckoutTest extends BaseClassTestng {
                 ExpectedConditions
                         .urlContains("/products"));
 
-        productsPage.addToCart(productId);
+        productsPage.addToCart();
 
         By viewCartPopup =
                 By.xpath(
@@ -234,6 +252,7 @@ public class CheckoutTest extends BaseClassTestng {
             String email,
             String password,
             String productId) {
+    	test = extent.createTest("Verify Checkout Page Displayed");
 
         loginUser(email, password);
 
@@ -245,6 +264,7 @@ public class CheckoutTest extends BaseClassTestng {
                 driver.getCurrentUrl()
                         .contains("/checkout"),
                 "Checkout page is not displayed");
+        test.pass("Checkout page displayed successfully");
 
         System.out.println(
                 "Checkout page displayed successfully");
@@ -264,6 +284,7 @@ public class CheckoutTest extends BaseClassTestng {
             String email,
             String password,
             String productId) {
+    	test = extent.createTest("Verify Delivery Address Displayed");
 
         loginUser(email, password);
 
@@ -286,6 +307,7 @@ public class CheckoutTest extends BaseClassTestng {
                         .trim()
                         .isEmpty(),
                 "Delivery address is empty");
+        test.pass("Delivery address displayed successfully");
 
         System.out.println(
                 "Delivery Address:");
@@ -308,6 +330,7 @@ public class CheckoutTest extends BaseClassTestng {
             String email,
             String password,
             String productId) {
+    	test = extent.createTest("Verify Billing Address Displayed");
 
         loginUser(email, password);
 
@@ -330,6 +353,7 @@ public class CheckoutTest extends BaseClassTestng {
                         .trim()
                         .isEmpty(),
                 "Billing address is empty");
+        test.pass("Billing address displayed successfully");
 
         System.out.println(
                 "Billing Address:");
@@ -352,6 +376,7 @@ public class CheckoutTest extends BaseClassTestng {
             String email,
             String password,
             String productId) {
+    	test = extent.createTest("Verify Review Order Displayed");
 
         loginUser(email, password);
 
@@ -380,6 +405,7 @@ public class CheckoutTest extends BaseClassTestng {
         Assert.assertTrue(
                 cartProduct.isDisplayed(),
                 "Product not displayed in order summary");
+        test.pass("Review order displayed successfully");
 
         System.out.println(
                 "Review Order verified successfully");
@@ -399,6 +425,7 @@ public class CheckoutTest extends BaseClassTestng {
             String email,
             String password,
             String productId) {
+    	test = extent.createTest("Verify Place Order");
 
         loginUser(email, password);
 
@@ -412,6 +439,7 @@ public class CheckoutTest extends BaseClassTestng {
                 driver.getCurrentUrl()
                         .contains("/payment"),
                 "Payment page is not displayed");
+        test.pass("Place Order verified successfully");
 
         System.out.println(
                 "Payment page displayed successfully");
@@ -441,6 +469,7 @@ public class CheckoutTest extends BaseClassTestng {
             String cvc,
             String expiryMonth,
             String expiryYear) {
+    	test = extent.createTest("Verify Payment Details Entry");
 
         loginUser(email, password);
 
@@ -491,6 +520,7 @@ public class CheckoutTest extends BaseClassTestng {
                         .getAttribute("value"),
                 expiryYear,
                 "Expiry year mismatch");
+        test.pass("Payment details entered and verified successfully");
 
         System.out.println(
                 "Payment details verified successfully");
@@ -520,6 +550,7 @@ public class CheckoutTest extends BaseClassTestng {
             String cvc,
             String expiryMonth,
             String expiryYear) {
+    	test = extent.createTest("Verify Complete Order");
 
         loginUser(email, password);
 
@@ -575,6 +606,7 @@ public class CheckoutTest extends BaseClassTestng {
         Assert.assertTrue(
                 continueButton.isDisplayed(),
                 "Continue button was not displayed");
+        test.pass("Order completed successfully");
 
         System.out.println(
                 "Order completed successfully");
@@ -604,6 +636,7 @@ public class CheckoutTest extends BaseClassTestng {
             String cvc,
             String expiryMonth,
             String expiryYear) {
+    	test = extent.createTest("Verify Download Invoice Button");
 
         loginUser(email, password);
 
@@ -641,8 +674,20 @@ public class CheckoutTest extends BaseClassTestng {
         Assert.assertTrue(
                 invoiceButton.isDisplayed(),
                 "Download Invoice button not displayed");
+        test.pass("Download Invoice button displayed successfully");
 
         System.out.println(
                 "Download Invoice button displayed successfully");
     }
+
+
+@AfterSuite
+public void flushReport() {
+
+    if (extent != null) {
+        extent.flush();
+    }
+}
+
+
 }

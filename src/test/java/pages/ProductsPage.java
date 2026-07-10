@@ -129,6 +129,7 @@ public void clickSleevelessDress() {
         driver.findElement(quantity).clear();
         driver.findElement(quantity).sendKeys(qty);
     }
+
 	public void addToCart(String string) {
 		String cart=
 				"//a[@data-product-id='PRODUCT_ID']"
@@ -144,6 +145,7 @@ public void clickSleevelessDress() {
 	}
 	
 	
+
 
   
 }

@@ -1,0 +1,507 @@
+<html>
+<head>
+<title>TestNG:  Automation Exercise Tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Automation Exercise Tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>67/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 10 11:03:43 IST 2026</td>
+</tr>
+<tr><td>Total time:</td><td>714 seconds (714580 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testngTests.CategoryTest.verifyKidsTopsCategory()'><b>verifyKidsTopsCategory</b><br>Test class: testngTests.CategoryTest</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a href=&quot;/category_products/5&quot;&gt;...&lt;/a&gt; is not clickable at point (136, 617). Other element would receive the click: &lt;iframe id=&quot;aswift_1&quot; name=&quot;aswift_1&quot; style=&quot;min-height: auto; max-height: none; min-width: auto; max-width: none; width: 1005px !important; height: 186px !important; display: block; margin: 0px auto;&quot; sandbox=&quot;allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation&quot; width=&quot;1005&quot; height=&quot;186&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; vspace=&quot;0&quot; hspace=&quot;0&quot; allowtransparency=&quot;true&quot; scrolling=&quot;no&quot; allow=&quot;attribution-reporting; run-ad-auction&quot; src=&quot;https://googleads.g.doubleclick.net/pagead/html/r20260709/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;amp;adk=1812271801&amp;amp;client=ca-pub-1677597403311019&amp;amp;fa=1&amp;amp;ifi=2&amp;amp;uci=a!2&amp;amp;btvi=1&quot; data-google-container-id=&quot;a!2&quot; tabindex=&quot;0&quot; title=&quot;Advertisement&quot; aria-label=&quot;Advertisement&quot; data-google-query-id=&quot;CNizv6uyx5UDFSeY6QUd8eobnQ&quot; data-load-complete=&quot;true&quot;&gt;&lt;/iframe&gt;
+  (Session info: MicrosoftEdge=150.0.4078.48)
+Build info: version: &apos;4.43.0&apos;, revision: &apos;dd0f534&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.9&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [79f7fe4d44a316bd8c5d38b8ae380e61, clickElement {id=f.9C402FFAF663C16CCB5DE8584EB8A5CC.d.C285E7FC20B3CC6CF5B0C266623AFF62.e.141}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 150.0.4078.48, fedcm:accounts: true, goog:processID: 2560, ms:edgeOptions: {debuggerAddress: localhost:57620}, msedge: {msedgedriverVersion: 150.0.4078.48 (6362dfa84aa4..., userDataDir: C:\Users\RA2069~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57620/devtoo..., se:cdpVersion: 150.0.4078.48, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[EdgeDriver: MicrosoftEdge on windows (79f7fe4d44a316bd8c5d38b8ae380e61)] -&gt; xpath: //*[@id=&quot;Kids&quot;]/div/ul/li[2]/a]
+Session ID: 79f7fe4d44a316bd8c5d38b8ae380e61
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy35.click(Unknown Source)
+	at pages.CategoryPage.click_TopsAndShirts_Category(CategoryPage.java:125)
+	at testngTests.CategoryTest.lambda$6(CategoryTest.java:265)
+	at utilities.GoogleAdsHandler.handleGoogleVignette(GoogleAdsHandler.java:25)
+	at testngTests.CategoryTest.verifyKidsTopsCategory(CategoryTest.java:261)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace336141860", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace336141860'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a href=&quot;/category_products/5&quot;&gt;...&lt;/a&gt; is not clickable at point (136, 617). Other element would receive the click: &lt;iframe id=&quot;aswift_1&quot; name=&quot;aswift_1&quot; style=&quot;min-height: auto; max-height: none; min-width: auto; max-width: none; width: 1005px !important; height: 186px !important; display: block; margin: 0px auto;&quot; sandbox=&quot;allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation&quot; width=&quot;1005&quot; height=&quot;186&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; vspace=&quot;0&quot; hspace=&quot;0&quot; allowtransparency=&quot;true&quot; scrolling=&quot;no&quot; allow=&quot;attribution-reporting; run-ad-auction&quot; src=&quot;https://googleads.g.doubleclick.net/pagead/html/r20260709/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;amp;adk=1812271801&amp;amp;client=ca-pub-1677597403311019&amp;amp;fa=1&amp;amp;ifi=2&amp;amp;uci=a!2&amp;amp;btvi=1&quot; data-google-container-id=&quot;a!2&quot; tabindex=&quot;0&quot; title=&quot;Advertisement&quot; aria-label=&quot;Advertisement&quot; data-google-query-id=&quot;CNizv6uyx5UDFSeY6QUd8eobnQ&quot; data-load-complete=&quot;true&quot;&gt;&lt;/iframe&gt;
+  (Session info: MicrosoftEdge=150.0.4078.48)
+Build info: version: &apos;4.43.0&apos;, revision: &apos;dd0f534&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.9&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [79f7fe4d44a316bd8c5d38b8ae380e61, clickElement {id=f.9C402FFAF663C16CCB5DE8584EB8A5CC.d.C285E7FC20B3CC6CF5B0C266623AFF62.e.141}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 150.0.4078.48, fedcm:accounts: true, goog:processID: 2560, ms:edgeOptions: {debuggerAddress: localhost:57620}, msedge: {msedgedriverVersion: 150.0.4078.48 (6362dfa84aa4..., userDataDir: C:\Users\RA2069~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57620/devtoo..., se:cdpVersion: 150.0.4078.48, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[EdgeDriver: MicrosoftEdge on windows (79f7fe4d44a316bd8c5d38b8ae380e61)] -&gt; xpath: //*[@id=&quot;Kids&quot;]/div/ul/li[2]/a]
+Session ID: 79f7fe4d44a316bd8c5d38b8ae380e61
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:606)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy35.click(Unknown Source)
+	at pages.CategoryPage.click_TopsAndShirts_Category(CategoryPage.java:125)
+	at testngTests.CategoryTest.lambda$6(CategoryTest.java:265)
+	at utilities.GoogleAdsHandler.handleGoogleVignette(GoogleAdsHandler.java:25)
+	at testngTests.CategoryTest.verifyKidsTopsCategory(CategoryTest.java:261)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>3</td>
+<td>testngTests.CategoryTest@1acaf3d</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testngTests.CheckoutTest.verifyPlaceOrder()'><b>verifyPlaceOrder</b><br>Test class: testngTests.CheckoutTest<br>Parameters: iut@gmail.com, Afrin*123, 1</td>
+<td></td>
+<td>11</td>
+<td>testngTests.CheckoutTest@6e01f9b0</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifyBrandsSection()'><b>verifyBrandsSection</b><br>Test class: testngTests.BrandsTest</td>
+<td></td>
+<td>0</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.SignupTest.verifyValidRegistration()'><b>verifyValidRegistration</b><br>Test class: testngTests.SignupTest</td>
+<td></td>
+<td>7</td>
+<td>testngTests.SignupTest@1e81f160</td></tr>
+<tr>
+<td title='testngTests.LoginTest.verifyLoginPageLoadsSuccessfully()'><b>verifyLoginPageLoadsSuccessfully</b><br>Test class: testngTests.LoginTest</td>
+<td></td>
+<td>0</td>
+<td>testngTests.LoginTest@7fc4780b</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifyBrandURL()'><b>verifyBrandURL</b><br>Test class: testngTests.BrandsTest<br>Parameters: Polo</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.ProductsTest.verifyProductsAreDisplayed()'><b>verifyProductsAreDisplayed</b><br>Test class: testngTests.ProductsTest</td>
+<td></td>
+<td>3</td>
+<td>testngTests.ProductsTest@a307a8c</td></tr>
+<tr>
+<td title='testngTests.HomeTest.verifyHomePageDisplayed()'><b>verifyHomePageDisplayed</b><br>Test class: testngTests.HomeTest</td>
+<td></td>
+<td>0</td>
+<td>testngTests.HomeTest@37911f88</td></tr>
+<tr>
+<td title='testngTests.LoginTest.verifyInvalidLogin()'><b>verifyInvalidLogin</b><br>Test class: testngTests.LoginTest<br>Parameters: invalid@gmail.com, Admin123</td>
+<td></td>
+<td>2</td>
+<td>testngTests.LoginTest@7fc4780b</td></tr>
+<tr>
+<td title='testngTests.CategoryTest.verifyKidsDressCategory()'><b>verifyKidsDressCategory</b><br>Test class: testngTests.CategoryTest</td>
+<td></td>
+<td>3</td>
+<td>testngTests.CategoryTest@1acaf3d</td></tr>
+<tr>
+<td title='testngTests.CategoryTest.verifyWomenDressCategory()'><b>verifyWomenDressCategory</b><br>Test class: testngTests.CategoryTest</td>
+<td></td>
+<td>6</td>
+<td>testngTests.CategoryTest@1acaf3d</td></tr>
+<tr>
+<td title='testngTests.SignupTest.verifySignupSection()'><b>verifySignupSection</b><br>Test class: testngTests.SignupTest</td>
+<td></td>
+<td>0</td>
+<td>testngTests.SignupTest@1e81f160</td></tr>
+<tr>
+<td title='testngTests.LoginTest.verifyLoginUsingExcel()'><b>verifyLoginUsingExcel</b><br>Test class: testngTests.LoginTest<br>Parameters: invalid@gmail.com, Admin123, Invalid</td>
+<td></td>
+<td>1</td>
+<td>testngTests.LoginTest@7fc4780b</td></tr>
+<tr>
+<td title='testngTests.SignupTest.verifyInvalidEmailFormat()'><b>verifyInvalidEmailFormat</b><br>Test class: testngTests.SignupTest<br>Parameters: Rohini, @gmail.com</td>
+<td></td>
+<td>0</td>
+<td>testngTests.SignupTest@1e81f160</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifySelectedBrand()'><b>verifySelectedBrand</b><br>Test class: testngTests.BrandsTest<br>Parameters: Polo</td>
+<td></td>
+<td>2</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.ProductsTest.verifyAddProductToCart()'><b>verifyAddProductToCart</b><br>Test class: testngTests.ProductsTest</td>
+<td></td>
+<td>3</td>
+<td>testngTests.ProductsTest@a307a8c</td></tr>
+<tr>
+<td title='testngTests.LoginTest.verifyInvalidLogin()'><b>verifyInvalidLogin</b><br>Test class: testngTests.LoginTest<br>Parameters: rohinipitta@gmail.com, Wrong123</td>
+<td></td>
+<td>1</td>
+<td>testngTests.LoginTest@7fc4780b</td></tr>
+<tr>
+<td title='testngTests.LoginTest.verifyInvalidLogin()'><b>verifyInvalidLogin</b><br>Test class: testngTests.LoginTest<br>Parameters: abc@gmail.com, Test123</td>
+<td></td>
+<td>2</td>
+<td>testngTests.LoginTest@7fc4780b</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifySwitchBetweenBrands()'><b>verifySwitchBetweenBrands</b><br>Test class: testngTests.BrandsTest</td>
+<td></td>
+<td>3</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.SignupTest.verifyInvalidEmailFormat()'><b>verifyInvalidEmailFormat</b><br>Test class: testngTests.SignupTest<br>Parameters: Rohini, rohini</td>
+<td></td>
+<td>0</td>
+<td>testngTests.SignupTest@1e81f160</td></tr>
+<tr>
+<td title='testngTests.ContactUsTest.verifyFeedbackSection()'><b>verifyFeedbackSection</b><br>Test class: testngTests.ContactUsTest</td>
+<td></td>
+<td>0</td>
+<td>testngTests.ContactUsTest@1bab8268</td></tr>
+<tr>
+<td title='testngTests.ProductsTest.verifySearchProduct()'><b>verifySearchProduct</b><br>Test class: testngTests.ProductsTest<br>Parameters: Blue Top</td>
+<td></td>
+<td>4</td>
+<td>testngTests.ProductsTest@a307a8c</td></tr>
+<tr>
+<td title='testngTests.SignupTest.verifyInvalidEmailFormat()'><b>verifyInvalidEmailFormat</b><br>Test class: testngTests.SignupTest<br>Parameters: Rohini, rohini@</td>
+<td></td>
+<td>0</td>
+<td>testngTests.SignupTest@1e81f160</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifyBrandURL()'><b>verifyBrandURL</b><br>Test class: testngTests.BrandsTest<br>Parameters: Babyhug</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.ProductsTest.verifyProductsPageDisplayed()'><b>verifyProductsPageDisplayed</b><br>Test class: testngTests.ProductsTest</td>
+<td></td>
+<td>2</td>
+<td>testngTests.ProductsTest@a307a8c</td></tr>
+<tr>
+<td title='testngTests.CheckoutTest.verifyCompleteOrder()'><b>verifyCompleteOrder</b><br>Test class: testngTests.CheckoutTest<br>Parameters: iut@gmail.com, Afrin*123, 1, Rohini, 4111111111111111, 123, 12, 2030</td>
+<td></td>
+<td>15</td>
+<td>testngTests.CheckoutTest@6e01f9b0</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifySelectedBrand()'><b>verifySelectedBrand</b><br>Test class: testngTests.BrandsTest<br>Parameters: Allen Solly Junior</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.CheckoutTest.verifyReviewOrderDisplayed()'><b>verifyReviewOrderDisplayed</b><br>Test class: testngTests.CheckoutTest<br>Parameters: iut@gmail.com, Afrin*123, 1</td>
+<td></td>
+<td>9</td>
+<td>testngTests.CheckoutTest@6e01f9b0</td></tr>
+<tr>
+<td title='testngTests.CategoryTest.verifyMenJeansCategory()'><b>verifyMenJeansCategory</b><br>Test class: testngTests.CategoryTest</td>
+<td></td>
+<td>3</td>
+<td>testngTests.CategoryTest@1acaf3d</td></tr>
+<tr>
+<td title='testngTests.ProductsTest.verifyProductDetails()'><b>verifyProductDetails</b><br>Test class: testngTests.ProductsTest</td>
+<td></td>
+<td>6</td>
+<td>testngTests.ProductsTest@a307a8c</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifySelectedBrand()'><b>verifySelectedBrand</b><br>Test class: testngTests.BrandsTest<br>Parameters: Biba</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.ProductsTest.verifyViewProduct()'><b>verifyViewProduct</b><br>Test class: testngTests.ProductsTest<br>Parameters: 2</td>
+<td></td>
+<td>5</td>
+<td>testngTests.ProductsTest@a307a8c</td></tr>
+<tr>
+<td title='testngTests.LoginTest.verifyLoginUsingExcel()'><b>verifyLoginUsingExcel</b><br>Test class: testngTests.LoginTest<br>Parameters: iut@gmail.com, Afrin*123, Valid</td>
+<td></td>
+<td>2</td>
+<td>testngTests.LoginTest@7fc4780b</td></tr>
+<tr>
+<td title='testngTests.CheckoutTest.verifyBillingAddressDisplayed()'><b>verifyBillingAddressDisplayed</b><br>Test class: testngTests.CheckoutTest<br>Parameters: iut@gmail.com, Afrin*123, 1</td>
+<td></td>
+<td>8</td>
+<td>testngTests.CheckoutTest@6e01f9b0</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifyBrandURL()'><b>verifyBrandURL</b><br>Test class: testngTests.BrandsTest<br>Parameters: Allen Solly Junior</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifyBrandURL()'><b>verifyBrandURL</b><br>Test class: testngTests.BrandsTest<br>Parameters: Madame</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.ProductsTest.verifyViewProduct()'><b>verifyViewProduct</b><br>Test class: testngTests.ProductsTest<br>Parameters: 3</td>
+<td></td>
+<td>5</td>
+<td>testngTests.ProductsTest@a307a8c</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifySelectedBrand()'><b>verifySelectedBrand</b><br>Test class: testngTests.BrandsTest<br>Parameters: Mast & Harbour</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.SignupTest.verifySignupUsingExcel()'><b>verifySignupUsingExcel</b><br>Test class: testngTests.SignupTest<br>Parameters: Rohini, AUTO, Test@123, 10, May, 2000, Rohini, Pitta, Wipro, Chennai Road, India, Tamilnadu, Chennai, 600097, 9876543210</td>
+<td></td>
+<td>6</td>
+<td>testngTests.SignupTest@1e81f160</td></tr>
+<tr>
+<td title='testngTests.LoginTest.verifyValidLogin()'><b>verifyValidLogin</b><br>Test class: testngTests.LoginTest</td>
+<td></td>
+<td>2</td>
+<td>testngTests.LoginTest@7fc4780b</td></tr>
+<tr>
+<td title='testngTests.LoginTest.verifyLogout()'><b>verifyLogout</b><br>Test class: testngTests.LoginTest</td>
+<td></td>
+<td>5</td>
+<td>testngTests.LoginTest@7fc4780b</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifySelectedBrand()'><b>verifySelectedBrand</b><br>Test class: testngTests.BrandsTest<br>Parameters: H&M</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.CheckoutTest.verifyPaymentDetailsEntry()'><b>verifyPaymentDetailsEntry</b><br>Test class: testngTests.CheckoutTest<br>Parameters: iut@gmail.com, Afrin*123, 1, Rohini, 4111111111111111, 123, 12, 2030</td>
+<td></td>
+<td>12</td>
+<td>testngTests.CheckoutTest@6e01f9b0</td></tr>
+<tr>
+<td title='testngTests.ProductsTest.verifySearchProduct()'><b>verifySearchProduct</b><br>Test class: testngTests.ProductsTest<br>Parameters: Dress</td>
+<td></td>
+<td>4</td>
+<td>testngTests.ProductsTest@a307a8c</td></tr>
+<tr>
+<td title='testngTests.ProductsTest.verifyViewProduct()'><b>verifyViewProduct</b><br>Test class: testngTests.ProductsTest<br>Parameters: 1</td>
+<td></td>
+<td>5</td>
+<td>testngTests.ProductsTest@a307a8c</td></tr>
+<tr>
+<td title='testngTests.SignupTest.verifyInvalidEmailFormat()'><b>verifyInvalidEmailFormat</b><br>Test class: testngTests.SignupTest<br>Parameters: Rohini, abc.com</td>
+<td></td>
+<td>0</td>
+<td>testngTests.SignupTest@1e81f160</td></tr>
+<tr>
+<td title='testngTests.CheckoutTest.verifyDownloadInvoiceButton()'><b>verifyDownloadInvoiceButton</b><br>Test class: testngTests.CheckoutTest<br>Parameters: iut@gmail.com, Afrin*123, 1, Rohini, 4111111111111111, 123, 12, 2030</td>
+<td></td>
+<td>15</td>
+<td>testngTests.CheckoutTest@6e01f9b0</td></tr>
+<tr>
+<td title='testngTests.CategoryTest.verifyWomenSareeCategory()'><b>verifyWomenSareeCategory</b><br>Test class: testngTests.CategoryTest</td>
+<td></td>
+<td>2</td>
+<td>testngTests.CategoryTest@1acaf3d</td></tr>
+<tr>
+<td title='testngTests.ContactUsTest.verifyContactUsPage()'><b>verifyContactUsPage</b><br>Test class: testngTests.ContactUsTest</td>
+<td></td>
+<td>0</td>
+<td>testngTests.ContactUsTest@1bab8268</td></tr>
+<tr>
+<td title='testngTests.LoginTest.verifyEmptyFieldsValidation()'><b>verifyEmptyFieldsValidation</b><br>Test class: testngTests.LoginTest</td>
+<td></td>
+<td>0</td>
+<td>testngTests.LoginTest@7fc4780b</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifySelectedBrand()'><b>verifySelectedBrand</b><br>Test class: testngTests.BrandsTest<br>Parameters: Kookie Kids</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.CategoryTest.verifyMenTshirtCategory()'><b>verifyMenTshirtCategory</b><br>Test class: testngTests.CategoryTest</td>
+<td></td>
+<td>2</td>
+<td>testngTests.CategoryTest@1acaf3d</td></tr>
+<tr>
+<td title='testngTests.ProductsTest.verifyProductQuantity()'><b>verifyProductQuantity</b><br>Test class: testngTests.ProductsTest</td>
+<td></td>
+<td>5</td>
+<td>testngTests.ProductsTest@a307a8c</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifyBrandURL()'><b>verifyBrandURL</b><br>Test class: testngTests.BrandsTest<br>Parameters: Biba</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.LoginTest.verifyLoginUsingExcel()'><b>verifyLoginUsingExcel</b><br>Test class: testngTests.LoginTest<br>Parameters: rohinipitta@gmail.com, Wrong123, Invalid</td>
+<td></td>
+<td>1</td>
+<td>testngTests.LoginTest@7fc4780b</td></tr>
+<tr>
+<td title='testngTests.CategoryTest.verifyWomenTopsCategory()'><b>verifyWomenTopsCategory</b><br>Test class: testngTests.CategoryTest</td>
+<td></td>
+<td>5</td>
+<td>testngTests.CategoryTest@1acaf3d</td></tr>
+<tr>
+<td title='testngTests.CheckoutTest.verifyCheckoutPageDisplayed()'><b>verifyCheckoutPageDisplayed</b><br>Test class: testngTests.CheckoutTest<br>Parameters: iut@gmail.com, Afrin*123, 1</td>
+<td></td>
+<td>10</td>
+<td>testngTests.CheckoutTest@6e01f9b0</td></tr>
+<tr>
+<td title='testngTests.CheckoutTest.verifyDeliveryAddressDisplayed()'><b>verifyDeliveryAddressDisplayed</b><br>Test class: testngTests.CheckoutTest<br>Parameters: iut@gmail.com, Afrin*123, 1</td>
+<td></td>
+<td>11</td>
+<td>testngTests.CheckoutTest@6e01f9b0</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifyBrandURL()'><b>verifyBrandURL</b><br>Test class: testngTests.BrandsTest<br>Parameters: Mast & Harbour</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.SignupTest.verifyMandatoryFieldsEmpty()'><b>verifyMandatoryFieldsEmpty</b><br>Test class: testngTests.SignupTest</td>
+<td></td>
+<td>0</td>
+<td>testngTests.SignupTest@1e81f160</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifyBrandURL()'><b>verifyBrandURL</b><br>Test class: testngTests.BrandsTest<br>Parameters: H&M</td>
+<td></td>
+<td>4</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.LoginTest.verifyLoginUsingExcel()'><b>verifyLoginUsingExcel</b><br>Test class: testngTests.LoginTest<br>Parameters: abc@gmail.com, Test123, Invalid</td>
+<td></td>
+<td>2</td>
+<td>testngTests.LoginTest@7fc4780b</td></tr>
+<tr>
+<td title='testngTests.ProductsTest.verifySearchProduct()'><b>verifySearchProduct</b><br>Test class: testngTests.ProductsTest<br>Parameters: Men Tshirt</td>
+<td></td>
+<td>4</td>
+<td>testngTests.ProductsTest@a307a8c</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifyBrandURL()'><b>verifyBrandURL</b><br>Test class: testngTests.BrandsTest<br>Parameters: Kookie Kids</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.SignupTest.verifyExistingEmailRegistration()'><b>verifyExistingEmailRegistration</b><br>Test class: testngTests.SignupTest</td>
+<td></td>
+<td>2</td>
+<td>testngTests.SignupTest@1e81f160</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifySelectedBrand()'><b>verifySelectedBrand</b><br>Test class: testngTests.BrandsTest<br>Parameters: Madame</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.BrandsTest.verifySelectedBrand()'><b>verifySelectedBrand</b><br>Test class: testngTests.BrandsTest<br>Parameters: Babyhug</td>
+<td></td>
+<td>1</td>
+<td>testngTests.BrandsTest@6986852</td></tr>
+<tr>
+<td title='testngTests.ProductsTest.verifyOpenCart()'><b>verifyOpenCart</b><br>Test class: testngTests.ProductsTest</td>
+<td></td>
+<td>5</td>
+<td>testngTests.ProductsTest@a307a8c</td></tr>
+</table><p>
+</body>
+</html>

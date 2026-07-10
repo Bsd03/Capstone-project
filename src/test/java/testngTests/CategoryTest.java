@@ -1,19 +1,7 @@
 package testngTests;
 
 
-import java.time.Duration;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -24,19 +12,38 @@ import utilities.ExcelReader;
 import utilities.Extentreport;
 import utilities.GoogleAdsHandler;
 
+import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+import base.BaseClassTestng;
+import pages.CategoryPage;
+import utilities.ExcelReader;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import utilities.Extentreport;
+
+
+
 public class CategoryTest extends BaseClassTestng {
 
     private CategoryPage categoryPage;
+
     private GoogleAdsHandler handleGoogleAds;
     public static ExtentReports extent;
     public static ExtentTest test;
 
-        @BeforeSuite
-        public void setupReport() {
+        
+   
+    
 
-            extent = Extentreport.getReportInstance();
+    @BeforeSuite
+    public void setupReport() {
+        extent = Extentreport.getReportInstance();
+    }
 
-        }
+
 
 
     @BeforeMethod(alwaysRun = true)
@@ -51,6 +58,7 @@ public class CategoryTest extends BaseClassTestng {
    
     @Test(priority = 1)
     public void verifyWomenDressCategory() {
+    	test = extent.createTest("Verify Women Dress Category");
 
 test = extent.createTest("Verify Women Dress Category");
 
@@ -84,6 +92,7 @@ test = extent.createTest("Verify Women Dress Category");
 
     @Test(priority = 2)
     public void verifyWomenTopsCategory() {
+    	test = extent.createTest("Verify Women Tops Category");
 
     	 test = extent.createTest("Verify Women Tops Category");
 
@@ -116,6 +125,7 @@ test = extent.createTest("Verify Women Dress Category");
 
     @Test(priority = 3)
     public void verifyWomenSareeCategory() {
+    	test = extent.createTest("Verify Women Saree Category");
 
     	 test = extent.createTest("Verify Women Saree Category");
 
@@ -148,6 +158,7 @@ test = extent.createTest("Verify Women Dress Category");
 
     @Test(priority = 4)
     public void verifyMenTshirtCategory() {
+    	test = extent.createTest("Verify Men Tshirt Category");
 
     	 test = extent.createTest("Verify Men Tshirt Category");
 
@@ -182,6 +193,7 @@ test = extent.createTest("Verify Women Dress Category");
 
     @Test(priority = 5)
     public void verifyMenJeansCategory() {
+    	 test = extent.createTest("Verify Men Jeans Category");
 
 test = extent.createTest("Verify Men Jeans Category");
 
@@ -214,6 +226,7 @@ test = extent.createTest("Verify Men Jeans Category");
 
     @Test(priority = 6)
     public void verifyKidsDressCategory() {
+    	test = extent.createTest("Verify Kids Dress Category");
 
         test = extent.createTest("Verify Kids Dress Category");
 
@@ -248,6 +261,7 @@ test = extent.createTest("Verify Men Jeans Category");
 
     @Test(priority = 7)
     public void verifyKidsTopsCategory() {
+    	test = extent.createTest("Verify Kids Tops & Shirts Category");
 
     	 test = extent.createTest("Verify Kids Tops & Shirts Category");
 
@@ -282,5 +296,7 @@ test = extent.createTest("Verify Men Jeans Category");
     public void flushReport() {
         extent.flush();
     }
+
+
 }
    
