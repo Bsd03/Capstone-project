@@ -4,6 +4,8 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -14,48 +16,21 @@ public class BaseClassTestng {
 
     protected WebDriver driver;
 
-    @BeforeMethod (alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setup() {
 
-        String browser =
-                ConfigReader.getProperty("browser");
+        String browser = ConfigReader.getProperty("browser");
+        String url = ConfigReader.getProperty("url");
 
-        String url =
-                ConfigReader.getProperty("url");
+        driver = DriverUtil.getDriver(browser);
 
-        System.out.println(
-                "Browser from config: " + browser);
-
-        System.out.println(
-                "URL from config: " + url);
-
-        driver =
-                DriverUtil.getDriver(browser);
-
-        driver.manage()
-              .timeouts()
+        driver.manage().timeouts()
               .implicitlyWait(Duration.ofSeconds(10));
 
-        driver.manage()
-              .timeouts()
+        driver.manage().timeouts()
               .pageLoadTimeout(Duration.ofSeconds(60));
 
-        driver.manage()
-              .window()
-              .maximize();
-
         openWebsiteWithRetry(url);
-
-        System.out.println(
-                "Browser launched successfully");
-
-        System.out.println(
-                "Current URL: "
-                + driver.getCurrentUrl());
-
-        System.out.println(
-                "Page Title: "
-                + driver.getTitle());
     }
 
     private void openWebsiteWithRetry(String url) {
@@ -111,9 +86,10 @@ public class BaseClassTestng {
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
 
-        DriverUtil.quitDriver();
+        if (driver != null) {
+            driver.quit();
+        }
 
-        System.out.println(
-                "Browser closed successfully");
+        System.out.println("Browser closed successfully");
     }
 }
