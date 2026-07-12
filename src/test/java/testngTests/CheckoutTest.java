@@ -12,12 +12,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
  
-import base.BaseClassTestng;
+import base.BaseClass;
+
 import pages.CheckOutPage;
 import pages.LoginPage;
 import pages.ProductsPage;
  
-public class CheckoutTest extends BaseClassTestng {
+public class CheckoutTest extends BaseClass {
  
     private CheckOutPage checkOutPage;
     private ProductsPage productsPage;

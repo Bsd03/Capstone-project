@@ -13,29 +13,31 @@ public class DriverUtil {
 
         if (driver == null) {
 
-            if (browser.equalsIgnoreCase("chrome")) {
-                driver = new ChromeDriver();
-            }
-            else if (browser.equalsIgnoreCase("edge")) {
+            switch (browser.toLowerCase()) {
 
-                EdgeOptions options = new EdgeOptions();
+                case "chrome":
+                    driver = new ChromeDriver();
+                    break;
 
-                options.addArguments("--headless=new");
-                options.addArguments("--disable-gpu");
-                options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-                options.addArguments("--window-size=1920,1080");
+                case "edge":
 
-                driver = new EdgeDriver(options);   // <-- IMPORTANT
+                    EdgeOptions options = new EdgeOptions();
+
+                    options.addArguments("--headless=new");
+                    options.addArguments("--disable-gpu");
+                    options.addArguments("--no-sandbox");
+                    options.addArguments("--disable-dev-shm-usage");
+                    options.addArguments("--window-size=1920,1080");
+
+                    driver = new EdgeDriver(options);
+                    break;
+
+                default:
+                    throw new IllegalArgumentException(
+                            "Unsupported browser : " + browser);
             }
         }
 
         return driver;
-    }
-    public static void quitDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
-        }
     }
 }
