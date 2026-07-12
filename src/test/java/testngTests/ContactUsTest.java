@@ -11,12 +11,12 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
-import base.BaseClassTestng;
+import base.BaseClass;
 import pages.ContactusPage;
 import utilities.ExcelReader;
 import utilities.Extentreport;
 
-public class ContactUsTest extends BaseClassTestng {
+public class ContactUsTest extends BaseClass {
 
     private ContactusPage contactUs;
 

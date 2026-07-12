@@ -9,12 +9,13 @@ import org.testng.annotations.BeforeSuite;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.ExtentReports;
-import base.BaseClassTestng;
+
+import base.BaseClass;
 import pages.BrandsPage;
 import utilities.ExcelReader;
 import utilities.Extentreport;
 
-public class BrandsTest extends BaseClassTestng {
+public class BrandsTest extends BaseClass {
 	
 
     private BrandsPage brandsPage;

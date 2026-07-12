@@ -40,4 +40,12 @@ public class DriverUtil {
 
         return driver;
     }
+
+	public static void quitDriver() {
+		driver.quit();
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }

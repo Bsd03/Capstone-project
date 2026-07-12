@@ -15,12 +15,13 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.ExtentReports;
-import base.BaseClassTestng;
+
+import base.BaseClass;
 import pages.SignUPPage;
 import utilities.ExcelReader;
 import utilities.Extentreport;
 
-public class SignupTest extends BaseClassTestng {
+public class SignupTest extends BaseClass {
 
     private SignUPPage signUpPage;
     private ExtentReports extent;

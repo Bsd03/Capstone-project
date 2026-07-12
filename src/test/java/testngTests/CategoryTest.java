@@ -6,7 +6,8 @@ package testngTests;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
-import base.BaseClassTestng;
+import base.BaseClass;
+
 import pages.CategoryPage;
 import utilities.ExcelReader;
 import utilities.Extentreport;
@@ -17,16 +18,9 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-import base.BaseClassTestng;
-import pages.CategoryPage;
-import utilities.ExcelReader;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import utilities.Extentreport;
 
 
-
-public class CategoryTest extends BaseClassTestng {
+public class CategoryTest extends BaseClass {
 
     private CategoryPage categoryPage;
 

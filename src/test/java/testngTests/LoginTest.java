@@ -10,12 +10,12 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
-import base.BaseClassTestng;
+import base.BaseClass;
 import pages.LoginPage;
 import utilities.ExcelReader;
 import utilities.Extentreport;
 
-public class LoginTest extends BaseClassTestng {
+public class LoginTest extends BaseClass {
 
     private LoginPage loginPage;
     public static ExtentReports extent;

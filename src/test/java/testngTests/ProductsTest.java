@@ -14,11 +14,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import base.BaseClassTestng;
+import base.BaseClass;
 import pages.ProductsPage;
 import utilities.ExcelReader;
 
-public class ProductsTest extends BaseClassTestng {
+public class ProductsTest extends BaseClass {
 
     private ProductsPage productsPage;
     private WebDriverWait wait;
