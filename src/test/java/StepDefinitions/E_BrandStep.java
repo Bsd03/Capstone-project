@@ -10,12 +10,13 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.BrandsPage;
+import utilities.DriverUtil;
 import utilities.GoogleAdsHandler;
 
 public class E_BrandStep {
 	private static final Logger logger=LogManager.getLogger(E_BrandStep.class);
-    WebDriver driver=Hooks.driver;
-    BrandsPage brandsPage = new BrandsPage(Hooks.driver);
+    WebDriver driver=DriverUtil.getDriver();
+    BrandsPage brandsPage = new BrandsPage(DriverUtil.getDriver());
 
     GoogleAdsHandler googleHandler=new GoogleAdsHandler(driver);
     // Verify Brands Section

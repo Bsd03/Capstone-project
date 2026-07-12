@@ -14,7 +14,7 @@ public class Hooks {
     @After
     public void tearDown(Scenario scenario) {
 
-        WebDriver driver = DriverUtil.getDriver("edge");
+        WebDriver driver = DriverUtil.getDriver();
 
         if (driver != null) {
 

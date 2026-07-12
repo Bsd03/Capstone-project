@@ -12,6 +12,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.CategoryPage;
+import utilities.DriverUtil;
 import utilities.ExplicitWaitUtil;
 import utilities.GoogleAdsHandler;
 
@@ -19,7 +20,7 @@ public class D_CategorySteps{
 
     // Create CategoryPage object
 	private static final Logger logger = LogManager.getLogger(D_CategorySteps.class);
-    WebDriver driver = Hooks.driver;
+    WebDriver driver = DriverUtil.getDriver();
     CategoryPage categoryPage = new CategoryPage(driver);
     GoogleAdsHandler googleHandler=new GoogleAdsHandler(driver);
     ExplicitWaitUtil explicitWaitutil=new ExplicitWaitUtil(driver);

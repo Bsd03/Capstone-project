@@ -16,6 +16,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import utilities.DriverUtil;
 import utilities.ExplicitWaitUtil;
 import utilities.GoogleAdsHandler;
 
@@ -23,7 +25,7 @@ import utilities.GoogleAdsHandler;
 public class A_SignUpSteps {
 	private static final Logger logger = LogManager.getLogger(A_SignUpSteps.class);
 
-    WebDriver driver = Hooks.driver;
+    WebDriver driver = DriverUtil.getDriver();
     SignUPPage signUpPage = new SignUPPage(driver);
     ExplicitWaitUtil explicitWaitutil=new ExplicitWaitUtil(driver);
     GoogleAdsHandler googleHandler=new GoogleAdsHandler(driver);

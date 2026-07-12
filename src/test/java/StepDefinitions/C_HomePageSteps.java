@@ -14,13 +14,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.HomePage;
-
+import utilities.DriverUtil;
 import utilities.ExplicitWaitUtil;
 import utilities.GoogleAdsHandler;
 
 public class C_HomePageSteps {
 	private static final Logger logger = LogManager.getLogger(C_HomePageSteps.class);
-    WebDriver driver = Hooks.driver;
+    WebDriver driver = DriverUtil.getDriver();
     HomePage home=new HomePage(driver);
     Actions actions=new Actions(driver);
     ExplicitWaitUtil util=new ExplicitWaitUtil(driver);

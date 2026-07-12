@@ -13,13 +13,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.ProductsPage;
+import utilities.DriverUtil;
 import utilities.GoogleAdsHandler;
 
 public class F_ProductSteps {
  
     private static final Logger logger =
             LogManager.getLogger(F_ProductSteps.class);
-    			WebDriver driver=Hooks.driver;
+    			WebDriver driver=DriverUtil.getDriver();
     			ProductsPage productsPage= new ProductsPage(driver);
     			
     			private String productId;

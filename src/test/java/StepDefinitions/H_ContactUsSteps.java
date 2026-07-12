@@ -10,12 +10,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.ContactusPage;
+import utilities.DriverUtil;
 import utilities.GoogleAdsHandler;
 
 public class H_ContactUsSteps {
 
 	private static final Logger logger = LogManager.getLogger(H_ContactUsSteps.class);
-	WebDriver driver=Hooks.driver;
+	WebDriver driver=DriverUtil.getDriver();
     GoogleAdsHandler googleHandle=new GoogleAdsHandler(driver);
     ContactusPage contactUs = new ContactusPage(driver);
     

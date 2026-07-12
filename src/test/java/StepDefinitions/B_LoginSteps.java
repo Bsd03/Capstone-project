@@ -10,13 +10,15 @@ import io.cucumber.java.en.When;
 import pages.LoginPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import utilities.DriverUtil;
 import utilities.GoogleAdsHandler;
 
 public class B_LoginSteps {
 	
 	private static final Logger logger =
 	        LogManager.getLogger(B_LoginSteps.class);
-    WebDriver driver= Hooks.driver;
+    WebDriver driver= DriverUtil.getDriver();
     GoogleAdsHandler googleHandler=new GoogleAdsHandler(driver);
     LoginPage loginPage;
 
@@ -25,7 +27,7 @@ public class B_LoginSteps {
     @Given("the login browser is launched successfully")
     public void the_login_browser_is_launched_successfully() {
  
-        driver = Hooks.driver;
+        driver = DriverUtil.getDriver();
         loginPage = new LoginPage(driver);
 
         logger.info("Login Browser Launched Successfully");

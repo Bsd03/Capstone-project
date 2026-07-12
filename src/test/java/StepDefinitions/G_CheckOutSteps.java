@@ -16,22 +16,23 @@ import pages.CartPage;
 import pages.CheckOutPage;
 import pages.LoginPage;
 import pages.ProductsPage;
+import utilities.DriverUtil;
 import utilities.GoogleAdsHandler;
 
 public class G_CheckOutSteps {
 	
 	private static final Logger logger = LogManager.getLogger(G_CheckOutSteps.class);
-    LoginPage loginPage = new LoginPage(Hooks.driver);
-    ProductsPage productsPage = new ProductsPage(Hooks.driver);
-    CartPage cartPage = new CartPage(Hooks.driver);
-    CheckOutPage checkoutPage = new CheckOutPage(Hooks.driver);
-    GoogleAdsHandler googleHandler=new GoogleAdsHandler(Hooks.driver);
+    LoginPage loginPage = new LoginPage(DriverUtil.getDriver());
+    ProductsPage productsPage = new ProductsPage(DriverUtil.getDriver());
+    CartPage cartPage = new CartPage(DriverUtil.getDriver());
+    CheckOutPage checkoutPage = new CheckOutPage(DriverUtil.getDriver());
+    GoogleAdsHandler googleHandler=new GoogleAdsHandler(DriverUtil.getDriver());
 
     @Given("User is on Automation Exercise home page")
     public void user_is_on_home_page() {
     		logger.info("Verifying Automation Exercise Home Page");
         Assert.assertTrue(
-                Hooks.driver.getCurrentUrl().contains("automationexercise"));
+        		DriverUtil.getDriver().getCurrentUrl().contains("automationexercise"));
         logger.info("Home Page Verified Successfully");
     }
 
@@ -233,7 +234,7 @@ public class G_CheckOutSteps {
          productsPage.continueShopping();
 
          // Go back to Products page before adding the next product
-         Hooks.driver.get("https://automationexercise.com/products");
+         DriverUtil.getDriver().get("https://automationexercise.com/products");
      }
      logger.info("All Products Added Successfully");
  }

@@ -8,6 +8,9 @@ import org.openqa.selenium.edge.EdgeOptions;
 public class DriverUtil {
  
     private static WebDriver driver;
+    public static WebDriver getDriver() {
+        return driver;
+    }
  
     public static WebDriver getDriver(String browser) {
 
