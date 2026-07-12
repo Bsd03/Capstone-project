@@ -8,10 +8,12 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import base.BaseClassTestng;
+
+import base.BaseClass;
+
 import utilities.Extentreport;
 
-public class HomeTest extends BaseClassTestng {
+public class HomeTest extends BaseClass {
 
 	private ExtentReports extent;
     private ExtentTest test;

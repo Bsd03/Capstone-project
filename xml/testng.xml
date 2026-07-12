@@ -51,21 +51,21 @@
 
         <classes>
 
-             <!-- <class name="testngTests.HomeTest"/>
+              <class name="testngTests.HomeTest"/>
 
-            <class name="testngTests.LoginTest"/>
+<!--            <class name="testngTests.LoginTest"/>-->
 
-            <class name="testngTests.SignupTest"/>
+<!--            <class name="testngTests.SignupTest"/>-->
 
-           <class name="testngTests.CategoryTest"/>
+<!--           <class name="testngTests.CategoryTest"/>-->
 
-            <class name="testngTests.BrandsTest"/>
+<!--            <class name="testngTests.BrandsTest"/>-->
 
-            <class name="testngTests.ContactUsTest"/>
+<!--            <class name="testngTests.ContactUsTest"/>-->
 
-            <class name="testngTests.ProductsTest"/>-->
+<!--            <class name="testngTests.ProductsTest"/>-->
 
-            <class name="testngTests.CheckoutTest"/>
+<!--            <class name="testngTests.CheckoutTest"/>-->
 
         </classes>
 

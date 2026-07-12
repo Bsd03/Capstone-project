@@ -14,10 +14,10 @@
       <class name="testngTests.CheckoutTest">
         <methods>
           <include name="verifyReviewOrderDisplayed"/>
+          <include name="tearDown"/>
           <include name="setup"/>
           <include name="verifyDeliveryAddressDisplayed"/>
           <include name="initializeCheckoutTest"/>
-          <include name="tearDown"/>
           <include name="verifyBillingAddressDisplayed"/>
         </methods>
       </class> <!-- testngTests.CheckoutTest -->
