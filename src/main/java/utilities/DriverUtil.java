@@ -24,17 +24,22 @@ public class DriverUtil {
 
                 case "edge":
 
-                    EdgeOptions options = new EdgeOptions();
+                	EdgeOptions options = new EdgeOptions();
 
-                    options.addArguments("--headless=new");
-                    options.addArguments("--disable-gpu");
-                    options.addArguments("--no-sandbox");
-                    options.addArguments("--disable-dev-shm-usage");
-                    options.addArguments("--window-size=1920,1080");
-                    options.addArguments("--remote-debugging-port=9222");
-                    options.addArguments("--disable-extensions");
+                	options.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
 
-                    driver = new EdgeDriver(options);
+                	options.addArguments("--headless");
+                	options.addArguments("--disable-gpu");
+                	options.addArguments("--disable-extensions");
+                	options.addArguments("--disable-dev-shm-usage");
+                	options.addArguments("--no-first-run");
+                	options.addArguments("--no-default-browser-check");
+                	options.addArguments("--disable-background-networking");
+                	options.addArguments("--disable-features=RendererCodeIntegrity");
+                	options.addArguments("--remote-debugging-port=0");
+                	options.addArguments("--window-size=1920,1080");
+
+                	driver = new EdgeDriver(options);
                     break;
 
                 default:
