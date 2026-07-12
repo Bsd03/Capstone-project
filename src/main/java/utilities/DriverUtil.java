@@ -31,6 +31,8 @@ public class DriverUtil {
                     options.addArguments("--no-sandbox");
                     options.addArguments("--disable-dev-shm-usage");
                     options.addArguments("--window-size=1920,1080");
+                    options.addArguments("--remote-debugging-port=9222");
+                    options.addArguments("--disable-extensions");
 
                     driver = new EdgeDriver(options);
                     break;
